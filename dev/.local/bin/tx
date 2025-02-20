@@ -1,0 +1,19 @@
+#!/bin/sh
+
+name="$(basename "$PWD")"
+if ! tmux has-session -t "$name" 2> "/dev/null"; then
+	tmux new-session -d -s "$name" -n "code"
+	tmux new-window -t "$name:2" -n "watch"
+	tmux new-window -t "$name:3" -n "other"
+	tmux split-window -t "$name:3"
+	tmux split-window -h -t "$name:3"
+	tmux select-pane -t "$name:3.1"
+	tmux select-window -t "$name:2"
+	tmux select-window -t "$name:1"
+fi
+
+if [ "$TMUX" ]; then
+	tmux switch-client -t "$name"
+else
+	tmux attach-session -t "$name"
+fi

@@ -1,0 +1,28 @@
+theme = "gruvbox"
+
+[editor]
+line-number = "relative"
+rulers = [80, 100]
+indent-heuristic = "tree-sitter"
+auto-pairs = false
+end-of-line-diagnostics = "hint"
+
+[editor.file-picker]
+hidden = false
+
+[editor.indent-guides]
+render = true
+
+[editor.soft-wrap]
+enable = true
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+
+[keys.normal]
+G = "goto_last_line"
+g = { e = "no_op" }
+
+[keys.select]
+G = "goto_last_line"
+g = { e = "no_op" }
