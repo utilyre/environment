@@ -16,9 +16,7 @@ Create symbolic links of desired modules
 stow -t ~ MODULE...
 ```
 
-> [!TIP]
->
-> To list all the modules run
+> [!TIP] Listing modules
 >
 > ```bash
 > ls */
