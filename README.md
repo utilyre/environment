@@ -13,7 +13,7 @@ Clone the repository:
 git clone https://github.com/utilyre/environment.git
 ```
 
-Create symbolic links of desired packages
+Create symbolic links of desired packages:
 
 ```bash
 stow -t ~ PACKAGE...
