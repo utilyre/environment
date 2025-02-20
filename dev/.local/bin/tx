@@ -1,6 +1,6 @@
 #!/bin/sh
 
-function main() {
+main() {
 	path="$(find ~/Code -mindepth 1 -maxdepth 1 -type d | fzf)" || {
 		tx_error "interrupted"
 		exit 130
@@ -9,7 +9,7 @@ function main() {
 	tx_open "$path"
 }
 
-function tx_open() {
+tx_open() {
 	name="$(tx_new "$1")"
 
 	if [ "$TMUX" ]; then
@@ -19,7 +19,7 @@ function tx_open() {
 	fi
 }
 
-function tx_new() {
+tx_new() {
 	name="$(basename -- "$1")"
 	if tmux has-session -t "$name" 2> "/dev/null"; then
 		printf "%s\n" "$name"
@@ -38,7 +38,7 @@ function tx_new() {
 	printf "%s\n" "$name"
 }
 
-function tx_error() {
+tx_error() {
 	printf "tx: %s\n" "$1" > /dev/stderr
 }
 
