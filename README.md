@@ -15,9 +15,3 @@ Create symbolic links of desired modules
 ```bash
 stow -t ~ MODULE...
 ```
-
-> [!TIP] Listing modules
->
-> ```bash
-> ls */
-> ```
