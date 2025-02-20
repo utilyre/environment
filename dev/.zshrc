@@ -75,5 +75,3 @@ substitute-prompt-and-accept-line() {
 }
 zle -N "substitute-prompt-and-accept-line"
 bindkey "^M" "substitute-prompt-and-accept-line"
-
-# use "zsh-users/zsh-syntax-highlighting" "zsh-syntax-highlighting.plugin.zsh"
