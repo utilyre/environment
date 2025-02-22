@@ -1,10 +1,16 @@
 #!/bin/sh
 
-# tx - tmux session manager
+# NAME
+# 
+# 	tx - tmux session manager
 #
-# requirements:
-# - tmux
-# - fzf
+# SYNOPSIS
+#
+# 	tx
+#
+# SEE ALSO
+#
+# 	tmux(1), fzf(1)
 
 main() {
 	path="$(find ~/Code -mindepth 1 -maxdepth 1 -type d | fzf)" || {
