@@ -1,0 +1,5 @@
+set mouse
+set info perm:size:time
+set incsearch
+set number
+set relativenumber
