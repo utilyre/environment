@@ -13,7 +13,7 @@
 # 	tmux(1), fzf(1)
 
 main() {
-	path="$(find ~/Code -mindepth 1 -maxdepth 1 -type d | fzf)" || {
+	path="$(find ~/Code ~/Documents/Courses/BootDev -mindepth 1 -maxdepth 1 -type d | fzf)" || {
 		tx_error "interrupted"
 		exit 130
 	}
