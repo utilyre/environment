@@ -41,9 +41,6 @@ tx_new() {
 	tmux new-session -d -s "$name" -c "$1" -n "code"
 	tmux new-window -t "$name:2" -c "$1" -n "view"
 	tmux new-window -t "$name:3" -c "$1" -n "misc"
-	tmux split-window -t "$name:3" -c "$1"
-	tmux split-window -h -t "$name:3" -c "$1"
-	tmux select-pane -t "$name:3.1"
 	tmux select-window -t "$name:2"
 	tmux select-window -t "$name:1"
 
