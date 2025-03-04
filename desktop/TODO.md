@@ -20,3 +20,5 @@
 ## Links
 
 - [Are We Wayland Yet?](https://arewewaylandyet.com)
+- [Sway](https://wiki.archlinux.org/title/Sway)
+- [PipeWire](https://wiki.archlinux.org/title/PipeWire)
