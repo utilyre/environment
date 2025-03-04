@@ -1,0 +1,13 @@
+- [ ] Artix (runit)
+- [ ] Sway
+- [ ] Brave
+- [ ] Discord
+- [ ] No pass (sudo)
+- [ ] No pass (gpg)
+- [ ] No pass (ssh)
+- [ ] Notifications
+- [ ] Dark mode
+- [ ] Set resolution
+- [ ] Set wallpaper
+- [ ] Take screenshot (w/ selection)
+- [ ] Pipewire
