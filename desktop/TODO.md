@@ -1,6 +1,6 @@
 ## Todo
 
-- [ ] Artix (runit)
+- [ ] NixOS (runit)
 - [ ] Sway
 - [ ] Brave
 - [ ] Discord
