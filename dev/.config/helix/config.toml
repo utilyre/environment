@@ -4,7 +4,6 @@ theme = "gruvbox"
 line-number = "relative"
 rulers = [80, 100]
 auto-pairs = false
-end-of-line-diagnostics = "hint"
 
 [editor.file-picker]
 hidden = false
@@ -12,10 +11,16 @@ hidden = false
 [editor.soft-wrap]
 enable = true
 
+[editor.inline-diagnostics]
+cursor-line = "hint"
+
 [keys.normal]
 G = "goto_last_line"
 g = { e = "no_op" }
+"C-l" = ":redraw"
+m = { g = { g = "@mi)s,<ret>r<ret>mi)<ret>ms<ret>" } }
 
 [keys.select]
 G = "goto_last_line"
 g = { e = "no_op" }
+"C-l" = ":redraw"
