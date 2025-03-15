@@ -1,6 +1,5 @@
-ZSH_CACHE="${XDG_CACHE_HOME:-"$HOME/.cache"}/zsh" && mkdir --parents -- "$ZSH_CACHE"
-ZSH_DATA="${XDG_DATA_HOME:-"$HOME/.local/share"}/zsh" && mkdir --parents -- "$ZSH_DATA"
-ZSH_STATE="${XDG_STATE_HOME:-"$HOME/.local/state"}/zsh" && mkdir --parents -- "$ZSH_STATE"
+ZSH_CACHE="$XDG_CACHE_HOME/zsh" && mkdir --parents -- "$ZSH_CACHE"
+ZSH_DATA="$XDG_DATA_HOME/zsh" && mkdir --parents -- "$ZSH_DATA"
 
 use() {
 	plugin="$ZSH_DATA/plugins/${1##*/}"
@@ -29,7 +28,7 @@ alias ll="ls --format=\"long\""
 alias la="ls --almost-all"
 alias al="ls --format=\"long\" --almost-all"
 
-HISTFILE="$ZSH_STATE/history"
+HISTFILE="$XDG_STATE_HOME/zshhst"
 HISTSIZE="4096"
 SAVEHIST="4096"
 setopt appendhistory

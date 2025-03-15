@@ -24,8 +24,12 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/vault"
 export GOPATH="$XDG_DATA_HOME/go"
 export PATH="$GOPATH/bin:/usr/local/go/bin:$PATH"
 
+# python
+export PYTHON_HISTORY="$XDG_STATE_HOME/pythonhst"
+
 # node
-export NODE_REPL_HISTORY="$XDG_STATE_HOME/node/history"
+export NODE_REPL_HISTORY="$XDG_STATE_HOME/nodehst"
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
