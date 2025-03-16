@@ -8,12 +8,19 @@
 #
 # 	tx
 #
+# ENVIRONMENT VARIABLES
+#
+# 	TX_SEARCH_DIRS
+# 		specifies a set of parents of directories in which sessions are started.
+#
 # SEE ALSO
 #
 # 	tmux(1), fzf(1)
 
+: ${TX_SEARCH_DIRS:="$HOME/Code:$HOME/Documents/Courses/BootDev"}
+
 main() {
-	path="$(find ~/Code ~/Documents/Courses/BootDev -mindepth 1 -maxdepth 1 -type d | fzf)" || {
+	path="$(printf "%s\n" "$TX_SEARCH_DIRS" | tr ":" "\n" | xargs -I{} find {} -mindepth 1 -maxdepth 1 -type d -printf "%T@\t%p\n" | sort -nr | cut -f2 | fzf)" || {
 		tx_error "interrupted"
 		exit 130
 	}
