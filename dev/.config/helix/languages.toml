@@ -3,6 +3,10 @@ name = "python"
 auto-format = true
 
 [[language]]
+name = "go"
+formatter = { command = "goimports" }
+
+[[language]]
 name = "javascript"
 auto-format = true
 formatter = { command = "prettier", args = ["--parser=typescript"] }
