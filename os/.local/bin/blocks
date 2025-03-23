@@ -1,0 +1,6 @@
+#!/bin/sh
+
+light="$(brightnessctl get -P)"
+date="$(date +"%a, %b %-d %H:%M")"
+
+printf "%s%% %s\n" "$light" "$date"

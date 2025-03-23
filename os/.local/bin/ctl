@@ -1,0 +1,34 @@
+#!/bin/sh
+
+case "$1" in
+  light-dn)
+    brightnessctl set 5%-
+    brightnessctl get -P > /tmp/wobpipe
+    ;;
+  light-up)
+    brightnessctl set 5%+
+    brightnessctl get -P > /tmp/wobpipe
+    ;;
+  volume-dn)
+    pamixer -d 5
+    pamixer --get-volume > /tmp/wobpipe
+    ;;
+  volume-up)
+    pamixer -i 5
+    pamixer --get-volume > /tmp/wobpipe
+    ;;
+  volume-mute)
+    pamixer -t
+    if [ "$(pamixer --get-mute)" = "true" ]; then
+      echo 0 > /tmp/wobpipe
+    else
+      pamixer --get-volume > /tmp/wobpipe
+    fi
+    ;;
+  *) exit 2 ;;
+esac
+
+# pactl set-sink-mute \@DEFAULT_SINK@ toggle
+# pactl set-sink-volume \@DEFAULT_SINK@ -5%
+# pactl set-sink-volume \@DEFAULT_SINK@ +5%
+# pactl set-source-mute \@DEFAULT_SOURCE@ toggle
