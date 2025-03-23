@@ -17,11 +17,3 @@ wrap-at-text-width = true
 
 [editor.inline-diagnostics]
 cursor-line = "hint"
-
-[keys.normal]
-G = "goto_last_line"
-g = { e = "no_op" }
-
-[keys.select]
-G = "goto_last_line"
-g = { e = "no_op" }
