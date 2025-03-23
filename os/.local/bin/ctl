@@ -2,11 +2,11 @@
 
 case "$1" in
   light-dn)
-    brightnessctl set 5%-
+    brightnessctl set -e 5%-
     brightnessctl get -P > /tmp/wobpipe
     ;;
   light-up)
-    brightnessctl set 5%+
+    brightnessctl set -e 5%+
     brightnessctl get -P > /tmp/wobpipe
     ;;
   volume-dn)
