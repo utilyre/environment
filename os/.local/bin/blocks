@@ -1,6 +1,9 @@
 #!/bin/sh
 
-light="$(brightnessctl get -P)"
-date="$(date +"%a, %b %-d %H:%M")"
+while true; do
+  power="$(cat /sys/class/power_supply/BAT0/capacity)"
+	date="$(date +"%a, %b %-d %H:%M")"
 
-printf "%s%% %s\n" "$light" "$date"
+	printf "%s%% remaining | %s\n" "$power" "$date"
+	sleep 1
+done
