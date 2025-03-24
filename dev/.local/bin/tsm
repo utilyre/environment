@@ -2,34 +2,37 @@
 
 # NAME
 # 
-# 	tx - tmux session manager
+# 	tsm - tmux session manager
 #
 # SYNOPSIS
 #
-# 	tx
+# 	tsm
 #
 # ENVIRONMENT VARIABLES
 #
-# 	TX_SEARCH_DIRS
+# 	TSM_PATH
 # 		specifies a set of parents of directories in which sessions are started.
 #
 # SEE ALSO
 #
 # 	tmux(1), fzf(1)
 
-: ${TX_SEARCH_DIRS:="$HOME/Code:$HOME/Documents/Courses/BootDev"}
+: ${TSM_PATH:="$HOME/Code:$HOME/Documents/Courses/BootDev"}
 
 main() {
-	path="$(printf "%s\n" "$TX_SEARCH_DIRS" | tr ":" "\n" | xargs -I{} find {} -mindepth 1 -maxdepth 1 -type d -printf "%T@\t%p\n" | sort -nr | cut -f2 | fzf)" || {
-		tx_error "interrupted"
-		exit 130
-	}
+	path="$(printf "%s\n" "$TSM_PATH" |
+		tr ":" "\n" |
+		xargs -I{} find {} -mindepth 1 -maxdepth 1 -type d -printf "%T@\t%p\n" |
+		sort -nr |
+		cut -f2 |
+		fzf)" || exit 130
+	
 
-	tx_open "$path"
+	session_open "$path"
 }
 
-tx_open() {
-	name="$(tx_new "$1")"
+session_open() {
+	name="$(session_new "$1")"
 
 	if [ "$TMUX" ]; then
 		tmux switch-client -t "$name"
@@ -38,7 +41,7 @@ tx_open() {
 	fi
 }
 
-tx_new() {
+session_new() {
 	name="$(basename -- "$1")"
 	if tmux has-session -t "$name" 2> "/dev/null"; then
 		printf "%s\n" "$name"
@@ -52,10 +55,6 @@ tx_new() {
 	tmux select-window -t "$name:1"
 
 	printf "%s\n" "$name"
-}
-
-tx_error() {
-	printf "tx: %s\n" "$1" > /dev/stderr
 }
 
 main
