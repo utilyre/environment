@@ -1,32 +1,88 @@
 #!/bin/sh
 
-case "$1" in
-  light-dn)
-    brightnessctl set -e 5%-
-    brightnessctl get -P > /tmp/wobpipe
-    ;;
-  light-up)
-    brightnessctl set -e 5%+
-    brightnessctl get -P > /tmp/wobpipe
-    ;;
-  volume-dn)
-    pamixer -d 5
-    pamixer --get-volume > /tmp/wobpipe
-    ;;
-  volume-up)
-    pamixer -i 5
-    pamixer --get-volume > /tmp/wobpipe
-    ;;
-  volume-mute)
-    pamixer -t
+device=volume
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -v|--volume)
+      device=volume
+      shift
+      ;;
+    -l|--light)
+      device=light
+      shift
+      ;;
+    -m|--mic)
+      device=mic
+      shift
+      ;;
+    -*|--*)
+      echo "ctl: unrecognized option '$1'"
+      exit 2
+      ;;
+    *) break ;;
+  esac
+done
+
+if [ $# = 0 ]; then
+  echo "ctl: not enough arguments"
+  exit 2
+fi
+
+case "$device" in
+  volume)
+    case "$1" in
+      toggle) pamixer -t ;;
+      down) pamixer -d5 ;;
+      up) pamixer -i5 ;;
+    esac
     if [ "$(pamixer --get-mute)" = "true" ]; then
       echo 0 > /tmp/wobpipe
     else
       pamixer --get-volume > /tmp/wobpipe
     fi
     ;;
-  *) exit 2 ;;
+  light)
+    case "$1" in
+      down) brightnessctl set -e 5%- ;;
+      up) brightnessctl set -e 5%+ ;;
+    esac
+    brightnessctl get -P > /tmp/wobpipe
+    ;;
+  mic)
+    case "$1" in
+      toggle) pamixer --source=54 -t ;;
+    esac
+    ;;
 esac
+
+# case "$1" in
+#   light-dn)
+#     brightnessctl set -e 5%-
+#     brightnessctl get -P > /tmp/wobpipe
+#     ;;
+#   light-up)
+#     brightnessctl set -e 5%+
+#     brightnessctl get -P > /tmp/wobpipe
+#     ;;
+#   volume-dn)
+#     pamixer -d 5
+#     pamixer --get-volume > /tmp/wobpipe
+#     ;;
+#   volume-up)
+#     pamixer -i 5
+#     pamixer --get-volume > /tmp/wobpipe
+#     ;;
+#   volume-mute)
+#     pamixer -t
+#     if [ "$(pamixer --get-mute)" = "true" ]; then
+#       echo 0 > /tmp/wobpipe
+#     else
+#       pamixer --get-volume > /tmp/wobpipe
+#     fi
+#     ;;
+#   *) exit 2 ;;
+# esac
 
 # pactl set-sink-mute \@DEFAULT_SINK@ toggle
 # pactl set-sink-volume \@DEFAULT_SINK@ -5%

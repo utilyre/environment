@@ -1,3 +1,6 @@
+exec mkfifo /tmp/wobpipe
+exec tail -f /tmp/wobpipe | wob
+
 input type:keyboard {
     repeat_delay 500
     repeat_rate 30
@@ -18,7 +21,7 @@ output * {
 
 bar {
     position top
-    status_command ~/.local/bin/blocks
+    status_command blocks
 }
 
 floating_modifier alt normal
@@ -27,6 +30,16 @@ bindsym alt+f4 kill
 bindsym f11 fullscreen
 bindsym alt+space split toggle
 bindsym alt+return exec wmenu-run
+
+bindsym XF86AudioMute exec ctl -v toggle
+bindsym XF86AudioLowerVolume exec ctl -v down
+bindsym XF86AudioRaiseVolume exec ctl -v up
+bindsym XF86AudioMicMute exec ctl -m toggle
+bindsym XF86MonBrightnessDown exec ctl -l down
+bindsym XF86MonBrightnessUp exec ctl -l up
+
+# Special key to take a screenshot with grim
+# TODO: bindsym Print exec grim
 
 bindsym alt+h focus left
 bindsym alt+j focus down
@@ -55,15 +68,5 @@ bindsym super+shift+6 move container to workspace number 6
 bindsym super+shift+7 move container to workspace number 7
 bindsym super+shift+8 move container to workspace number 8
 bindsym super+shift+9 move container to workspace number 9
-
-bindsym XF86AudioMute exec ~/.local/bin/ctl volume-mute
-bindsym XF86AudioLowerVolume exec ~/.local/bin/ctl volume-dn
-bindsym XF86AudioRaiseVolume exec ~/.local/bin/ctl volume-up
-# TODO: bindsym XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
-bindsym XF86MonBrightnessDown exec ~/.local/bin/ctl light-dn
-bindsym XF86MonBrightnessUp exec ~/.local/bin/ctl light-up
-
-# Special key to take a screenshot with grim
-# TODO: bindsym Print exec grim
 
 include /etc/sway/config.d/*
