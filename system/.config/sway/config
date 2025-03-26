@@ -24,6 +24,9 @@ bar {
     status_command blocks
 }
 
+# TODO: lock after 5min of idle
+# TODO: suspend after 30min of idle
+
 floating_modifier alt normal
 bindsym super+f5 reload
 bindsym alt+f4 kill
