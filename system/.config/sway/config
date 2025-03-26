@@ -31,6 +31,7 @@ floating_modifier alt normal
 bindsym super+f5 reload
 bindsym alt+f4 kill
 bindsym f11 fullscreen
+bindsym super+l exec swaylock -fc000000
 bindsym alt+space split toggle
 bindsym alt+return exec wmenu-run
 
