@@ -37,24 +37,24 @@ bindsym alt+shift+j move down
 bindsym alt+shift+k move up
 bindsym alt+shift+l move right
 
-bindsym alt+1 workspace number 1
-bindsym alt+2 workspace number 2
-bindsym alt+3 workspace number 3
-bindsym alt+4 workspace number 4
-bindsym alt+5 workspace number 5
-bindsym alt+6 workspace number 6
-bindsym alt+7 workspace number 7
-bindsym alt+8 workspace number 8
-bindsym alt+9 workspace number 9
-bindsym alt+shift+1 move container to workspace number 1
-bindsym alt+shift+2 move container to workspace number 2
-bindsym alt+shift+3 move container to workspace number 3
-bindsym alt+shift+4 move container to workspace number 4
-bindsym alt+shift+5 move container to workspace number 5
-bindsym alt+shift+6 move container to workspace number 6
-bindsym alt+shift+7 move container to workspace number 7
-bindsym alt+shift+8 move container to workspace number 8
-bindsym alt+shift+9 move container to workspace number 9
+bindsym super+1 workspace number 1
+bindsym super+2 workspace number 2
+bindsym super+3 workspace number 3
+bindsym super+4 workspace number 4
+bindsym super+5 workspace number 5
+bindsym super+6 workspace number 6
+bindsym super+7 workspace number 7
+bindsym super+8 workspace number 8
+bindsym super+9 workspace number 9
+bindsym super+shift+1 move container to workspace number 1
+bindsym super+shift+2 move container to workspace number 2
+bindsym super+shift+3 move container to workspace number 3
+bindsym super+shift+4 move container to workspace number 4
+bindsym super+shift+5 move container to workspace number 5
+bindsym super+shift+6 move container to workspace number 6
+bindsym super+shift+7 move container to workspace number 7
+bindsym super+shift+8 move container to workspace number 8
+bindsym super+shift+9 move container to workspace number 9
 
 bindsym XF86AudioMute exec ~/.local/bin/ctl volume-mute
 bindsym XF86AudioLowerVolume exec ~/.local/bin/ctl volume-dn
