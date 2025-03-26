@@ -1,4 +1,8 @@
-## Todo
+## TODO
+
+- [ ] multi-layout keyboard (EN and FA)
+
+## Setup
 
 - [ ] NixOS (runit)
 - [ ] Sway

@@ -1,9 +1,11 @@
 set $mod Alt
-set $bg /home/utilyre/Pictures/david-becker-Enuqv6YCoLg-unsplash.jpg
+set $bg /home/utilyre/Pictures/background.png
 
 input type:keyboard {
     repeat_delay 500
     repeat_rate 30
+    xkb_layout us,ir
+    xkb_options grp:win_space_toggle
 }
 input type:touchpad {
     dwt enabled
@@ -26,7 +28,7 @@ bindsym $mod+shift+r reload
 
 bindsym $mod+return exec foot
 bindsym $mod+r exec wmenu-run
-bindsym $mod+shift+q kill
+bindsym $mod+F4 kill
 
 bindsym $mod+space split toggle
 bindsym $mod+f fullscreen
