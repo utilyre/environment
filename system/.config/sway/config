@@ -14,10 +14,7 @@ input type:touchpad {
     middle_emulation enabled
 }
 
-output * {
-    scale 1.75
-    bg ~/Pictures/background.png fill
-}
+output * bg ~/Pictures/background.png fill
 
 bar {
     position top

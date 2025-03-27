@@ -1,7 +1,6 @@
 theme = "gruvbox"
 
 [editor]
-line-number = "relative"
 rulers = [80]
 completion-timeout = 50
 completion-trigger-len = 1
