@@ -1,6 +1,11 @@
 exec mkfifo /tmp/wobpipe
 exec tail -f /tmp/wobpipe | wob
 
+exec swayidle -w \
+        timeout 300 swaylock \
+        timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+        before-sleep swaylock
+
 input type:keyboard {
     repeat_delay 500
     repeat_rate 30
@@ -21,14 +26,11 @@ bar {
     status_command blocks
 }
 
-# TODO: lock after 5min of idle
-# TODO: suspend after 30min of idle
-
 floating_modifier alt normal
 bindsym super+f5 reload
 bindsym alt+f4 kill
 bindsym f11 fullscreen
-bindsym super+l exec swaylock -fc000000
+bindsym super+l exec swaylock
 bindsym alt+space split toggle
 bindsym alt+return exec wmenu-run
 
