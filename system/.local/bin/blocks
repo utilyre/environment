@@ -1,7 +1,6 @@
 #!/bin/sh
 
 while true; do
-  up="$(uptime -p)"
   layout="$(swaymsg -t get_inputs | jq -r 'map(select(has("xkb_active_layout_name")))[0].xkb_active_layout_name')"
   case "$layout" in
     "English (US)") layout=EN ;;
@@ -10,6 +9,6 @@ while true; do
   power="$(cat /sys/class/power_supply/BAT0/capacity)"
 	date="$(date +"%a, %b %-d %H:%M")"
 
-	printf "%s | %s | %s%% remaining | %s\n" "$up" "$layout" "$power" "$date"
+	printf "%s | %s%% remaining | %s\n" "$layout" "$power" "$date"
 	sleep 1
 done

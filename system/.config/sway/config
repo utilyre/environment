@@ -33,6 +33,8 @@ bindsym f11 fullscreen
 bindsym super+l exec swaylock
 bindsym alt+space split toggle
 bindsym alt+return exec wmenu-run
+bindsym print exec grim -g "$(slurp)" - | tee "$(xdg-user-dir DOWNLOAD)/$(date +"%Y%m%d-%H%M%S").png" | wl-copy
+bindsym shift+print exec grim - | tee "$(xdg-user-dir DOWNLOAD)/$(date +"%Y%m%d-%H%M%S").png" | wl-copy
 
 bindsym XF86AudioMute exec ctl -v toggle
 bindsym XF86AudioLowerVolume exec ctl -v down
@@ -40,9 +42,6 @@ bindsym XF86AudioRaiseVolume exec ctl -v up
 bindsym XF86AudioMicMute exec ctl -m toggle
 bindsym XF86MonBrightnessDown exec ctl -l down
 bindsym XF86MonBrightnessUp exec ctl -l up
-
-# Special key to take a screenshot with grim
-# TODO: bindsym Print exec grim
 
 bindsym alt+h focus left
 bindsym alt+j focus down
