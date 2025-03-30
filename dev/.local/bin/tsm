@@ -25,14 +25,18 @@ main() {
 		xargs -I{} find {} -mindepth 1 -maxdepth 1 -type d -printf "%T@\t%p\n" |
 		sort -nr |
 		cut -f2 |
+		sed "s|^$HOME|~|" |
 		fzf)" || exit 130
-	
 
 	session_open "$path"
 }
 
 session_open() {
-	name="$(session_new "$1")"
+	path="$1"
+	name="$(basename "$path" | head -c-1 | tr -c '[:alnum:]_-' '_')"
+	if ! tmux has-session -t "$name" 2> /dev/null; then
+		session_new "$name"
+	fi
 
 	if [ "$TMUX" ]; then
 		tmux switch-client -t "$name"
@@ -42,11 +46,7 @@ session_open() {
 }
 
 session_new() {
-	name="$(basename -- "$1")"
-	if tmux has-session -t "$name" 2> "/dev/null"; then
-		printf "%s\n" "$name"
-		return
-	fi
+	name="$1"
 
 	tmux new-session -d -s "$name" -c "$1" -n "code"
 	tmux new-window -t "$name:2" -c "$1" -n "view"
