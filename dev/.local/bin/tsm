@@ -6,7 +6,7 @@
 #
 # SYNOPSIS
 #
-# 	tsm
+# 	tsm [new <name> [command]]
 #
 # ENVIRONMENT VARIABLES
 #
@@ -17,25 +17,45 @@
 #
 # 	tmux(1), fzf(1)
 
-: ${TSM_PATH:="$HOME/Code:$HOME/Documents/Courses/BootDev"}
+: "${TSM_PATH:="$HOME/Code:$HOME/Documents/Courses/BootDev"}"
 
 main() {
-	path="$(printf "%s\n" "$TSM_PATH" |
-		tr ":" "\n" |
-		xargs -I{} find {} -mindepth 1 -maxdepth 1 -type d -printf "%T@\t%p\n" |
-		sort -nr |
-		cut -f2 |
-		sed "s|^$HOME|~|" |
-		fzf)" || exit 130
+	if [ $# = 0 ]; then
+		path="$(printf "%s\n" "$TSM_PATH" |
+			tr ":" "\n" |
+			xargs -I{} find {} -mindepth 1 -maxdepth 1 -type d -printf "%T@\t%p\n" |
+			sort -nr |
+			cut -f2 |
+			sed "s|^$HOME|~|" |
+			fzf |
+			sed "s|^~|$HOME|")" || exit 130
+		session_open "$path"
+	elif [ "$1" = new ]; then
+		name="$2"
+		command="${3:-"git init"}"
+		path="$HOME/Code/$name"
+		if [ -d "$path" ]; then
+			error "project already exists"
+		fi
 
-	session_open "$path"
+		mkdir -p "$path"
+		(cd "$path" && eval "$command")
+		session_open "$path"
+	else
+		error "invalid arguments"
+	fi
+}
+
+error() {
+	msg="$1"
+	printf "tsm: %s\n" "$msg"
+	exit 1
 }
 
 session_open() {
-	path="$1"
-	name="$(basename "$path" | head -c-1 | tr -c '[:alnum:]_-' '_')"
+	name="$(basename "$1" | head -c-1 | tr -c '[:alnum:]_-' '_')"
 	if ! tmux has-session -t "$name" 2> /dev/null; then
-		session_new "$name"
+		session_new "$1" "$name"
 	fi
 
 	if [ "$TMUX" ]; then
@@ -46,15 +66,11 @@ session_open() {
 }
 
 session_new() {
-	name="$1"
-
-	tmux new-session -d -s "$name" -c "$1" -n "code"
-	tmux new-window -t "$name:2" -c "$1" -n "view"
-	tmux new-window -t "$name:3" -c "$1" -n "misc"
-	tmux select-window -t "$name:2"
-	tmux select-window -t "$name:1"
-
-	printf "%s\n" "$name"
+	tmux new-session -d -s "$2" -c "$1" -n "code"
+	tmux new-window -t "$2:2" -c "$1" -n "view"
+	tmux new-window -t "$2:3" -c "$1" -n "misc"
+	tmux select-window -t "$2:2"
+	tmux select-window -t "$2:1"
 }
 
-main
+main "$@"
