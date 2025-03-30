@@ -6,9 +6,10 @@ while true; do
     "English (US)") layout=EN ;;
     "Persian") layout=FA ;;
   esac
-  power="$(cat /sys/class/power_supply/BAT0/capacity)"
+  batcap="$(cat /sys/class/power_supply/BAT0/capacity)"
+  batstatus="$(cat /sys/class/power_supply/BAT0/status)"
 	date="$(date +"%a, %b %-d %H:%M")"
 
-	printf "%s | %s%% remaining | %s\n" "$layout" "$power" "$date"
+	printf "%s | %s%% %s | %s\n" "$layout" "$batcap" "$batstatus" "$date"
 	sleep 1
 done
