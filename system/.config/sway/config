@@ -1,3 +1,6 @@
+set $mod alt
+set $bg ~/Pictures/background.png
+
 exec mkfifo /tmp/wobpipe
 exec tail -f /tmp/wobpipe | wob
 
@@ -19,7 +22,7 @@ input type:touchpad {
     middle_emulation enabled
 }
 
-output * bg ~/Pictures/background.png fill
+output * bg $bg fill
 
 bar {
     position top
@@ -27,50 +30,48 @@ bar {
 }
 
 focus_follows_mouse no
-floating_modifier alt normal
 
-bindsym super+f5 reload
-bindsym alt+f4 kill
-bindsym f11 fullscreen
-bindsym super+l exec swaylock
-bindsym alt+space split toggle
-bindsym alt+return exec wmenu-run
-bindsym print exec grim -g "$(slurp)" - | tee "$(xdg-user-dir DOWNLOAD)/$(date +"%Y%m%d-%H%M%S").png" | wl-copy
-bindsym shift+print exec grim - | tee "$(xdg-user-dir DOWNLOAD)/$(date +"%Y%m%d-%H%M%S").png" | wl-copy
+bindsym xf86audiomute exec ctl -v toggle
+bindsym xf86audiolowervolume exec ctl -v down
+bindsym xf86audioraisevolume exec ctl -v up
+bindsym xf86audiomicmute exec ctl -m toggle
+bindsym xf86monbrightnessdown exec ctl -l down
+bindsym xf86monbrightnessup exec ctl -l up
+bindsym print exec shoot -s
+bindsym shift+print exec shoot
 
-bindsym XF86AudioMute exec ctl -v toggle
-bindsym XF86AudioLowerVolume exec ctl -v down
-bindsym XF86AudioRaiseVolume exec ctl -v up
-bindsym XF86AudioMicMute exec ctl -m toggle
-bindsym XF86MonBrightnessDown exec ctl -l down
-bindsym XF86MonBrightnessUp exec ctl -l up
+bindsym $mod+shift+r reload
+bindsym $mod+shift+q kill
+bindsym $mod+f fullscreen
+bindsym $mod+space split toggle
+bindsym $mod+r exec wmenu-run
 
-bindsym alt+h focus left
-bindsym alt+j focus down
-bindsym alt+k focus up
-bindsym alt+l focus right
-bindsym alt+shift+h move left
-bindsym alt+shift+j move down
-bindsym alt+shift+k move up
-bindsym alt+shift+l move right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+shift+h move left
+bindsym $mod+shift+j move down
+bindsym $mod+shift+k move up
+bindsym $mod+shift+l move right
 
-bindsym super+1 workspace number 1
-bindsym super+2 workspace number 2
-bindsym super+3 workspace number 3
-bindsym super+4 workspace number 4
-bindsym super+5 workspace number 5
-bindsym super+6 workspace number 6
-bindsym super+7 workspace number 7
-bindsym super+8 workspace number 8
-bindsym super+9 workspace number 9
-bindsym super+shift+1 move container to workspace number 1
-bindsym super+shift+2 move container to workspace number 2
-bindsym super+shift+3 move container to workspace number 3
-bindsym super+shift+4 move container to workspace number 4
-bindsym super+shift+5 move container to workspace number 5
-bindsym super+shift+6 move container to workspace number 6
-bindsym super+shift+7 move container to workspace number 7
-bindsym super+shift+8 move container to workspace number 8
-bindsym super+shift+9 move container to workspace number 9
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+shift+1 move container to workspace number 1
+bindsym $mod+shift+2 move container to workspace number 2
+bindsym $mod+shift+3 move container to workspace number 3
+bindsym $mod+shift+4 move container to workspace number 4
+bindsym $mod+shift+5 move container to workspace number 5
+bindsym $mod+shift+6 move container to workspace number 6
+bindsym $mod+shift+7 move container to workspace number 7
+bindsym $mod+shift+8 move container to workspace number 8
+bindsym $mod+shift+9 move container to workspace number 9
 
 include /etc/sway/config.d/*
