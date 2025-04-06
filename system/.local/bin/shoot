@@ -4,14 +4,12 @@ main() {
 	if [ $# = 0 ]; then
 		grim - | save
 	elif [ "$1" = -s ]; then
-		sel="$(slurp -d)" || exit 1
-		grim -g "$sel" - | save
+		{ slurp -d || exit 1; } | grim -g - - | save
 	fi
 }
 
 save() {
-	tee "$(xdg-user-dir DOWNLOAD)/$(date +"%Y%m%d-%H%M%S").png" |
-		wl-copy
+	tee "$(xdg-user-dir DOWNLOAD)/$(date +"%Y%m%d-%H%M%S").png" | wl-copy
 }
 
 main "$@"
