@@ -21,12 +21,12 @@ use() {
 
 export LS_COLORS="no=0;37:fi=0;37:ex=0;32:so=0;35:do=0;35:pi=0;33:ln=0;36:or=0;31:mi=0;31:di=1;34:tw=1;32:ow=1;32:st=1;32:cd=1;33:bd=1;37"
 export LESS="--quit-if-one-screen --ignore-case --raw-control-chars --use-color --color=P+wk\$ --color=S+ky\$ --color=d+C\$ --color=u+c\$"
-alias grep="grep --color=\"auto\""
-alias diff="diff --color=\"auto\""
-alias ls="ls --color=\"auto\" --hyperlink=\"auto\" --human-readable"
-alias ll="ls --format=\"long\""
+alias grep="grep --color=auto"
+alias diff="diff --color=auto"
+alias ls="ls --reverse --sort=time --human-readable --color=auto --hyperlink=auto"
+alias ll="ls --format=long"
 alias la="ls --almost-all"
-alias al="ls --format=\"long\" --almost-all"
+alias al="ls --almost-all --format=long"
 
 HISTFILE="$XDG_STATE_HOME/zshhst"
 HISTSIZE="4096"
