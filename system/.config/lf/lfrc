@@ -1,5 +1,6 @@
-set mouse
+set ratios 1:5:2
+set dirfirst false
+set reverse true
+set sortby time
 set info perm:size:time
 set incsearch
-set number
-set relativenumber
