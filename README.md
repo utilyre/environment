@@ -1,6 +1,6 @@
 # Environment
 
-Personal composable Linux setup.
+Utilyre's composable Linux setup.
 
 ## Installation
 
