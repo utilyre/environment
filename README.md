@@ -10,13 +10,13 @@ Personal composable Linux setup.
 Clone the repository:
 
 ```bash
-git clone https://github.com/utilyre/environment.git
+git clone https://github.com/utilyre/environment.git ~/path/to/environment
 ```
 
-Create symbolic links of desired packages:
+Create symbolic links of dotfiles:
 
 ```bash
-stow -t ~ PACKAGE...
+stow -Rt ~ -d ~/path/to/environment home
 ```
 
 [stow]: https://gnu.org/software/stow
