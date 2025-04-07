@@ -7,7 +7,7 @@ while true; do
     "Persian") layout=Fa ;;
   esac
   batcap="$(cat /sys/class/power_supply/BAT0/capacity)"
-  batstatus="$(cat /sys/class/power_supply/BAT0/status)"
+  batstatus="$(cat /sys/class/power_supply/BAT0/status | tr "[:upper:]" "[:lower:]")"
 	date="$(date +"%a, %b %-d %H:%M")"
 
 	printf "%s    %s%% %s    %s \n" "$layout" "$batcap" "$batstatus" "$date"
