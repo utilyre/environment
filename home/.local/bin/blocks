@@ -3,8 +3,8 @@
 while true; do
   layout="$(swaymsg -t get_inputs | jq -r 'map(select(has("xkb_active_layout_name")))[0].xkb_active_layout_name')"
   case "$layout" in
-    "English (US)") layout=EN ;;
-    "Persian") layout=FA ;;
+    "English (US)") layout=En ;;
+    "Persian") layout=Fa ;;
   esac
   batcap="$(cat /sys/class/power_supply/BAT0/capacity)"
   batstatus="$(cat /sys/class/power_supply/BAT0/status)"
