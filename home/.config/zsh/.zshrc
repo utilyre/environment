@@ -2,7 +2,7 @@ ZSH_CACHE="$XDG_CACHE_HOME/zsh" && mkdir --parents -- "$ZSH_CACHE"
 ZSH_DATA="$XDG_DATA_HOME/zsh" && mkdir --parents -- "$ZSH_DATA"
 
 use() {
-	plugin="$ZSH_DATA/plugins/${1##*/}"
+	plugin="$ZSH_DATA/${1##*/}"
 	[ ! -d "$plugin" ] && {
 		printf "\e[33m\e[m \e[1m%s\e[m" "$1"
 		error="$(git clone --single-branch --filter=blob:none -- "https://github.com/$1.git" "$plugin" 2>&1)" &&
@@ -39,7 +39,7 @@ HISTFILE="$XDG_STATE_HOME/zshhst"
 
 setopt globcomplete
 setopt nolisttypes
-FPATH="$ZSH_DATA/functions:$FPATH"
+FPATH="$ZDOTDIR/completions:$FPATH"
 use zsh-users/zsh-completions zsh-completions.plugin.zsh
 zmodload zsh/complist
 autoload compinit && compinit -d "$ZSH_CACHE/zcompdump"
