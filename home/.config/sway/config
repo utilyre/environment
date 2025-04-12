@@ -1,7 +1,7 @@
 set $mod alt
 set $bg ~/.config/background.jpg
 
-exec mkfifo /tmp/wobpipe
+exec mkfifo /tmp/wobpipe # TODO: use $XDG_RUNTIME_DIR
 exec tail -f /tmp/wobpipe | wob
 
 exec swayidle -w \

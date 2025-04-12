@@ -16,7 +16,7 @@ while [ $# -gt 0 ]; do
       device=mic
       shift
       ;;
-    -*|--*)
+    --*|-*)
       echo "ctl: unrecognized option '$1'"
       exit 2
       ;;
