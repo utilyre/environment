@@ -30,6 +30,7 @@ bar {
 }
 
 focus_follows_mouse no
+floating_modifier alt normal
 
 bindsym xf86audiomute exec ctl -v toggle
 bindsym xf86audiolowervolume exec ctl -v down

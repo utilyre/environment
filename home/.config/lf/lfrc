@@ -1,6 +1,7 @@
-set ratios 1:5:2
+set ratios 1:5:3
 set dirfirst false
 set reverse true
 set sortby time
 set info perm:size:time
 set incsearch
+set previewer lf-previewer
