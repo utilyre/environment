@@ -30,11 +30,11 @@ alias al="ls --almost-all --format=long"
 stty -ixon
 bindkey -e
 
-setopt appendhistory
+setopt incappendhistory
 setopt histignorespace
 setopt histignorealldups
-SAVEHIST=1000
-HISTSIZE=100000
+SAVEHIST=100
+HISTSIZE=1000000
 HISTFILE="$XDG_STATE_HOME/zshhst"
 
 setopt globcomplete
