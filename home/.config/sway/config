@@ -22,6 +22,9 @@ input type:touchpad {
     middle_emulation enabled
 }
 
+seat seat0 xcursor_theme macOS 24
+font pango:JetBrainsMono Nerd Font 10
+
 output * bg $bg fill
 
 bar {
@@ -30,7 +33,7 @@ bar {
 }
 
 focus_follows_mouse no
-floating_modifier alt normal
+floating_modifier $mod normal
 
 bindsym xf86audiomute exec ctl -v toggle
 bindsym xf86audiolowervolume exec ctl -v down
@@ -44,8 +47,11 @@ bindsym shift+print exec shoot
 bindsym $mod+shift+r reload
 bindsym $mod+shift+q kill
 bindsym $mod+f fullscreen
-bindsym $mod+space split toggle
+bindsym $mod+t split toggle
 bindsym $mod+r exec wmenu-run
+
+bindsym $mod+space focus mode_toggle
+bindsym $mod+shift+space floating toggle
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down

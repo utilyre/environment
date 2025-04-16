@@ -27,7 +27,7 @@ main() {
 			sort -nr |
 			cut -f2 |
 			sed "s|^$HOME|~|" |
-			fzf |
+			fzf --reverse |
 			sed "s|^~|$HOME|")" || exit 130
 		session_open "$path"
 	elif [ "$1" = new ]; then
