@@ -1,14 +1,7 @@
 set $mod alt
 set $bg ~/.config/background.jpg
 
-exec mkfifo /tmp/wobpipe # TODO: use $XDG_RUNTIME_DIR
-exec tail -f /tmp/wobpipe | wob
-
-exec swayidle -w \
-        timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-        timeout 610 swaylock \
-        before-sleep swaylock
-
+output * bg $bg fill
 input type:keyboard {
     repeat_delay 500
     repeat_rate 30
@@ -24,9 +17,6 @@ input type:touchpad {
 
 seat seat0 xcursor_theme macOS 24
 font pango:JetBrainsMono Nerd Font 10
-
-output * bg $bg fill
-
 bar {
     position top
     status_command blocks
@@ -80,5 +70,12 @@ bindsym $mod+shift+6 move container to workspace number 6
 bindsym $mod+shift+7 move container to workspace number 7
 bindsym $mod+shift+8 move container to workspace number 8
 bindsym $mod+shift+9 move container to workspace number 9
+
+exec mkfifo -- "$XDG_RUNTIME_DIR/wob.fifo" && \
+    tail -f -- "$XDG_RUNTIME_DIR/wob.fifo" | wob
+exec swayidle -w \
+    timeout 600 "swaymsg 'output * power off'" resume "swaymsg 'output * power on'" \
+    timeout 610 swaylock \
+    before-sleep swaylock
 
 include /etc/sway/config.d/*

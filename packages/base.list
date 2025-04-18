@@ -1,6 +1,6 @@
 base
 base-devel
+grub
 linux
 linux-firmware
-grub
 networkmanager
