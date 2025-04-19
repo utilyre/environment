@@ -1,7 +1,6 @@
 set $mod alt
-set $bg ~/.config/background.jpg
 
-output * bg $bg fill
+output * bg "$XDG_DATA_HOME/backgrounds/person_standing_under_aurora_lights.jpg" fill
 input type:keyboard {
     repeat_delay 500
     repeat_rate 30
