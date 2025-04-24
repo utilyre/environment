@@ -8,6 +8,27 @@ completion-trigger-len = 1
 auto-info = false
 auto-pairs = false
 
+[editor.statusline]
+left = [
+  "spacer",
+  "spinner",
+  "file-name",
+  "read-only-indicator",
+  "file-modification-indicator",
+  "spacer", "spacer",
+  "version-control",
+]
+right = [
+  "diagnostics",
+  "spacer", "spacer",
+  "register",
+  "primary-selection-length",
+  "selections",
+  "spacer", "spacer",
+  "position",
+  "total-line-numbers",
+]
+
 [editor.file-picker]
 hidden = false
 
