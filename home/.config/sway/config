@@ -32,11 +32,12 @@ bindsym xf86monbrightnessup exec ctl -l up
 bindsym print exec shoot -s
 bindsym shift+print exec shoot
 
-bindsym $mod+shift+r reload
-bindsym $mod+shift+q kill
-bindsym $mod+f fullscreen
-bindsym $mod+t split toggle
-bindsym $mod+r exec wmenu-run
+bindsym f5 reload
+bindsym alt+f4 kill
+bindsym f11 fullscreen
+bindsym f6 split toggle
+bindsym f3 exec wmenu-run
+bindsym f8 exec grim - | imv -f -
 
 bindsym $mod+space focus mode_toggle
 bindsym $mod+shift+space floating toggle
