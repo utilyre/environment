@@ -35,5 +35,8 @@ hidden = false
 [editor.soft-wrap]
 enable = true
 
+[editor.smart-tab]
+enable = false
+
 [editor.inline-diagnostics]
 cursor-line = "hint"

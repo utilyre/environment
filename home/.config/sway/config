@@ -21,7 +21,8 @@ bar {
 }
 
 focus_follows_mouse no
-floating_modifier $mod normal
+floating_modifier super normal
+default_floating_border pixel 2
 
 bindsym xf86audiomute exec ctl -v toggle
 bindsym xf86audiolowervolume exec ctl -v down
@@ -35,7 +36,8 @@ bindsym alt+f4 kill
 bindsym f11 fullscreen
 bindsym f6 split toggle
 bindsym f3 exec wmenu-run
-bindsym f8 exec grim - | imv -fw "Preview" -
+bindsym shift+f3 exec find "$(xdg-user-dir DOWNLOAD)" -type f | wmenu -il10 | dragon-drop -a -x -T -I
+bindsym f8 exec grim - | imv -fw "Frozen Screen" -
 bindsym print exec shoot -s
 bindsym shift+print exec shoot
 
