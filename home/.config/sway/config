@@ -37,7 +37,7 @@ bindsym alt+f4 kill
 bindsym f11 fullscreen
 bindsym f6 split toggle
 bindsym f3 exec wmenu-run
-bindsym shift+f3 exec find "$(xdg-user-dir DOWNLOAD)" -type f | wmenu -il10 | dragon-drop -a -x -T -I
+bindsym shift+f3 exec finder
 bindsym f8 exec grim - | imv -fw "Frozen Screen" -
 bindsym print exec shoot -s
 bindsym shift+print exec shoot
