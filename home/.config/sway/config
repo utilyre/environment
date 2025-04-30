@@ -22,6 +22,7 @@ bar {
 
 focus_follows_mouse no
 floating_modifier super normal
+default_border pixel 2
 default_floating_border pixel 2
 
 bindsym xf86audiomute exec ctl -v toggle
