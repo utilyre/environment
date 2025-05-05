@@ -51,7 +51,7 @@ case "$device" in
     ;;
   mic)
     case "$1" in
-      toggle) pamixer --source=54 -t ;;
+      toggle) pamixer --source=51 -t ;;
     esac
     ;;
 esac
