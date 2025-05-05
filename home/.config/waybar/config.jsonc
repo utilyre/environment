@@ -1,0 +1,28 @@
+{
+  "layer": "top",
+  "modules-left": ["sway/workspaces", "sway/window"],
+  "modules-center": ["clock"],
+  "modules-right": ["sway/language", "battery", "cpu", "memory", "tray"],
+  "sway/window": {
+    "max-length": 50
+  },
+  "sway/workspaces": {
+    "disable-scroll": true
+  },
+  "sway/language": {
+    "format": "{shortDescription}"
+  },
+  "battery": {
+    "format": "{capacity}% remaining",
+    "format-charging": "{capacity}% charging"
+  },
+  "cpu": {
+    "format": "{usage}% used"
+  },
+  "memory": {
+    "format": "{avail}GiB free"
+  },
+  "clock": {
+    "format": "{:%H:%M %a, %b %d}"
+  }
+}

@@ -47,3 +47,8 @@ language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
 name = "json"
 auto-format = true
 formatter = { command = "prettier", args = ["--parser=json"] }
+
+[[language]]
+name = "jsonc"
+auto-format = true
+formatter = { command = "prettier", args = ["--parser=json"] }

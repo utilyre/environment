@@ -15,10 +15,7 @@ input type:touchpad {
 }
 
 seat seat0 xcursor_theme macOS 24
-bar {
-    position top
-    status_command blocks
-}
+bar swaybar_command waybar
 
 focus_follows_mouse no
 floating_modifier super normal
