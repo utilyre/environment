@@ -36,9 +36,8 @@ bindsym alt+f4 kill
 bindsym f5 reload
 bindsym f6 split toggle
 bindsym f11 fullscreen
-bindsym f8 exec grim - | imv -fw "Frozen Screen" -
-bindsym print exec shoot -s
-bindsym shift+print exec shoot
+bindsym print exec shoot-select
+bindsym shift+print exec shoot-screen
 
 bindsym $mod+space focus mode_toggle
 bindsym $mod+shift+space floating toggle

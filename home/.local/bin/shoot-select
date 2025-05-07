@@ -1,0 +1,6 @@
+#!/bin/sh
+
+sel="$(slurp -d)" || exit 1
+grim -g "$sel" - |
+	tee -- "$(xdg-user-dir PICTURES)/screenshot_$(date +%Y%m%d_%H%M%S).png" |
+	wl-copy
