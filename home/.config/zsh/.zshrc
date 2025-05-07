@@ -26,8 +26,6 @@ alias ls="ls --reverse --sort=time --human-readable --color=auto --hyperlink=aut
 alias ll="ls --format=long"
 alias la="ls --almost-all"
 alias al="ls --almost-all --format=long"
-alias lf="lf-autocd"
-lf-autocd() { cd -- "$(\lf -print-last-dir "$@")" }
 
 stty -ixon
 bindkey -e
