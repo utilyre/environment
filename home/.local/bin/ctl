@@ -1,5 +1,10 @@
 #!/bin/sh
 
+error() {
+  printf "ctl: %s\n" "$1"
+  exit 1
+}
+
 device=volume
 
 while [ $# -gt 0 ]; do
@@ -17,16 +22,14 @@ while [ $# -gt 0 ]; do
       shift
       ;;
     --*|-*)
-      echo "ctl: unrecognized option '$1'"
-      exit 2
+      error "unrecognized option '$1'"
       ;;
     *) break ;;
   esac
 done
 
 if [ $# = 0 ]; then
-  echo "ctl: not enough arguments"
-  exit 2
+  error "not enough arguments"
 fi
 
 case "$device" in
