@@ -1,29 +1,8 @@
 #!/bin/sh
 
-# NAME
-# 
-# 	tsm - tmux session manager
-#
-# SYNOPSIS
-#
-# 	tsm [new <name> [command]]
-#
-# ENVIRONMENT VARIABLES
-#
-# 	TSM_PATH
-# 		specifies a set of parents of directories in which sessions are started.
-#
-# SEE ALSO
-#
-# 	tmux(1), fzf(1)
-
-: "${TSM_PATH:="$HOME/Code:$HOME/Documents/Courses/BootDev"}"
-
 main() {
 	if [ $# = 0 ]; then
-		path="$(printf "%s\n" "$TSM_PATH" |
-			tr ":" "\n" |
-			xargs -I{} find {} -mindepth 1 -maxdepth 1 -type d -printf "%T@\t%p\n" |
+		path="$(find "$HOME/Code" -mindepth 1 -maxdepth 1 -type d -printf "%T@\t%p\n" |
 			sort -nr |
 			cut -f2 |
 			sed "s|^$HOME|~|" |
