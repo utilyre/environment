@@ -1,9 +1,0 @@
-#!/bin/sh
-
-find "$(xdg-user-dir DOWNLOAD)" -type f -printf "%T@\t%p\n" |
-	sort -nr |
-	cut -f2 |
-	sed "s|^$HOME|~|" |
-	wmenu -il10 |
-	sed "s|^~|$HOME|" |
-	dragon-drop -a -x -T -I

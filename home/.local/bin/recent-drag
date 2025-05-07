@@ -1,0 +1,4 @@
+#!/bin/sh
+
+files="$(recent | wmenu -il20)" || exit 1
+printf "%s\n" "$files" | dragon-drop -a -x -T -I

@@ -29,12 +29,13 @@ bindsym xf86audiomicmute exec ctl -m toggle
 bindsym xf86monbrightnessdown exec ctl -l down
 bindsym xf86monbrightnessup exec ctl -l up
 
-bindsym f5 reload
+bindsym --release alt_l exec wmenu-run
+bindsym f3 exec recent-open
+bindsym shift+f3 exec recent-drag
 bindsym alt+f4 kill
-bindsym f11 fullscreen
+bindsym f5 reload
 bindsym f6 split toggle
-bindsym f3 exec wmenu-run
-bindsym shift+f3 exec finder
+bindsym f11 fullscreen
 bindsym f8 exec grim - | imv -fw "Frozen Screen" -
 bindsym print exec shoot -s
 bindsym shift+print exec shoot
