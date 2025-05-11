@@ -54,7 +54,7 @@ case "$device" in
     ;;
   mic)
     case "$1" in
-      toggle) pamixer --source=51 -t ;;
+      toggle) pactl set-source-mute @DEFAULT_SOURCE@ toggle;;
     esac
     ;;
 esac

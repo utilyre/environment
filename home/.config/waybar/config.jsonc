@@ -1,6 +1,6 @@
 {
   "layer": "top",
-  "modules-left": ["sway/workspaces", "sway/window"],
+  "modules-left": ["sway/workspaces"],
   "modules-center": ["clock"],
   "modules-right": ["sway/language", "battery", "cpu", "memory", "tray"],
   "sway/window": {
