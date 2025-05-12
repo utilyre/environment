@@ -68,6 +68,7 @@ bindsym $mod+shift+7 move container to workspace number 7
 bindsym $mod+shift+8 move container to workspace number 8
 bindsym $mod+shift+9 move container to workspace number 9
 
+exec nm-applet
 exec mkfifo -- "$WOB_PIPE" && tail -f -- "$WOB_PIPE" | wob
 exec swayidle -w \
     timeout 600 "swaymsg 'output * power off'" resume "swaymsg 'output * power on'" \
