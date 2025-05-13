@@ -1,11 +1,11 @@
-ZSH_CACHE="$XDG_CACHE_HOME/zsh" && mkdir --parents -- "$ZSH_CACHE"
-ZSH_DATA="$XDG_DATA_HOME/zsh" && mkdir --parents -- "$ZSH_DATA"
+ZSH_CACHE="$XDG_CACHE_HOME/zsh" && mkdir -p -- "$ZSH_CACHE"
+ZSH_DATA="$XDG_DATA_HOME/zsh" && mkdir -p -- "$ZSH_DATA"
 
 use() {
 	plugin="$ZSH_DATA/${1##*/}"
 	[ ! -d "$plugin" ] && {
 		printf "\e[33m\e[m \e[1m%s\e[m" "$1"
-		error="$(git clone --single-branch --filter=blob:none -- "https://github.com/$1.git" "$plugin" 2>&1)" &&
+		error="$(git clone --depth=1 -- "https://github.com/$1.git" "$plugin" 2>&1)" &&
 			printf "\r\e[32m\e[m %s\n" "$1" || {
 				printf "\r\e[31m\e[m %s\n" "$1"
 				printf "\e[31m%s\e[m\n\n" "$(echo "$error" | sed "s/^/> /")"
@@ -19,13 +19,10 @@ use() {
 }
 
 export LS_COLORS="no=0;37:fi=0;37:ex=0;32:so=0;35:do=0;35:pi=0;33:ln=0;36:or=0;31:mi=0;31:di=1;34:tw=1;32:ow=1;32:st=1;32:cd=1;33:bd=1;37"
-export LESS="--quit-if-one-screen --redraw-on-quit --ignore-case --raw-control-chars --use-color --color=Pw~\$ --color=Sy~\$ --color=dC*\$ --color=uc_\$"
+export LESS="-FXR -DdC* -Duc_"
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
-alias ls="ls --reverse --sort=time --human-readable --color=auto --hyperlink=auto"
-alias ll="ls --format=long"
-alias la="ls --almost-all"
-alias al="ls --almost-all --format=long"
+alias ls="ls --color=auto -ltrhA"
 
 stty -ixon
 bindkey -e
@@ -33,11 +30,12 @@ bindkey -e
 setopt incappendhistory
 setopt histignorespace
 setopt histignorealldups
-SAVEHIST=100
-HISTSIZE=1000000
+HISTSIZE=100
+SAVEHIST=65536
 HISTFILE="$XDG_STATE_HOME/zshhst"
 
 setopt globcomplete
+setopt globdots
 setopt nolisttypes
 FPATH="$ZDOTDIR/completions:$FPATH"
 use zsh-users/zsh-completions zsh-completions.plugin.zsh
