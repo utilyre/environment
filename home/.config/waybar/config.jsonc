@@ -20,7 +20,7 @@
     "format": "{usage}% used"
   },
   "memory": {
-    "format": "{avail}GiB free"
+    "format": "{avail}GiB available"
   },
   "clock": {
     "format": "{:%H:%M %a, %b %d}"

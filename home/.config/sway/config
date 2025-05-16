@@ -36,7 +36,7 @@ bindsym f11 fullscreen
 bindsym print exec shoot-select
 bindsym shift+print exec shoot-screen
 
-bindsym $mod+q exec wmenu-run
+bindsym $mod+q exec bemenu-run -H24 -pRun
 bindsym $mod+space focus mode_toggle
 bindsym $mod+shift+space floating toggle
 
