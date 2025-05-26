@@ -22,7 +22,8 @@ export LS_COLORS="no=0;37:fi=0;37:ex=0;32:so=0;35:do=0;35:pi=0;33:ln=0;36:or=0;3
 export LESS="-FXR -DdC* -Duc_"
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
-alias ls="ls --color=auto -ltrhA"
+alias ls="ls --color=auto -thA"
+alias ll="ls -lr"
 
 stty -ixon
 bindkey -e
@@ -40,8 +41,10 @@ setopt nolisttypes
 FPATH="$ZDOTDIR/completions:$FPATH"
 use zsh-users/zsh-completions zsh-completions.plugin.zsh
 zmodload zsh/complist
-autoload compinit && compinit -d "$ZSH_CACHE/zcompdump"
+autoload compinit
+compinit -d "$ZSH_CACHE/zcompdump"
 zstyle ":completion:*" menu select
+zstyle ":completion:*" file-sort mtime
 zstyle ":completion:*" matcher-list "m:{[:lower:]}={[:upper:]}"
 zstyle ":completion:*" list-colors "$LS_COLORS"
 

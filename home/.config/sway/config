@@ -1,4 +1,4 @@
-set $mod alt
+set $mod super
 
 output * bg "$XDG_DATA_HOME/backgrounds/current" fill
 input type:keyboard {
@@ -18,7 +18,7 @@ seat seat0 xcursor_theme macOS 24
 bar swaybar_command waybar
 
 focus_follows_mouse no
-floating_modifier super normal
+floating_modifier $mod normal
 
 bindsym xf86audiomute exec ctl -v toggle
 bindsym xf86audiolowervolume exec ctl -v down
@@ -27,18 +27,20 @@ bindsym xf86audiomicmute exec ctl -m toggle
 bindsym xf86monbrightnessdown exec ctl -l down
 bindsym xf86monbrightnessup exec ctl -l up
 
-bindsym f3 exec recent-open
-bindsym shift+f3 exec recent-drag
-bindsym alt+f4 kill
-bindsym alt+f5 reload
-bindsym f6 split toggle
-bindsym f11 fullscreen
-bindsym print exec shoot-select
-bindsym shift+print exec shoot-screen
+bindsym $mod+f5 reload
+bindsym $mod+f12 exec killall -USR1 waybar
+bindsym $mod+print exec shoot-select
+bindsym $mod+shift+print exec shoot-screen
 
-bindsym $mod+q exec bemenu-run -H24 -pRun
-bindsym $mod+space focus mode_toggle
-bindsym $mod+shift+space floating toggle
+bindsym $mod+q kill
+bindsym $mod+r exec bemenu-run -H24 -pRun
+bindsym $mod+f3 exec recent-open
+bindsym $mod+shift+f3 exec recent-drag
+
+bindsym $mod+f fullscreen
+bindsym $mod+m split toggle
+bindsym $mod+z focus mode_toggle
+bindsym $mod+shift+z floating toggle
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
