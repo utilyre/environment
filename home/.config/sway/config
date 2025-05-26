@@ -5,7 +5,7 @@ input type:keyboard {
     repeat_delay 500
     repeat_rate 30
     xkb_layout us,ir
-    xkb_options grp:win_space_toggle
+    xkb_options grp:lalt_lshift_toggle
 }
 input type:touchpad {
     dwt enabled
@@ -20,55 +20,53 @@ bar swaybar_command waybar
 focus_follows_mouse no
 floating_modifier $mod normal
 
-bindsym xf86audiomute exec ctl -v toggle
-bindsym xf86audiolowervolume exec ctl -v down
-bindsym xf86audioraisevolume exec ctl -v up
+bindsym --locked xf86audiomute exec ctl -v toggle
+bindsym --locked xf86audiolowervolume exec ctl -v down
+bindsym --locked xf86audioraisevolume exec ctl -v up
 bindsym xf86audiomicmute exec ctl -m toggle
 bindsym xf86monbrightnessdown exec ctl -l down
 bindsym xf86monbrightnessup exec ctl -l up
 
-bindsym $mod+f5 reload
-bindsym $mod+f12 exec killall -USR1 waybar
-bindsym $mod+print exec shoot-select
-bindsym $mod+shift+print exec shoot-screen
+bindsym f10 exec recent-open
+bindsym shift+f10 exec recent-drag
+bindsym f12 exec killall -USR1 waybar
+bindsym print exec shoot-select
+bindsym shift+print exec shoot-screen
 
-bindsym $mod+q kill
-bindsym $mod+r exec bemenu-run -H24 -pRun
-bindsym $mod+f3 exec recent-open
-bindsym $mod+shift+f3 exec recent-drag
+bindsym $mod+backspace kill
+bindsym $mod+space exec bemenu-run -H24 -pRun
 
-bindsym $mod+f fullscreen
-bindsym $mod+m split toggle
-bindsym $mod+z focus mode_toggle
-bindsym $mod+shift+z floating toggle
+bindsym --to-code $mod+f fullscreen
+bindsym --to-code $mod+z focus mode_toggle
+bindsym --to-code $mod+shift+z floating toggle
 
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-bindsym $mod+shift+h move left
-bindsym $mod+shift+j move down
-bindsym $mod+shift+k move up
-bindsym $mod+shift+l move right
+bindsym --to-code $mod+h focus left
+bindsym --to-code $mod+j focus down
+bindsym --to-code $mod+k focus up
+bindsym --to-code $mod+l focus right
+bindsym --to-code $mod+shift+h move left
+bindsym --to-code $mod+shift+j move down
+bindsym --to-code $mod+shift+k move up
+bindsym --to-code $mod+shift+l move right
 
-bindsym $mod+1 workspace number 1
-bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
-bindsym $mod+4 workspace number 4
-bindsym $mod+5 workspace number 5
-bindsym $mod+6 workspace number 6
-bindsym $mod+7 workspace number 7
-bindsym $mod+8 workspace number 8
-bindsym $mod+9 workspace number 9
-bindsym $mod+shift+1 move container to workspace number 1
-bindsym $mod+shift+2 move container to workspace number 2
-bindsym $mod+shift+3 move container to workspace number 3
-bindsym $mod+shift+4 move container to workspace number 4
-bindsym $mod+shift+5 move container to workspace number 5
-bindsym $mod+shift+6 move container to workspace number 6
-bindsym $mod+shift+7 move container to workspace number 7
-bindsym $mod+shift+8 move container to workspace number 8
-bindsym $mod+shift+9 move container to workspace number 9
+bindsym --to-code $mod+1 workspace number 1
+bindsym --to-code $mod+2 workspace number 2
+bindsym --to-code $mod+3 workspace number 3
+bindsym --to-code $mod+4 workspace number 4
+bindsym --to-code $mod+5 workspace number 5
+bindsym --to-code $mod+6 workspace number 6
+bindsym --to-code $mod+7 workspace number 7
+bindsym --to-code $mod+8 workspace number 8
+bindsym --to-code $mod+9 workspace number 9
+bindsym --to-code $mod+shift+1 move container to workspace number 1
+bindsym --to-code $mod+shift+2 move container to workspace number 2
+bindsym --to-code $mod+shift+3 move container to workspace number 3
+bindsym --to-code $mod+shift+4 move container to workspace number 4
+bindsym --to-code $mod+shift+5 move container to workspace number 5
+bindsym --to-code $mod+shift+6 move container to workspace number 6
+bindsym --to-code $mod+shift+7 move container to workspace number 7
+bindsym --to-code $mod+shift+8 move container to workspace number 8
+bindsym --to-code $mod+shift+9 move container to workspace number 9
 
 exec nm-applet
 exec mkfifo -- "$WOB_PIPE" && tail -f -- "$WOB_PIPE" | wob
