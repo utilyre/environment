@@ -15,10 +15,16 @@ input type:touchpad {
 }
 
 seat seat0 xcursor_theme macOS 24
-bar swaybar_command waybar
+bar {
+    position top
+    status_command swaybar-blocks
+}
 
 focus_follows_mouse no
+focus_on_window_activation focus
 floating_modifier $mod normal
+smart_gaps inverse_outer
+gaps outer 5
 
 bindsym --locked xf86audiomute exec ctl -v toggle
 bindsym --locked xf86audiolowervolume exec ctl -v down
@@ -29,7 +35,7 @@ bindsym xf86monbrightnessup exec ctl -l up
 
 bindsym f10 exec recent-open
 bindsym shift+f10 exec recent-drag
-bindsym f12 exec killall -USR1 waybar
+bindsym f12 bar mode toggle
 bindsym print exec shoot-select
 bindsym shift+print exec shoot-screen
 

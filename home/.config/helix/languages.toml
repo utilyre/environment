@@ -8,6 +8,10 @@ command = [
 ]
 
 [[language]]
+name = "c-sharp"
+language-servers = ["csharp-ls"]
+
+[[language]]
 name = "python"
 auto-format = true
 

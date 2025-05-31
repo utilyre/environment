@@ -1,0 +1,18 @@
+#!/bin/sh
+
+while true; do
+	keyboard_layout="none"
+	case "$(swaymsg -t get_inputs | jq -r '.[0].xkb_active_layout_name')" in
+		"English (US)") keyboard_layout=en ;;
+		"Persian") keyboard_layout=fa ;;
+	esac
+	power_capacity="$(cat /sys/class/power_supply/BAT0/capacity)"
+	power_status="remaining"
+	if [ "$(cat /sys/class/power_supply/BAT0/status)" = "Charging" ]; then
+		power_status="charging"
+	fi
+	datetime="$(date +"%H:%M %a, %b %-d")"
+
+	printf "%s | %d%% %s | %s |\n" "$keyboard_layout" "$power_capacity" "$power_status" "$datetime"
+	sleep 10
+done

@@ -1,11 +1,13 @@
-theme = "gruvbox"
+theme = "gruvbox_dark_hard"
 
 [editor]
 rulers = [80]
-completion-timeout = 50
+completion-timeout = 5
 completion-trigger-len = 1
 auto-info = false
-auto-pairs = false
+
+[editor.cursor-shape]
+insert = "bar"
 
 [editor.statusline]
 left = [
@@ -28,11 +30,11 @@ right = [
   "total-line-numbers",
 ]
 
+[editor.indent-guides]
+render = true
+
 [editor.file-picker]
 hidden = false
-
-[editor.soft-wrap]
-enable = true
 
 [editor.smart-tab]
 enable = false
