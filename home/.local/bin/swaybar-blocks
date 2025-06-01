@@ -1,8 +1,8 @@
 #!/bin/sh
 
 while true; do
-	keyboard_layout="none"
-	case "$(swaymsg -t get_inputs | jq -r '.[0].xkb_active_layout_name')" in
+	keyboard_layout=none
+	case "$(swaymsg -t get_inputs | jq -r 'map(select(has("xkb_active_layout_name")))[0].xkb_active_layout_name')" in
 		"English (US)") keyboard_layout=en ;;
 		"Persian") keyboard_layout=fa ;;
 	esac
@@ -14,5 +14,5 @@ while true; do
 	datetime="$(date +"%H:%M %a, %b %-d")"
 
 	printf "%s | %d%% %s | %s |\n" "$keyboard_layout" "$power_capacity" "$power_status" "$datetime"
-	sleep 10
+	sleep 1
 done
