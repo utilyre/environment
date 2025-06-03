@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# ignore USR1 signals
+trap : USR1
+
 while true; do
 	keyboard_layout=none
 	case "$(swaymsg -t get_inputs | jq -r 'map(select(has("xkb_active_layout_name")))[0].xkb_active_layout_name')" in
@@ -14,5 +17,8 @@ while true; do
 	datetime="$(date +"%H:%M %a, %b %-d")"
 
 	printf "%s | %d%% %s | %s |\n" "$keyboard_layout" "$power_capacity" "$power_status" "$datetime"
-	sleep 1
+
+	sleep 10 &
+	# an ignored USR1 signal stops the wait
+	wait -- "$!"
 done

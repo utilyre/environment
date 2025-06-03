@@ -1,0 +1,4 @@
+#!/bin/sh
+
+swaymsg input type:keyboard xkb_switch_layout next
+killall -USR1 swaybar-blocks
