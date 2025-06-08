@@ -16,7 +16,7 @@ git clone https://github.com/utilyre/environment.git ~/path/to/environment
 Create symbolic links of dotfiles:
 
 ```bash
-stow -Rt ~ -d ~/path/to/environment home
+make install
 ```
 
 [stow]: https://gnu.org/software/stow
