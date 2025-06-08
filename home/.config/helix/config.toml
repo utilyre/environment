@@ -4,7 +4,6 @@ theme = "gruvbox_dark_hard"
 rulers = [80]
 completion-timeout = 5
 completion-trigger-len = 1
-auto-info = false
 
 [editor.cursor-shape]
 insert = "bar"
