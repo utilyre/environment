@@ -31,6 +31,7 @@ bindsym $mod+return exec bemenu-run -H24 -pRun
 bindsym --to-code $mod+l exec swaylock
 bindsym --to-code $mod+o exec recent-open
 bindsym --to-code $mod+k exec recent-drag
+bindsym --to-code $mod+p exec recent-extract
 bindsym print exec shoot-select
 bindsym shift+print exec shoot-screen
 

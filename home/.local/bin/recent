@@ -10,6 +10,7 @@ find \
 		$(xdg-user-dir PICTURES) \
 		$(xdg-user-dir VIDEOS) \
 		-type f \
+		-name "${1:-"*"}" \
 		-printf "%T@\t%p\n" |
 	sort -nr |
 	cut -f2
