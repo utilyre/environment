@@ -11,4 +11,5 @@ uninstall:
 sync:
 	git add -A
 	git commit -m "$(shell date -u)"
+	git pull -r
 	git push
