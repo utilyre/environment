@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# -ss 00:00:01 -to 00:07:31 \
+ffmpeg \
+	-i "$1" \
+	-c:v libx264 -preset slow -crf 20 \
+	-c:a aac -b:a 384k \
+	-vf format=yuv420p \
+	-movflags +faststart \
+	'Meet Daniel.mp4'

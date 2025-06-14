@@ -2,6 +2,7 @@ theme = "gruvbox_dark_hard"
 
 [editor]
 rulers = [80]
+bufferline = "always"
 completion-timeout = 5
 completion-trigger-len = 1
 
