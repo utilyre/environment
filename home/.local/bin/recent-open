@@ -1,5 +1,4 @@
 #!/bin/sh
 
 files="$(recent | bemenu -il8 -H24 -pOpen)" || exit 1
-printf "%s\n" "$files" | while read name; do xdg-open "$name" & done
-wait
+printf "%s\n" "$files" | while read name; do setsid -f xdg-open "$name"; done
