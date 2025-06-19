@@ -3,6 +3,7 @@ theme = "gruvbox_dark_hard"
 [editor]
 rulers = [80]
 bufferline = "always"
+continue-comments = false
 completion-timeout = 5
 completion-trigger-len = 1
 
@@ -38,6 +39,10 @@ hidden = false
 
 [editor.smart-tab]
 enable = false
+
+[editor.soft-wrap]
+enable = true
+wrap-at-text-width = true
 
 [editor.inline-diagnostics]
 cursor-line = "hint"
