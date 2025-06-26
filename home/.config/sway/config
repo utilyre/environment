@@ -17,14 +17,14 @@ seat seat0 xcursor_theme macOS 24
 bar {
     position top
     status_command swaybar-blocks
+    bindsym button1 floating toggle
+    bindsym button2 kill
 }
 
 focus_follows_mouse no
 focus_on_window_activation focus
-floating_modifier $mod normal
-smart_gaps inverse_outer
-gaps outer 5
 for_window [all] floating enable
+floating_modifier $mod normal
 
 bindsym $mod+backspace kill
 bindsym $mod+return exec bemenu-run -H24 -pRun
