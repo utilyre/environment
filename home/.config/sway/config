@@ -69,11 +69,14 @@ bindsym xf86audiomicmute exec ctl -m toggle
 bindsym xf86monbrightnessdown exec ctl -l down
 bindsym xf86monbrightnessup exec ctl -l up
 
-exec swayrd
-exec mkfifo -- "$WOB_PIPE" && tail -f -- "$WOB_PIPE" | wob
 exec swayidle -w \
     timeout 600 "swaymsg 'output * power off'" resume "swaymsg 'output * power on'" \
     timeout 610 swaylock \
     before-sleep swaylock
+exec swayrd
+exec mkfifo -- "$WOB_PIPE" && tail -f -- "$WOB_PIPE" | wob
+
+exec nm-applet
+exec discord --start-minimized
 
 include /etc/sway/config.d/*
