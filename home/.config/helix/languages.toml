@@ -15,6 +15,10 @@ auto-format = true
 language-servers = ["csharp-ls"]
 
 [[language]]
+name = "cpp"
+auto-format = true
+
+[[language]]
 name = "python"
 auto-format = true
 
