@@ -1,4 +1,4 @@
 #!/bin/sh
 
-files="$(recent | bemenu -il8 -H24 -pDrag)" || exit 1
+files="$(recent | bemenu -il8 -H26 -pDrag)" || exit 1
 printf "%s\n" "$files" | dragon-drop -a -x -T -I -s 48

@@ -13,11 +13,15 @@ input type:touchpad {
     middle_emulation enabled
 }
 
+font pango:monospace Bold 10
 seat seat0 xcursor_theme macOS 24
 bar {
+    modifier $mod
     position top
-    status_command swaybar-blocks
     strip_workspace_numbers yes
+    status_padding 4
+    tray_padding 4
+    status_command swaybar-blocks
     bindsym button1 floating toggle
     bindsym button2 kill
 }
@@ -28,7 +32,7 @@ for_window [all] floating enable
 floating_modifier $mod normal
 
 bindsym $mod+backspace kill
-bindsym $mod+return exec bemenu-run -H24 -pRun
+bindsym $mod+return exec bemenu-run -H26 -pRun
 
 bindsym --to-code $mod+l exec swaylock
 bindsym --to-code $mod+o exec recent-open

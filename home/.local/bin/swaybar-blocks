@@ -14,9 +14,9 @@ while true; do
 	if [ "$(cat /sys/class/power_supply/BAT0/status)" = "Charging" ]; then
 		power_status="charging"
 	fi
-	datetime="$(date +"%H:%M %a, %b %-d")"
+	datetime="$(date +"%a %-d %b %H:%M")"
 
-	printf "%s | %d%% %s | %s |\n" "$keyboard_layout" "$power_capacity" "$power_status" "$datetime"
+	printf "%s    %d%% %s    %s   \n" "$keyboard_layout" "$power_capacity" "$power_status" "$datetime"
 
 	sleep 10 &
 	# an ignored USR1 signal stops the wait
