@@ -4,19 +4,20 @@
 trap : USR1
 
 while true; do
-	keyboard_layout=none
+	keyboard=none
 	case "$(swaymsg -t get_inputs | jq -r 'map(select(has("xkb_active_layout_name")))[0].xkb_active_layout_name')" in
-		"English (US)") keyboard_layout=en ;;
-		"Persian") keyboard_layout=fa ;;
+		"English (US)") keyboard=en ;;
+		"Persian") keyboard=fa ;;
 	esac
-	power_capacity="$(cat /sys/class/power_supply/BAT0/capacity)"
-	power_status="remaining"
+
+	battery="$(cat /sys/class/power_supply/BAT0/capacity)%"
 	if [ "$(cat /sys/class/power_supply/BAT0/status)" = "Charging" ]; then
-		power_status="charging"
+		battery="+$battery"
 	fi
+
 	datetime="$(date +"%a %-d %b %H:%M")"
 
-	printf "%s    %d%% %s    %s   \n" "$keyboard_layout" "$power_capacity" "$power_status" "$datetime"
+	printf "%s    %s    %s   \n" "$keyboard" "$battery" "$datetime"
 
 	sleep 10 &
 	# an ignored USR1 signal stops the wait
