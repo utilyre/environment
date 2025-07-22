@@ -7,6 +7,9 @@ tmux new-session -dc "$path" -s "$name"
 tmux new-window -c "$path" -t "$name"
 tmux select-window -t "$name:1"
 
+tmux send-keys -t "$name:1" hx Enter
+tmux send-keys -t "$name:2" lazygit Enter
+
 if [ "$TMUX" ]; then
 	tmux switch-client -t "$name"
 else
