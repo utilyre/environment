@@ -17,6 +17,8 @@ language-servers = ["csharp-ls"]
 [[language]]
 name = "cpp"
 auto-format = true
+# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+formatter = { command = "sh", args = ["-c", "clang-format --style=file:$XDG_CONFIG_HOME/clang/format.yaml"] }
 
 [[language]]
 name = "python"

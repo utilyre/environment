@@ -1,4 +1,4 @@
-theme = "monokai"
+theme = "gruvbox"
 
 [editor]
 rulers = [80]
