@@ -1,8 +1,7 @@
-theme = "gruvbox"
+theme = "gruvbox_dark_hard"
 
 [editor]
 rulers = [80]
-cursorline = true
 bufferline = "always"
 continue-comments = false
 completion-timeout = 5
@@ -37,9 +36,6 @@ render = true
 
 [editor.file-picker]
 hidden = false
-
-[editor.smart-tab]
-enable = false
 
 [editor.soft-wrap]
 enable = true
