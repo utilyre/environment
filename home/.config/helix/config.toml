@@ -2,7 +2,6 @@ theme = "gruvbox_dark_hard"
 
 [editor]
 rulers = [80]
-bufferline = "always"
 continue-comments = false
 completion-timeout = 5
 completion-trigger-len = 1
@@ -50,8 +49,12 @@ display-inlay-hints = true
 "A-w" = "move_next_sub_word_start"
 "A-b" = "move_prev_sub_word_start"
 "A-e" = "move_next_sub_word_end"
+"A-n" = "@*vnv"
+"A-N" = "@*vNv"
 
 [keys.select]
 "A-w" = "extend_next_sub_word_start"
 "A-b" = "extend_prev_sub_word_start"
 "A-e" = "extend_next_sub_word_end"
+"A-n" = "@*n"
+"A-N" = "@*N"

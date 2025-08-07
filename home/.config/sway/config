@@ -27,9 +27,13 @@ bar {
 }
 
 focus_follows_mouse no
-focus_on_window_activation focus
 for_window [all] floating enable
 floating_modifier $mod normal
+
+assign [app_id=com.discordapp.Discord] workspace 7:8
+assign [app_id=chromium-browser] workspace 8:9
+assign [app_id=btop] workspace 9:0
+for_window [app_id=btop] floating disable
 
 bindsym $mod+backspace kill
 bindsym $mod+return exec bemenu-run -H26 -pRun
@@ -86,5 +90,6 @@ exec mkfifo -- "$WOB_PIPE" && tail -f -- "$WOB_PIPE" | wob
 
 exec nm-applet
 exec discord --start-minimized
+exec foot -a btop btop
 
 include /etc/sway/config.d/*
