@@ -72,7 +72,6 @@ bindsym --to-code $mod+shift+0 move container to workspace number 9:0
 bindsym --locked $mod+space exec sway-input-next
 bindsym --to-code $mod+j floating toggle
 bindsym f11 fullscreen
-bindsym f12 bar mode toggle
 
 bindsym --locked xf86audiomute exec ctl -v toggle
 bindsym --locked xf86audiolowervolume exec ctl -v down
@@ -89,7 +88,6 @@ exec swayrd
 exec mkfifo -- "$WOB_PIPE" && tail -f -- "$WOB_PIPE" | wob
 
 exec nm-applet
-exec discord --start-minimized
 exec foot -a btop btop
 
 include /etc/sway/config.d/*

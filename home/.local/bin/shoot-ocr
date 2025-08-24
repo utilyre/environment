@@ -1,4 +1,4 @@
 #!/bin/sh
 
 sel="$(slurp -d)" || exit 1
-grim -g "$sel" - | tesseract - - | wl-copy
+grim -g "$sel" - | tesseract - - | head -c-1 | wl-copy

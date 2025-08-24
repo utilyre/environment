@@ -3,6 +3,7 @@ theme = "gruvbox_dark_hard"
 [editor]
 rulers = [80]
 continue-comments = false
+idle-timeout = 800 # https://github.com/helix-editor/helix/discussions/8196#discussioncomment-9050882
 completion-timeout = 5
 completion-trigger-len = 1
 
@@ -13,21 +14,26 @@ insert = "bar"
 left = [
   "spacer",
   "spinner",
+  "total-line-numbers",
   "file-name",
   "read-only-indicator",
   "file-modification-indicator",
-  "spacer", "spacer",
+  "spacer",
+  "spacer",
   "version-control",
+]
+center = [
+  "register",
 ]
 right = [
   "diagnostics",
-  "spacer", "spacer",
-  "register",
+  "spacer",
+  "spacer",
   "primary-selection-length",
   "selections",
-  "spacer", "spacer",
+  "spacer",
+  "spacer",
   "position",
-  "total-line-numbers",
 ]
 
 [editor.indent-guides]
@@ -46,6 +52,8 @@ cursor-line = "hint"
 display-inlay-hints = true
 
 [keys.normal]
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
 "A-w" = "move_next_sub_word_start"
 "A-b" = "move_prev_sub_word_start"
 "A-e" = "move_next_sub_word_end"
@@ -53,6 +61,8 @@ display-inlay-hints = true
 "A-N" = "@*vNv"
 
 [keys.select]
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
 "A-w" = "extend_next_sub_word_start"
 "A-b" = "extend_prev_sub_word_start"
 "A-e" = "extend_next_sub_word_end"

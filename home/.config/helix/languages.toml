@@ -20,17 +20,13 @@ args = ["--header-insertion=never"]
 [[language]]
 name = "c"
 auto-format = true
-# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
-formatter = { command = "clang-format", args = [
-  "--style={BasedOnStyle: Microsoft, IndentWidth: 4, PointerAlignment: Left}"
-] }
 
 [[language]]
 name = "cpp"
 auto-format = true
 # https://clang.llvm.org/docs/ClangFormatStyleOptions.html
 formatter = { command = "clang-format", args = [
-  "--style={BasedOnStyle: Microsoft, IndentWidth: 4, PointerAlignment: Left, AccessModifierOffset: -4}"
+  "--style={BasedOnStyle: Microsoft, IndentWidth: 4, AccessModifierOffset: -4, ColumnLimit: 80, PointerAlignment: Left}"
 ] }
 
 [[language]]
