@@ -3,7 +3,7 @@ theme = "gruvbox_dark_hard"
 [editor]
 rulers = [80]
 continue-comments = false
-idle-timeout = 800 # https://github.com/helix-editor/helix/discussions/8196#discussioncomment-9050882
+# idle-timeout = 800 # https://github.com/helix-editor/helix/discussions/8196#discussioncomment-9050882
 completion-timeout = 5
 completion-trigger-len = 1
 
@@ -57,8 +57,8 @@ display-inlay-hints = true
 "A-w" = "move_next_sub_word_start"
 "A-b" = "move_prev_sub_word_start"
 "A-e" = "move_next_sub_word_end"
-"A-n" = "@*vnv"
-"A-N" = "@*vNv"
+"A-l" = "@*vnv"
+"A-L" = "@*vNv"
 
 [keys.select]
 "{" = "goto_prev_paragraph"
@@ -66,5 +66,5 @@ display-inlay-hints = true
 "A-w" = "extend_next_sub_word_start"
 "A-b" = "extend_prev_sub_word_start"
 "A-e" = "extend_next_sub_word_end"
-"A-n" = "@*n"
-"A-N" = "@*N"
+"A-l" = "@*n"
+"A-L" = "@*N"
