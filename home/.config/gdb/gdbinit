@@ -1,3 +1,8 @@
-set width 0
-set height 0
 set debuginfod enabled off
+layout src
+
+define hook-stop
+  if $_gthread == 0
+    quit
+  end
+end
