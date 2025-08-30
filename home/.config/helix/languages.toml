@@ -22,11 +22,19 @@ name = "c"
 auto-format = true
 
 [[language]]
+name = "c"
+auto-format = true
+# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+formatter = { command = "clang-format", args = [
+  "--style={BasedOnStyle: Microsoft, IndentWidth: 4, AccessModifierOffset: -4, ColumnLimit: 100, PointerAlignment: Left, AlignAfterOpenBracket: AlwaysBreak, BinPackArguments: false}"
+] }
+
+[[language]]
 name = "cpp"
 auto-format = true
 # https://clang.llvm.org/docs/ClangFormatStyleOptions.html
 formatter = { command = "clang-format", args = [
-  "--style={BasedOnStyle: Microsoft, IndentWidth: 4, AccessModifierOffset: -4, ColumnLimit: 80, PointerAlignment: Left}"
+  "--style={BasedOnStyle: Microsoft, IndentWidth: 4, AccessModifierOffset: -4, ColumnLimit: 100, PointerAlignment: Left, AlignAfterOpenBracket: AlwaysBreak, BinPackArguments: false}"
 ] }
 
 [[language]]
