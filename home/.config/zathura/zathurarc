@@ -1,0 +1,4 @@
+set synctex false
+set selection-notification false
+set window-title-basename true
+set statusbar-home-tilde true

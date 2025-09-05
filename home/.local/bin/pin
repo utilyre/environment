@@ -4,11 +4,9 @@ path="$(realpath -- "${1:-"$PWD"}")"
 name="$(printf '%s' "${2:-"$(basename -- "$path")"}" | tr -c '[:alnum:]_-' '_')"
 
 tmux new-session -dc "$path" -s "$name"
-tmux new-window -c "$path" -t "$name"
-tmux select-window -t "$name:1"
-
 tmux send-keys -t "$name:1" hx Enter
-tmux send-keys -t "$name:2" lazygit Enter
+tmux new-window -c "$path" -t "$name" lazygit
+tmux select-window -t "$name:1"
 
 if [ "$TMUX" ]; then
 	tmux switch-client -t "$name"
