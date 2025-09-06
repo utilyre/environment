@@ -36,7 +36,7 @@ assign [app_id=btop] workspace 9:0
 for_window [app_id=btop] floating disable
 
 bindsym $mod+backspace kill
-bindsym $mod+return exec bemenu-run -H26 -pRun
+bindsym $mod+return exec bemenu-run -pRun
 
 bindsym --to-code $mod+l exec swaylock
 bindsym --to-code $mod+o exec recent-open

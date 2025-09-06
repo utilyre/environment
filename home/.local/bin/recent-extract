@@ -1,6 +1,6 @@
 #!/bin/sh
 
-files="$(recent "*.zip" | bemenu -il8 -H26 -pExtract)" || exit 1
+files="$(recent "*.zip" | bemenu -fl8 -pExtract)" || exit 1
 name="$(printf "%s\n" "$files" | head -1)"
 
 tmp="$(mktemp -d)"
