@@ -1,5 +1,6 @@
 set debuginfod enabled off
 
+# Quit GDB when the program exits
 define hook-stop
   if $_gthread == 0
     quit
