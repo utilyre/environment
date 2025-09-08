@@ -33,7 +33,7 @@ setopt incappendhistory
 setopt histignorespace
 setopt histignorealldups
 HISTSIZE=100
-SAVEHIST=65536
+SAVEHIST=65535
 HISTFILE="$XDG_STATE_HOME/zshhst"
 
 setopt globcomplete
