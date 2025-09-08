@@ -10,6 +10,6 @@ uninstall:
 
 sync:
 	git add -A
-	git commit -m "$(shell date -u)"
+	git commit -m "Synchronize using make"
 	git pull -r
 	git push
