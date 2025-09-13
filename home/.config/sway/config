@@ -29,11 +29,6 @@ bar {
 for_window [all] floating enable
 floating_modifier $mod normal
 
-assign [app_id=com.discordapp.Discord] workspace 7:8
-assign [app_id=chromium-browser] workspace 8:9
-assign [app_id=btop] workspace 9:0
-for_window [app_id=btop] floating disable
-
 bindsym $mod+backspace kill
 bindsym $mod+return exec bemenu-run -pRun
 
@@ -84,6 +79,13 @@ exec swayidle -w \
     before-sleep swaylock
 exec mkfifo -- "$WOB_PIPE" && tail -f -- "$WOB_PIPE" | wob
 exec sway-lru
+
+assign [app_id=chromium-browser]           workspace 8:9
+assign [app_id=com.discordapp.Discord]     workspace 7:8
+assign [app_id=btop]                       workspace 9:0
+for_window [app_id=chromium-browser]       floating disable
+for_window [app_id=com.discordapp.Discord] floating disable
+for_window [app_id=btop]                   floating disable
 
 exec nm-applet
 exec foot -abtop btop
