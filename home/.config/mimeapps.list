@@ -1,4 +1,6 @@
 [Default Applications]
+inode/directory=org.gnome.Nautilus.desktop
+
 application/rdf+xml=chromium-browser.desktop
 application/rss+xml=chromium-browser.desktop
 application/xhtml+xml=chromium-browser.desktop
@@ -9,7 +11,7 @@ text/xml=chromium-browser.desktop
 x-scheme-handler/http=chromium-browser.desktop
 x-scheme-handler/https=chromium-browser.desktop
 
-application/pdf=org.pwmt.zathura-pdf-poppler.desktop
+application/pdf=org.gnome.Evince.desktop
 
 image/avif=imv.desktop
 image/bmp=imv.desktop

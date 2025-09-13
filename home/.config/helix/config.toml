@@ -1,7 +1,7 @@
 theme = "gruvbox_dark_hard"
 
 [editor]
-rulers = [80]
+rulers = [80, 100]
 continue-comments = false
 # idle-timeout = 800 # https://github.com/helix-editor/helix/discussions/8196#discussioncomment-9050882
 completion-timeout = 5
