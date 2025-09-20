@@ -1,4 +1,5 @@
 set debuginfod enabled off
+add-auto-load-safe-path .
 
 # Quit GDB when the program exits successfully
 define hook-stop
