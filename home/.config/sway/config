@@ -26,6 +26,7 @@ bar {
     bindsym button2 kill
 }
 
+focus_follows_mouse no
 for_window [all] floating enable
 floating_modifier $mod normal
 
@@ -40,7 +41,7 @@ bindsym print exec shoot-select
 bindsym shift+print exec shoot-screen
 bindsym alt+print exec shoot-ocr
 
-bindsym $mod+tab [con_mark=lru] focus
+bindsym $mod+tab [con_mark=LRU] focus
 bindsym --to-code $mod+1 workspace number 0:1
 bindsym --to-code $mod+2 workspace number 1:2
 bindsym --to-code $mod+3 workspace number 2:3

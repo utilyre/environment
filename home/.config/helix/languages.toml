@@ -1,3 +1,33 @@
+[language-server.clangd]
+args = ["--header-insertion=never"]
+
+[[language]]
+name = "c"
+auto-format = true
+# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+formatter = { command = "clang-format", args = [
+  "--style={BasedOnStyle: Microsoft, ColumnLimit: 0, IndentWidth: 4, AccessModifierOffset: -4, PointerAlignment: Left, BreakTemplateDeclarations: Yes, BreakAfterReturnType: All, AlignAfterOpenBracket: AlwaysBreak, BreakBeforeBinaryOperators: NonAssignment, AlignOperands: DontAlign, BinPackArguments: false}"
+] }
+
+[[language]]
+name = "cpp"
+auto-format = true
+# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+formatter = { command = "clang-format", args = [
+  "--style={BasedOnStyle: Microsoft, ColumnLimit: 0, IndentWidth: 4, AccessModifierOffset: -4, PointerAlignment: Left, BreakTemplateDeclarations: Yes, BreakAfterReturnType: All, AlignAfterOpenBracket: AlwaysBreak, BreakBeforeBinaryOperators: NonAssignment, AlignOperands: DontAlign, BinPackArguments: false}"
+] }
+
+# https://github.com/razzmatazz/csharp-language-server
+[[language]]
+name = "c-sharp"
+auto-format = true
+language-servers = ["csharp-ls"]
+
+# https://pkg.go.dev/golang.org/x/tools/cmd/goimports
+[[language]]
+name = "go"
+formatter = { command = "goimports" }
+
 # https://github.com/helix-editor/helix/issues/13501#issuecomment-2867283731
 [language-server.golangci-lint-lsp.config]
 command = [
@@ -8,78 +38,18 @@ command = [
   "--issues-exit-code=1",
 ]
 
-# https://github.com/razzmatazz/csharp-language-server
-[[language]]
-name = "c-sharp"
-auto-format = true
-language-servers = ["csharp-ls"]
-
-[language-server.clangd]
-args = ["--header-insertion=never"]
-
-[[language]]
-name = "c"
-auto-format = true
-
-[[language]]
-name = "c"
-auto-format = true
-# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
-formatter = { command = "clang-format", args = [
-  "--style={BasedOnStyle: Microsoft, IndentWidth: 4, AccessModifierOffset: -4, ColumnLimit: 100, PointerAlignment: Left, AlignAfterOpenBracket: AlwaysBreak, BinPackArguments: false}"
-] }
-
-[[language]]
-name = "cpp"
-auto-format = true
-# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
-formatter = { command = "clang-format", args = [
-  "--style={BasedOnStyle: Microsoft, IndentWidth: 4, AccessModifierOffset: -4, ColumnLimit: 100, PointerAlignment: Left, AlignAfterOpenBracket: AlwaysBreak, BinPackArguments: false}"
-] }
-
-[[language]]
-name = "python"
-auto-format = true
-
-# https://pkg.go.dev/golang.org/x/tools/cmd/goimports
-[[language]]
-name = "go"
-formatter = { command = "goimports" }
-
-[[language]]
-name = "javascript"
-auto-format = true
-formatter = { command = "prettier", args = ["--parser=typescript"] }
-
-[[language]]
-name = "typescript"
-auto-format = true
-formatter = { command = "prettier", args = ["--parser=typescript"] }
-
-[[language]]
-name = "tsx"
-auto-format = true
-formatter = { command = "prettier", args = ["--parser=typescript"] }
-language-servers = ["typescript-language-server", "tailwindcss-ls"]
-
 [[language]]
 name = "html"
-auto-format = true
-formatter = { command = "prettier", args = ["--parser=html"] }
-language-servers = ["vscode-html-language-server", "tailwindcss-ls"]
+auto-format = false
 
 [[language]]
 name = "css"
-auto-format = true
-formatter = { command = "prettier", args = ["--parser=css"] }
-language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
+auto-format = false
 
 [[language]]
 name = "json"
-auto-format = true
-formatter = { command = "prettier", args = ["--parser=json"] }
+auto-format = false
 
 [[language]]
 name = "jsonc"
-auto-format = true
-formatter = { command = "prettier", args = ["--parser=json"] }
+auto-format = false

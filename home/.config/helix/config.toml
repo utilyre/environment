@@ -6,7 +6,6 @@ continue-comments = false
 # idle-timeout = 800 # https://github.com/helix-editor/helix/discussions/8196#discussioncomment-9050882
 completion-timeout = 5
 completion-trigger-len = 1
-scrolloff = 0
 cursorline = true
 
 [editor.cursor-shape]
@@ -56,15 +55,23 @@ display-inlay-hints = true
 [keys.normal]
 "{" = "goto_prev_paragraph"
 "}" = "goto_next_paragraph"
+"C-y" = "scroll_up"
+"C-e" = "scroll_down"
 "A-w" = "move_next_sub_word_start"
 "A-b" = "move_prev_sub_word_start"
 "A-e" = "move_next_sub_word_end"
 "A-l" = "@*vnv"
 "A-L" = "@*vNv"
 
+[keys.insert]
+"C-y" = "scroll_up"
+"C-e" = "scroll_down"
+
 [keys.select]
 "{" = "goto_prev_paragraph"
 "}" = "goto_next_paragraph"
+"C-y" = "scroll_up"
+"C-e" = "scroll_down"
 "A-w" = "extend_next_sub_word_start"
 "A-b" = "extend_prev_sub_word_start"
 "A-e" = "extend_next_sub_word_end"
