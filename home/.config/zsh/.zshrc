@@ -52,6 +52,7 @@ zstyle ":completion:*" list-colors "$LS_COLORS"
 PROMPT="%F{%(?:2:1)}➜%f%(?:: %B%F{1}%?%f%b) %B%F{6}%c%f%b\$(gitprompt) "
 PROMPT_EOL_MARK="%F{8}%f"
 ZSH_GIT_PROMPT_SHOW_STASH=true
+ZSH_GIT_PROMPT_SHOW_TRACKING_COUNTS=false
 ZSH_THEME_GIT_PROMPT_PREFIX=" %F{4}(%f"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%F{4})%f"
 ZSH_THEME_GIT_PROMPT_SEPARATOR=
