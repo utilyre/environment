@@ -1,2 +1,14 @@
 git:
   overrideGpg: true
+  branchLogCmd: git graph --color=always
+  allBranchesLogCmds:
+    - git graph --color=always --all
+
+gui:
+  expandFocusedSidePanel: true
+  timeFormat: Jan _2 2006
+  shortTimeFormat: Today 15:04
+  showFileTree: false
+  showNumstatInFilesView: true
+  showCommandLog: false
+  border: single
