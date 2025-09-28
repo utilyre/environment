@@ -1,6 +1,8 @@
 set $mod super
 
 output * bg "$XDG_DATA_HOME/backgrounds/current" fill
+output "Samsung Display Corp. 0x416D Unknown" mode 2880x1800@60Hz
+
 input type:keyboard {
     repeat_delay 500
     repeat_rate 30

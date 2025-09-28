@@ -12,3 +12,5 @@ gui:
   showNumstatInFilesView: true
   showCommandLog: false
   border: single
+  showPanelJumps: false
+  statusPanelView: allBranchesLog

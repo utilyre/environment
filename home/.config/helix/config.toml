@@ -1,4 +1,4 @@
-theme = "gruvbox_dark_hard"
+theme = "gruvbox_custom"
 
 [editor]
 continue-comments = false
@@ -12,7 +12,6 @@ insert = "bar"
 
 [editor.statusline]
 left = [
-  "spacer",
   "spinner",
   "total-line-numbers",
   "file-name",
@@ -28,6 +27,8 @@ center = [
 right = [
   "diagnostics",
   "spacer",
+  # "version-control-changes",
+  # "spacer",
   "spacer",
   "primary-selection-length",
   "selections",
