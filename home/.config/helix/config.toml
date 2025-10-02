@@ -77,3 +77,6 @@ enable = true
 "A-e" = "extend_next_sub_word_end"
 "A-l" = "@*n"
 "A-L" = "@*N"
+
+[keys.normal.space.x]
+t = "@gslle\"tyeb\"iy] j\"iPa.sType = VK_STRUCTURE_TYPE<esc>\"tps[A-Z0-9]<ret>i_<esc>e<A-`>a;<esc>x=gh"

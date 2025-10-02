@@ -5,8 +5,8 @@ name="$(printf '%s' "${2:-"$(basename -- "$path")"}" | tr -c '[:alnum:]_-' '_')"
 
 if tmux new-session -dc "$path" -s "$name" 2> /dev/null; then
 	tmux send-keys -t "$name:1" hx Enter
-	tmux new-window -dc "$path" -t "$name" lazygit
-	tmux new-window -dc "$path" sleep infinity
+	tmux new-window -dt "$name" -c "$path" lazygit
+	tmux new-window -dt "$name" -c "$path" sleep infinity
 	tmux set-option -wt "$name:3" remain-on-exit on
 fi
 
