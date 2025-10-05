@@ -5,9 +5,11 @@ set roundbox
 set scrolloff 5
 set dircounts
 set info size
+set sortby time
+set dirfirst false
+set hidden
 set incsearch
 set previewer lf-preview
-# set cleaner "wiper"
 
 map a push :create<space>
 

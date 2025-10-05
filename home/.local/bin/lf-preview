@@ -1,7 +1,5 @@
 #!/bin/sh
 
-export LF_CACHE="$XDG_CACHE_HOME/lf"
-
 mkdir -p -- "$LF_CACHE/thumbnails"
 
 case "$(file -b --mime-type -- "$1")" in
