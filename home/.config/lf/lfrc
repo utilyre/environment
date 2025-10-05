@@ -1,0 +1,22 @@
+set mouse
+set ratios 1:2
+set drawbox
+set roundbox
+set scrolloff 5
+set dircounts
+set info size
+set incsearch
+set previewer lf-preview
+# set cleaner "wiper"
+
+map a push :create<space>
+
+cmd create %{{
+	file="$(realpath -m -- "$1")"
+	if [ "$(printf -- '%s' "$1" | tail -c1)" = "/" ]; then
+		mkdir -p -- "$file"
+	else
+		mkdir -p -- "$(dirname -- "$file")"
+		touch -- "$file"
+	fi
+}}

@@ -1,7 +1,6 @@
 set $mod super
 
 output * bg "$XDG_DATA_HOME/backgrounds/current" fill
-output "Samsung Display Corp. 0x416D Unknown" mode 2880x1800@60Hz
 
 input type:keyboard {
     repeat_delay 500
@@ -82,15 +81,20 @@ exec swayidle -w \
     before-sleep swaylock
 exec mkfifo -- "$WOB_PIPE" && tail -f -- "$WOB_PIPE" | wob
 exec sway-lru
+exec nm-applet
 
-assign [app_id=chromium-browser]           workspace 8:9
+assign [app_id=lf]                         workspace 6:7
 assign [app_id=com.discordapp.Discord]     workspace 7:8
+assign [app_id=chromium-browser]           workspace 8:9
 assign [app_id=btop]                       workspace 9:0
-for_window [app_id=chromium-browser]       floating disable
+for_window [app_id=lf]                     floating disable
 for_window [app_id=com.discordapp.Discord] floating disable
+for_window [app_id=chromium-browser]       floating disable
 for_window [app_id=btop]                   floating disable
 
-exec nm-applet
+exec foot -alf lf
+exec foot -alf lf
+exec chromium-browser
 exec foot -abtop btop
 
 include /etc/sway/config.d/*

@@ -1,0 +1,21 @@
+#!/bin/sh
+
+export LF_CACHE="$XDG_CACHE_HOME/lf"
+
+mkdir -p -- "$LF_CACHE/thumbnails"
+
+case "$(file -b --mime-type -- "$1")" in
+	audio/* | image/* | video/*)
+		thumbnail="$LF_CACHE/thumbnails/$(printf -- "%s:%s\n" "$1" "$(stat -c%Y -- "$1")" | base64).png"
+		if [ ! -f "$thumbnail" ]; then
+			if ! ffmpeg -i "$1" -frames:v "1" -filter:v "scale=256:-1" -- "$thumbnail"; then
+				file -b -- "$1" | fold -sw "$2"
+				exit
+			fi
+		fi
+
+		chafa -f symbols -s "${2}x${3}" -- "$thumbnail"
+		;;
+	text/*) cat -- "$1" | fold -sw "$2" ;;
+	*) file -b -- "$1" | fold -sw "$2" ;;
+esac
