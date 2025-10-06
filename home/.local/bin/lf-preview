@@ -12,7 +12,8 @@ case "$(file -b --mime-type -- "$1")" in
 			fi
 		fi
 
-		chafa -s "${2}x${3}" -- "$thumbnail"
+		chafa --dither=ordered -s "${2}x${3}" -- "$thumbnail"
+		exit 1
 		;;
 	text/*) cat -- "$1" | fold -sw "$2" ;;
 	*) file -b -- "$1" | fold -sw "$2" ;;
