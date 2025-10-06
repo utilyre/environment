@@ -1,16 +1,17 @@
-set mouse
-set ratios 1:2
-set drawbox
-set roundbox
+set mouse true
+set ratios 1:1
+set drawbox true
+set roundbox true
 set scrolloff 5
-set dircounts
+set dircounts true
 set info size
 set sortby time
+set reverse true
 set dirfirst false
-set hidden
-set incsearch
+set incsearch true
 set previewer lf-preview
 
+map <space> toggle
 map a push :create<space>
 
 cmd create %{{

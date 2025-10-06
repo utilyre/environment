@@ -12,7 +12,7 @@ case "$(file -b --mime-type -- "$1")" in
 			fi
 		fi
 
-		chafa -f symbols -s "${2}x${3}" -- "$thumbnail"
+		chafa -s "${2}x${3}" -- "$thumbnail"
 		;;
 	text/*) cat -- "$1" | fold -sw "$2" ;;
 	*) file -b -- "$1" | fold -sw "$2" ;;
