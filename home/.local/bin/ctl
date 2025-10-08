@@ -1,7 +1,7 @@
 #!/bin/sh
 
 error() {
-  printf "ctl: %s\n" "$1"
+  printf 'ctl: %s\n' "$1"
   exit 1
 }
 
@@ -29,7 +29,7 @@ while [ $# -gt 0 ]; do
 done
 
 if [ $# = 0 ]; then
-  error "not enough arguments"
+  error 'not enough arguments'
 fi
 
 case "$device" in
@@ -39,7 +39,7 @@ case "$device" in
       down) pamixer -d5 ;;
       up) pamixer -i5 ;;
     esac
-    if [ "$(pamixer --get-mute)" = "true" ]; then
+    if [ "$(pamixer --get-mute)" = 'true' ]; then
       echo 0 > "$WOB_PIPE"
     else
       pamixer --get-volume > "$WOB_PIPE"

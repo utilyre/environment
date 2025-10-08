@@ -76,7 +76,7 @@ bindsym --locked xf86monbrightnessdown exec ctl -l down
 bindsym --locked xf86monbrightnessup exec ctl -l up
 
 exec swayidle -w \
-    timeout 600 "swaymsg 'output * power off'" resume "swaymsg 'output * power on'" \
+    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
     timeout 610 swaylock \
     before-sleep swaylock
 exec mkfifo -- "$WOB_PIPE" && tail -f -- "$WOB_PIPE" | wob

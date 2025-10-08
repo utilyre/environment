@@ -4,11 +4,11 @@ ZSH_DATA="$XDG_DATA_HOME/zsh" && mkdir -p -- "$ZSH_DATA"
 use() {
 	plugin="$ZSH_DATA/${1##*/}"
 	[ ! -d "$plugin" ] && {
-		printf "\e[33m\e[m \e[1m%s\e[m" "$1"
+		printf '\e[33m\e[m \e[1m%s\e[m' "$1"
 		error="$(git clone --depth=1 -- "https://github.com/$1.git" "$plugin" 2>&1)" &&
-			printf "\r\e[32m\e[m %s\n" "$1" || {
-				printf "\r\e[31m\e[m %s\n" "$1"
-				printf "\e[31m%s\e[m\n\n" "$(echo "$error" | sed "s/^/> /")"
+			printf '\r\e[32m\e[m %s\n' "$1" || {
+				printf '\r\e[31m\e[m %s\n' "$1"
+				printf '\e[31m%s\e[m\n\n' "$(echo "$error" | sed "s/^/> /")"
 
 				read -sk "?[Press any key to exit]"
 				exit 1

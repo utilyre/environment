@@ -7,4 +7,4 @@ grim -g "$sel" -- "$tmp"
 content="$(zbarimg -- "$tmp")" || content="$(tesseract "$tmp" -)"
 
 rm -- "$tmp"
-printf %s "$content" | wl-copy
+printf '%s' "$content" | wl-copy

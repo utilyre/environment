@@ -11,13 +11,13 @@ while true; do
 	esac
 
 	battery="$(cat /sys/class/power_supply/BAT0/capacity)%"
-	if [ "$(cat /sys/class/power_supply/BAT0/status)" = "Charging" ]; then
+	if [ "$(cat /sys/class/power_supply/BAT0/status)" = Charging ]; then
 		battery="^$battery"
 	fi
 
-	datetime="$(date +"%a %-d %b %H:%M")"
+	datetime="$(date +'%a %-d %b %H:%M')"
 
-	printf "%s    %s    %s   \n" "$keyboard" "$battery" "$datetime"
+	printf '%s    %s    %s   \n' "$keyboard" "$battery" "$datetime"
 
 	sleep 10 &
 	# an ignored USR1 signal stops the wait
