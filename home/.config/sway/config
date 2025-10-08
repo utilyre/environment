@@ -40,7 +40,7 @@ bindsym --to-code $mod+k exec recent-drag
 bindsym --to-code $mod+p exec recent-extract
 bindsym print exec shoot-select
 bindsym shift+print exec shoot-screen
-bindsym alt+print exec shoot-ocr
+bindsym alt+print exec shoot-scan
 
 bindsym $mod+tab [con_mark=LRU] focus
 bindsym --to-code $mod+1 workspace number 0:1
@@ -81,6 +81,7 @@ exec swayidle -w \
     before-sleep swaylock
 exec mkfifo -- "$WOB_PIPE" && tail -f -- "$WOB_PIPE" | wob
 exec sway-lru
+exec swaynag-battery
 exec nm-applet
 
 assign [app_id=lf]                         workspace 6:7
