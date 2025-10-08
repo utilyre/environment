@@ -1,6 +1,6 @@
 #!/bin/sh
 
-was_low=0 # zero means true
+was_low=1 # non-zero means false
 
 while true; do
 	capacity="$(cat /sys/class/power_supply/BAT0/capacity)"
@@ -8,8 +8,8 @@ while true; do
 	[ "$capacity" -le 20 ]
 	is_low="$?"
 
-	if [ "$is_low" -eq 0 ] && [ "$was_low" -ne 1 ]; then
-		swaynag -twarning -ybottom -m "Battery low ($capacity%)"
+	if [ "$is_low" -eq 0 ] && [ "$was_low" -ne 0 ]; then
+		swaynag -twarning -m "Battery low ($capacity%)"
 	fi
 
 	was_low="$is_low"
