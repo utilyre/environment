@@ -1,4 +1,10 @@
 #!/bin/sh
 
 sel="$(slurp -d)" || exit 1
-grim -g "$sel" - | tesseract - - | head -c-1 | wl-copy
+tmp="$(mktemp)"
+
+grim -g "$sel" -- "$tmp"
+content="$(zbarimg -- "$tmp")" || content="$(tesseract "$tmp" -)"
+
+rm -- "$tmp"
+printf %s "$content" | wl-copy

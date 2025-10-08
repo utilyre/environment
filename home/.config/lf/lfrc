@@ -16,7 +16,7 @@ map a push :create<space>
 
 cmd create %{{
 	file="$(realpath -m -- "$1")"
-	if [ "$(printf -- '%s' "$1" | tail -c1)" = "/" ]; then
+	if [ "$(printf '%s' "$1" | tail -c1)" = "/" ]; then
 		mkdir -p -- "$file"
 	else
 		mkdir -p -- "$(dirname -- "$file")"

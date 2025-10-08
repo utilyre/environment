@@ -94,6 +94,7 @@ for_window [app_id=btop]                   floating disable
 
 exec foot -alf lf
 exec foot -alf lf
+# exec discord
 exec chromium-browser
 exec foot -abtop btop
 
