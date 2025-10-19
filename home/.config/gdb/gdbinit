@@ -1,6 +1,9 @@
 set debuginfod enabled off
 add-auto-load-safe-path .
 
+set print pretty on
+set pagination off
+
 # Quit GDB when the program exits successfully
 define hook-stop
   if $_gthread == 0 && $_exitcode == 0
