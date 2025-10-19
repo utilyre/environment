@@ -46,8 +46,8 @@ cursor-line = "hint"
 [editor.soft-wrap]
 enable = true
 
-# [editor.indent-guides]
-# render = true
+[editor.indent-guides]
+render = true
 
 # [editor.lsp]
 # display-inlay-hints = true

@@ -1,5 +1,6 @@
 git:
   overrideGpg: true
+  autoFetch: false
   branchLogCmd: git graph --color=always
   allBranchesLogCmds:
     - git graph --color=always --all
@@ -14,3 +15,8 @@ gui:
   border: single
   showPanelJumps: false
   statusPanelView: allBranchesLog
+
+  # Reduce CPU utilization in idle
+  animateExplosion: false
+  spinner:
+    rate: 120
