@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# TODO: notify when battery goes over 80% (to avoid overcharging)
+
 was_low=1 # non-zero means false
 
 while true; do

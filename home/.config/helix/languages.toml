@@ -17,6 +17,10 @@ formatter = { command = "clang-format", args = [
   "--style={BasedOnStyle: Microsoft, ColumnLimit: 0, IndentWidth: 4, AccessModifierOffset: -4, PointerAlignment: Left, BreakTemplateDeclarations: Yes, BreakAfterReturnType: All, AlignAfterOpenBracket: AlwaysBreak, BreakBeforeBinaryOperators: NonAssignment, AlignOperands: DontAlign, BinPackArguments: false}"
 ] }
 
+[[language]]
+name = "cmake"
+indent = { unit = "    ", tab-width = 4 }
+
 # https://github.com/razzmatazz/csharp-language-server
 [[language]]
 name = "c-sharp"

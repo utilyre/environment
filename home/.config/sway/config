@@ -82,8 +82,9 @@ exec swayidle -w \
     timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
     timeout 610 swaylock \
     before-sleep swaylock
-exec mkfifo -- "$WOB_PIPE" && tail -f -- "$WOB_PIPE" | wob
 exec swaynag-battery
+exec mkfifo -- "$WOB_PIPE" && tail -f -- "$WOB_PIPE" | wob
+exec wluma
 exec nm-applet
 
 assign [app_id=lf]                         workspace 6:7

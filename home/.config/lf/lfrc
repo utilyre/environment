@@ -13,13 +13,18 @@ set previewer lf-preview
 
 map <space> toggle
 map a push :create<space>
+map x delete
 
 cmd create %{{
-	file="$(realpath -m -- "$1")"
-	if [ "$(printf '%s' "$1" | tail -c1)" = / ]; then
-		mkdir -p -- "$file"
-	else
-		mkdir -p -- "$(dirname -- "$file")"
-		touch -- "$file"
-	fi
+	while [ "$#" -ne 0 ]; do
+		file="$(realpath -m -- "$1")"
+		if [ "$(printf '%s' "$1" | tail -c1)" = / ]; then
+			mkdir -p -- "$file"
+		else
+			mkdir -p -- "$(dirname -- "$file")"
+			touch -- "$file"
+		fi
+
+		shift
+	done
 }}

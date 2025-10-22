@@ -5,6 +5,7 @@ continue-comments = false
 completion-trigger-len = 1
 completion-timeout = 5
 rulers = [80, 100]
+indent-heuristic = "simple"
 # idle-timeout = 800 # https://github.com/helix-editor/helix/discussions/8196#discussioncomment-9050882
 
 [editor.cursor-shape]
