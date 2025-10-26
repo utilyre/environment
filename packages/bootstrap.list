@@ -1,0 +1,13 @@
+base
+base-devel
+cryptsetup
+efibootmgr
+grub
+intel-ucode
+linux
+linux-firmware
+lvm2
+man-db
+man-pages
+networkmanager
+vim
