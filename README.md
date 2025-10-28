@@ -23,5 +23,5 @@ make install
 
 ## Todo
 
-- GNOME Keyring stuff for GPG and SSH
+- GNOME Keyring stuff for GPG and SSH (https://wiki.archlinux.org/title/GNOME/Keyring)
 - Dark mode switching (https://wiki.archlinux.org/title/Dark_mode_switching#gsettings)

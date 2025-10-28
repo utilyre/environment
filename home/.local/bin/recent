@@ -1,16 +1,10 @@
 #!/bin/sh
 
 find \
-		"$(xdg-user-dir DESKTOP)" \
-		"$(xdg-user-dir DOWNLOAD)" \
-		"$(xdg-user-dir TEMPLATES)" \
-		"$(xdg-user-dir PUBLICSHARE)" \
-		"$(xdg-user-dir DOCUMENTS)" \
-		"$(xdg-user-dir MUSIC)" \
-		"$(xdg-user-dir PICTURES)" \
-		"$(xdg-user-dir VIDEOS)" \
+		"$HOME" \
+		-path "$HOME/.*" -prune -o \
+		-path "$HOME/Code" -prune -o \
 		-type f \
-		-name "${1:-"*"}" \
 		-printf '%T@\t%p\n' |
 	sort -nr |
 	cut -f2

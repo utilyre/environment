@@ -8,6 +8,7 @@ while true; do
 	case "$(swaymsg -t get_inputs | jq -r 'map(select(has("xkb_active_layout_name")))[0].xkb_active_layout_name')" in
 		"English (US)") keyboard=en ;;
 		"Persian") keyboard=fa ;;
+		"Greek") keyboard=gr ;;
 	esac
 
 	battery="$(cat /sys/class/power_supply/BAT0/capacity)%"

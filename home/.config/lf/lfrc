@@ -16,15 +16,11 @@ map a push :create<space>
 map x delete
 
 cmd create %{{
-	while [ "$#" -ne 0 ]; do
-		file="$(realpath -m -- "$1")"
-		if [ "$(printf '%s' "$1" | tail -c1)" = / ]; then
-			mkdir -p -- "$file"
-		else
-			mkdir -p -- "$(dirname -- "$file")"
-			touch -- "$file"
-		fi
-
-		shift
-	done
+	file="$(realpath -m -- "$*")"
+	if [ "$(printf '%s' "$*" | tail -c1)" = / ]; then
+		mkdir -p -- "$file"
+	else
+		mkdir -p -- "$(dirname -- "$file")"
+		touch -- "$file"
+	fi
 }}

@@ -5,7 +5,7 @@ output * bg "$XDG_DATA_HOME/backgrounds/current" fill
 input type:keyboard {
     repeat_delay 500
     repeat_rate 30
-    xkb_layout us,ir
+    xkb_layout us,ir,gr
 }
 input type:touchpad {
     dwt disabled
@@ -36,7 +36,6 @@ bindsym $mod+return exec bemenu-run -pRun
 bindsym --to-code $mod+l exec swaylock
 bindsym --to-code $mod+o exec recent-open
 bindsym --to-code $mod+k exec recent-drag
-bindsym --to-code $mod+p exec recent-extract
 bindsym print exec shoot-select
 bindsym shift+print exec shoot-screen
 bindsym alt+print exec shoot-scan
