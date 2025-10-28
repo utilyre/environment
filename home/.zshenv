@@ -30,9 +30,3 @@ export PATH="$XDG_DATA_HOME/JetBrains/Toolbox/scripts:$PATH"
 [ -d "$XDG_DATA_HOME/pnpm" ] && export PATH="$XDG_DATA_HOME/pnpm:$PATH"
 [ -d "$HOME/.cargo/bin" ] && export PATH="$HOME/.cargo/bin:$PATH"
 [ -f "$XDG_DATA_HOME/vulkansdk/default/setup-env.sh" ] && source "$XDG_DATA_HOME/vulkansdk/default/setup-env.sh"
-
-printf 'Would you like to launch Sway? [Y/n] '
-read -r yn
-if [ "$yn" = '' ] || [ "$yn" = Y ] || [ "$yn" = y ]; then
-	sway
-fi

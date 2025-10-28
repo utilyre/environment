@@ -81,7 +81,7 @@ exec swayidle -w \
     timeout 610 swaylock \
     before-sleep swaylock
 exec swaynag-battery
-exec mkfifo -- "$WOB_PIPE" && tail -f -- "$WOB_PIPE" | wob
+exec wob-launch
 exec nm-applet
 
 assign [app_id=lf] workspace 6:7
