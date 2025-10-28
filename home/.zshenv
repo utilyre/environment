@@ -10,7 +10,7 @@ export BEMENU_OPTS='-iwP> --single-instance --ifne --fixed-height --scrollbar=al
 export PASSWORD_STORE_GENERATED_LENGTH=64
 export PASSWORD_STORE_CHARACTER_SET='[:graph:]'
 
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/keyring/ssh"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export WOB_PIPE="$XDG_RUNTIME_DIR/wob.fifo"

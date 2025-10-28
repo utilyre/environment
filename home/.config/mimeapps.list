@@ -1,5 +1,5 @@
 [Default Applications]
-inode/directory=org.gnome.Nautilus.desktop
+inode/directory=lf.desktop
 
 application/rdf+xml=chromium-browser.desktop
 application/rss+xml=chromium-browser.desktop
@@ -11,7 +11,7 @@ text/xml=chromium-browser.desktop
 x-scheme-handler/http=chromium-browser.desktop
 x-scheme-handler/https=chromium-browser.desktop
 
-application/pdf=org.pwmt.zathura.desktop
+application/pdf=zathura.desktop
 
 image/avif=imv.desktop
 image/bmp=imv.desktop

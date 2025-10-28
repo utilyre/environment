@@ -28,7 +28,7 @@ bar {
 }
 
 focus_follows_mouse no
-for_window [all] floating enable
+# for_window [all] floating enable
 floating_modifier $mod normal
 
 bindsym $mod+backspace kill
