@@ -9,6 +9,7 @@ export GROFF_NO_SGR=1
 export BEMENU_OPTS='-iwP> --single-instance --ifne --fixed-height --scrollbar=always -H26 --cw=1 --ch=18'
 export PASSWORD_STORE_GENERATED_LENGTH=64
 export PASSWORD_STORE_CHARACTER_SET='[:graph:]'
+export ELECTRON_OZONE_PLATFORM_HINT=auto
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"

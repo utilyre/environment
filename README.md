@@ -20,3 +20,8 @@ make install
 ```
 
 [stow]: https://gnu.org/software/stow
+
+## Todo
+
+- GNOME Keyring stuff for GPG and SSH
+- Dark mode switching (https://wiki.archlinux.org/title/Dark_mode_switching#gsettings)

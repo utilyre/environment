@@ -28,7 +28,6 @@ bar {
 }
 
 focus_follows_mouse no
-# for_window [all] floating enable
 floating_modifier $mod normal
 
 bindsym $mod+backspace kill
@@ -86,19 +85,15 @@ exec swaynag-battery
 exec mkfifo -- "$WOB_PIPE" && tail -f -- "$WOB_PIPE" | wob
 exec nm-applet
 
-# assign [app_id=lf]                         workspace 6:7
-# assign [app_id=com.discordapp.Discord]     workspace 7:8
-# assign [app_id=chromium-browser]           workspace 8:9
-# assign [app_id=btop]                       workspace 9:0
-# for_window [app_id=lf]                     floating disable
-# for_window [app_id=com.discordapp.Discord] floating disable
-# for_window [app_id=chromium-browser]       floating disable
-# for_window [app_id=btop]                   floating disable
+assign [app_id=lf] workspace 6:7
+assign [app_id=discord] workspace 7:8
+assign [app_id=chromium] workspace 8:9
+assign [app_id=btop] workspace 9:0
 
-# exec foot -alf lf
-# exec foot -alf lf
-# exec discord
-# exec chromium-browser
-# exec foot -abtop btop
+exec foot -alf lf
+exec foot -alf lf
+exec discord
+exec chromium
+exec foot -abtop btop
 
 include /etc/sway/config.d/*
