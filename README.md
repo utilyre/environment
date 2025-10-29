@@ -1,25 +1,43 @@
-# Environment
+# environment
 
-Utilyre's composable Linux setup.
+This is a collection of dotfiles, package lists, and guides for setting up an
+Arch Linux instance that is desireable for me.
+
+## Features
+
+- Low resource utilization
+- Disk encryption
+- Dark mode
+- Laptop-friendly
 
 ## Installation
 
-> [!NOTE]
-> Make sure you have [`stow`][stow] installed on your system.
+To begin, [grab the latest Arch Linux ISO](https://archlinux.org/download/)
+and write it to a USB stick. Boot up your computer into the
+live image and generally follow the steps of [Installation
+Guide](https://wiki.archlinux.org/title/Installation_guide)
+in conjunction with a video tutorial, such as [this one from
+DenshiVideo](https://youtu.be/kXqk91R4RwU), as the official installation guide
+does not go very deep into some of the technologies needed for our final setup.
+It is also recommended to clone this repository in the live image to access some
+of its assets, especially [bootstrap.list](./packages/bootstrap.list).
 
-Clone the repository:
+Next, when you have successfully set Arch Linux up, clone this repository once
+again and install the packages listed inside [minimal.list](./packages/minimal).
+In addition, create symbolic links of the provided dotfiles by running `make
+install`.
 
-```bash
-git clone https://github.com/utilyre/environment.git ~/path/to/environment
-```
+## Beyond environment
 
-Create symbolic links of dotfiles:
+### Memory compression via ZRAM
 
-```bash
-make install
-```
+### Disk encryption via LVM2
 
-[stow]: https://gnu.org/software/stow
+### Smooth login experience
+
+### GNOME Keyring
+
+### Dark mode
 
 ## Todo
 
