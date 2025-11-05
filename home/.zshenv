@@ -9,7 +9,9 @@ export PATH="$HOME/.local/bin:$PATH"
 
 export EDITOR=helix
 export GROFF_NO_SGR=1
+export LESS="-FR -DdC* -Duc_"
 export BEMENU_OPTS='-iwP> --single-instance --ifne --fixed-height --scrollbar=always -H26 --cw=1 --ch=18'
+export LS_COLORS="no=0;37:fi=0;37:ex=0;32:so=0;35:do=0;35:pi=0;33:ln=0;36:or=0;31:mi=0;31:di=1;34:tw=1;32:ow=1;32:st=1;32:cd=1;33:bd=1;37"
 export PASSWORD_STORE_GENERATED_LENGTH=64
 export PASSWORD_STORE_CHARACTER_SET='[:graph:]'
 export ELECTRON_OZONE_PLATFORM_HINT=auto
@@ -20,7 +22,6 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export WOB_PIPE="$XDG_RUNTIME_DIR/wob.fifo"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/vault"
 export LF_CACHE="$XDG_CACHE_HOME/lf"
-
 export GIT_CONFIG_GLOBAL="$XDG_CONFIG_HOME/git/config.ini"
 export CPM_SOURCE_CACHE="$XDG_CACHE_HOME/cpm"
 export PATH="$XDG_DATA_HOME/JetBrains/Toolbox/scripts:$PATH"

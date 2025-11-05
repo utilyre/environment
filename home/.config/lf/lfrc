@@ -1,18 +1,18 @@
 set mouse true
 set ratios 1:1
 set drawbox true
-set roundbox true
 set scrolloff 5
 set dircounts true
-set info size
-set sortby time
-set reverse true
 set dirfirst false
 set incsearch true
 set previewer lf-preview
 
+setlocal ~/Downloads sortby time
+setlocal ~/Downloads reverse true
+
 map <space> toggle
 map a push :create<space>
+map F filter
 map x delete
 
 cmd create %{{

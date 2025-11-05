@@ -1,30 +1,31 @@
 [language-server.clangd]
-args = ["--header-insertion=never"]
+args = ["-j=4", "--header-insertion=never"]
 
 [[language]]
 name = "c"
-auto-format = true
 # https://clang.llvm.org/docs/ClangFormatStyleOptions.html
 formatter = { command = "clang-format", args = [
-  "--style={BasedOnStyle: Microsoft, ColumnLimit: 0, IndentWidth: 4, AccessModifierOffset: -4, PointerAlignment: Left, BreakTemplateDeclarations: Yes, BreakAfterReturnType: All, AlignAfterOpenBracket: AlwaysBreak, BreakBeforeBinaryOperators: NonAssignment, AlignOperands: DontAlign, BinPackArguments: false}"
+  "--style={BasedOnStyle: LLVM, ColumnLimit: 0, IndentWidth: 4, AccessModifierOffset: -4, IndentPPDirectives: AfterHash, BreakBeforeBraces: Allman, BreakAfterReturnType: All, BreakBeforeBinaryOperators: NonAssignment, AlignTrailingComments: Never, AlignEscapedNewlines: DontAlign, PointerAlignment: Left, AlignOperands: DontAlign}"
 ] }
 
 [[language]]
 name = "cpp"
-auto-format = true
 # https://clang.llvm.org/docs/ClangFormatStyleOptions.html
 formatter = { command = "clang-format", args = [
-  "--style={BasedOnStyle: Microsoft, ColumnLimit: 0, IndentWidth: 4, AccessModifierOffset: -4, PointerAlignment: Left, BreakTemplateDeclarations: Yes, BreakAfterReturnType: All, AlignAfterOpenBracket: AlwaysBreak, BreakBeforeBinaryOperators: NonAssignment, AlignOperands: DontAlign, BinPackArguments: false}"
+  "--style={BasedOnStyle: LLVM, ColumnLimit: 0, IndentWidth: 4, AccessModifierOffset: -4, IndentPPDirectives: AfterHash, BreakBeforeBraces: Allman, BreakAfterReturnType: All, BreakBeforeBinaryOperators: NonAssignment, AlignTrailingComments: Never, AlignEscapedNewlines: DontAlign, PointerAlignment: Left, AlignOperands: DontAlign}"
 ] }
 
 [[language]]
 name = "cmake"
 indent = { unit = "    ", tab-width = 4 }
 
+[[language]]
+name = "bash"
+indent = { unit = "\t", tab-width = 4 }
+
 # https://github.com/razzmatazz/csharp-language-server
 [[language]]
 name = "c-sharp"
-auto-format = true
 language-servers = ["csharp-ls"]
 
 # https://pkg.go.dev/golang.org/x/tools/cmd/goimports
