@@ -47,6 +47,9 @@ Further improvements:
 - Smooth login experience
   1. Skip grub menu (GRUB_TIMEOUT=0 in /etc/default/grub)
   2. Enable getty autologin (https://wiki.archlinux.org/title/Getty#Virtual_console)
+- power management through tlp
+  1. https://linrunner.de/tlp/support/optimizing.html#extend-battery-runtime
+  2. https://linrunner.de/tlp/faq/battery.html
 
 Guide:
 - What to install when bootstrapping arch and how to install the minimal package list
