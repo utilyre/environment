@@ -3,6 +3,7 @@ args = ["-j=4", "--header-insertion=never"]
 
 [[language]]
 name = "c"
+indent = { unit = "    ", tab-width = 4 }
 # https://clang.llvm.org/docs/ClangFormatStyleOptions.html
 formatter = { command = "clang-format", args = [
   "--style={BasedOnStyle: LLVM, ColumnLimit: 0, IndentWidth: 4, AccessModifierOffset: -4, IndentPPDirectives: AfterHash, BreakBeforeBraces: Allman, BreakAfterReturnType: All, BreakBeforeBinaryOperators: NonAssignment, AlignTrailingComments: Never, AlignEscapedNewlines: DontAlign, PointerAlignment: Left, AlignOperands: DontAlign}"
@@ -10,6 +11,7 @@ formatter = { command = "clang-format", args = [
 
 [[language]]
 name = "cpp"
+indent = { unit = "    ", tab-width = 4 }
 # https://clang.llvm.org/docs/ClangFormatStyleOptions.html
 formatter = { command = "clang-format", args = [
   "--style={BasedOnStyle: LLVM, ColumnLimit: 0, IndentWidth: 4, AccessModifierOffset: -4, IndentPPDirectives: AfterHash, BreakBeforeBraces: Allman, BreakAfterReturnType: All, BreakBeforeBinaryOperators: NonAssignment, AlignTrailingComments: Never, AlignEscapedNewlines: DontAlign, PointerAlignment: Left, AlignOperands: DontAlign}"

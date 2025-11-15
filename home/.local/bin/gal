@@ -11,7 +11,7 @@ if tmux new-session -dc "$path" -s "$name" 2> /dev/null; then
 fi
 
 if [ "$TMUX" ]; then
-	tmux switch-client -t "$name"
+	exec tmux switch-client -t "$name"
 else
-	tmux attach-session -t "$name"
+	exec tmux attach-session -t "$name"
 fi

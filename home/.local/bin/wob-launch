@@ -1,5 +1,9 @@
 #!/bin/sh
 
-[ ! -f "$WOB_PIPE" ] && mkfifo -- "$WOB_PIPE"
+set -e
+
+if [ ! -f "$WOB_PIPE" ]; then
+	mkfifo -- "$WOB_PIPE"
+fi
 
 tail -f -- "$WOB_PIPE" | wob

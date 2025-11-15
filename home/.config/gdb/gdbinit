@@ -1,8 +1,15 @@
+# do not ask to download debug info
 set debuginfod enabled off
-add-auto-load-safe-path .
 
-set print pretty on
+# make breakpoint pending on future shared library load
+set breakpoint pending on
+
+# improved printing experience
 set pagination off
+set print pretty on
+
+# load .gdbinit from current working directory
+add-auto-load-safe-path .
 
 # Quit GDB when the program exits successfully
 define hook-stop

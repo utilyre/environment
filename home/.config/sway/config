@@ -32,6 +32,7 @@ floating_modifier $mod normal
 
 bindsym $mod+backspace kill
 bindsym $mod+return exec bemenu-run -pRun
+bindsym --to-code $mod+m exec foot lf
 
 bindsym --to-code $mod+l exec swaylock
 bindsym --to-code $mod+o exec recent-open
@@ -84,14 +85,9 @@ exec swaynag-battery
 exec wob-launch
 exec nm-applet
 
-assign [app_id=lf] workspace 6:7
-assign [app_id=discord] workspace 7:8
 assign [app_id=chromium] workspace 8:9
 assign [app_id=btop] workspace 9:0
 
-exec foot -alf lf
-exec foot -alf lf
-# exec discord
 exec chromium
 exec foot -abtop btop
 
