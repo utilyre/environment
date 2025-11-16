@@ -48,7 +48,7 @@ zstyle ":completion:*" file-sort mtime
 zstyle ":completion:*" matcher-list "m:{[:lower:]}={[:upper:]}"
 zstyle ":completion:*" list-colors "$LS_COLORS"
 
-PROMPT="%F{%(?:2:1)}➜%f%(?:: %B%F{1}%?%f%b) %B%F{6}%c%f%b\$(gitprompt) "
+PROMPT="\$timeprompt%F{%(?:2:1)}➜%f%(?:: %B%F{1}%?%f%b) %B%F{6}%c%f%b\$(gitprompt) "
 PROMPT_EOL_MARK="%F{8}%f"
 ZSH_GIT_PROMPT_SHOW_STASH=1
 ZSH_GIT_PROMPT_SHOW_TRACKING_COUNTS=0
@@ -65,7 +65,22 @@ ZSH_THEME_GIT_PROMPT_UNSTAGED="%F{1}!"
 ZSH_THEME_GIT_PROMPT_STAGED="%F{2}+"
 ZSH_THEME_GIT_PROMPT_STASHED="%F{6}\$"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%F{3}="
-use woefe/git-prompt.zsh git-prompt.plugin.zsh
+timeprompt-preexec-hook() {
+	unset timeprompt
+	timeprompt_start="$(($(date +%s%N) / 1000000))"
+}
+timeprompt-precmd-hook() {
+	if [ "$timeprompt_start" ]; then
+		timeprompt_end="$(($(date +%s%N) / 1000000))"
+		timeprompt_took="$(($timeprompt_end - $timeprompt_start))"
+		if [ "$timeprompt_took" -ge 1000 ]; then
+			timeprompt="$(printf '%%F{8}%.2fs%%f ' "$(printf '%d / 1000\n' "$timeprompt_took" | bc -l)")"
+		fi
+		unset timeprompt_took timeprompt_end timeprompt_start
+	fi
+}
+preexec_functions+=(timeprompt-preexec-hook)
+precmd_functions+=(timeprompt-precmd-hook)
 substitute-prompt-and-accept-line() {
 	prev="$PROMPT"
 	PROMPT="%F{%(?:2:1)}%(!.#.\$)%f "
@@ -76,3 +91,4 @@ substitute-prompt-and-accept-line() {
 }
 zle -N substitute-prompt-and-accept-line
 bindkey ^M substitute-prompt-and-accept-line
+use woefe/git-prompt.zsh git-prompt.plugin.zsh
