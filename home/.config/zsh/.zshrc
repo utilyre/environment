@@ -28,16 +28,12 @@ alias open="xdg-open"
 stty -ixon
 bindkey -e
 
-setopt incappendhistory
-setopt histignorespace
-setopt histignorealldups
+setopt incappendhistory histignorespace histignorealldups
 HISTSIZE=100
 SAVEHIST=65535
 HISTFILE="$XDG_STATE_HOME/zshhst"
 
-setopt globcomplete
-setopt globdots
-setopt nolisttypes
+setopt globcomplete globdots nolisttypes
 FPATH="$ZDOTDIR/completions:$FPATH"
 use zsh-users/zsh-completions zsh-completions.plugin.zsh
 zmodload zsh/complist
