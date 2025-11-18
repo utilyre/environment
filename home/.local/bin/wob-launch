@@ -2,7 +2,8 @@
 
 set -e
 
-if [ ! -f "$WOB_PIPE" ]; then
+if [ ! -p "$WOB_PIPE" ]; then
+	rm -f -- "$WOB_PIPE"
 	mkfifo -- "$WOB_PIPE"
 fi
 
