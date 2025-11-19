@@ -1,9 +1,10 @@
+bc
 bemenu
 brightnessctl
 btop
 chafa
 chromium
-discord
+dragon-drop
 ffmpeg
 foot
 gdb
@@ -24,6 +25,11 @@ openssh
 pamixer
 pass
 pass-otp
+pipewire
+pipewire-alsa
+pipewire-audio
+pipewire-jack
+pipewire-pulse
 pulseaudio
 pulseaudio-alsa
 slurp
