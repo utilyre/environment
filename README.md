@@ -138,3 +138,8 @@ Specifics](https://linrunner.de/tlp/settings/bc-vendors). [^2]
 
 [^1]: https://linrunner.de/tlp/support/optimizing
 [^2]: https://linrunner.de/tlp/faq/battery
+
+## License
+
+This project is licensed under the [MIT License](./LICENSE), except for certain
+directories that include their own separate license files.
