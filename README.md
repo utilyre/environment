@@ -1,7 +1,7 @@
 # environment
 
 This is a collection of dotfiles, package lists, and guides for setting up an
-Arch Linux instance that is desireable for _me_.
+Arch Linux instance that is desireable for _my personal use_.
 
 ## Installation
 
@@ -120,6 +120,17 @@ Additionally, some hardware vendors provide the ability to set charge thresholds
 Inside `/etc/tlp.conf` find the entries for `START_CHARGE_THRESH_BAT0` and
 `STOP_CHARGE_THRESH_BAT0` and set them according to [Battery Care Vendor
 Specifics](https://linrunner.de/tlp/settings/bc-vendors). [^2]
+
+### Chromium Extensions
+
+- [uBlock Origin](https://ublockorigin.com): Free, open-source ad content blocker.
+
+- [Dark Reader](https://darkreader.org): Open-source browser extension that
+  creates dark themes for websites on the fly to reduce eye strain, especially
+  at night.
+
+- [GitHub Repo Size](https://github.com/AminoffZ/github-repo-size): An extension
+  to display the size of GitHub repositories.
 
 ## Todo
 
