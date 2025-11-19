@@ -60,7 +60,7 @@ Finally, add a swap entry to your fstab configuration to use zram as a swap
 device:
 
 ###### `/etc/fstab`
-```
+```fstab
 /dev/zram0 none swap defaults,discard,pri=100,x-systemd.makefs 0 0
 ```
 
@@ -80,7 +80,7 @@ configuration file.
 Optionally, enable getty autologin and skip the tty prompt entirely:
 
 ###### `/etc/systemd/system/getty@tty1.service.d/autologin.conf`
-```
+```systemd
 [Service]
 ExecStart=
 ExecStart=-/sbin/agetty --noreset --noclear --autologin <USERNAME> - ${TERM}
@@ -142,4 +142,5 @@ Specifics](https://linrunner.de/tlp/settings/bc-vendors). [^2]
 ## License
 
 This project is licensed under the [MIT License](./LICENSE), except for certain
-directories that include their own separate license files.
+directories that include their own separate license files, which take precedence
+for the contents they cover.
