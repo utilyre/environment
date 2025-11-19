@@ -26,7 +26,7 @@ addition, create symbolic links of the provided dotfiles by running `make
 install`.
 
 > [!TIP]
-> There exists other package lists as well inside the [packages](./packages)
+> There exist other package lists as well inside the [packages](./packages)
 > directory for more specialized needs.
 
 Finally, make sure to adhere to the [System
@@ -65,8 +65,9 @@ device:
 /dev/zram0 none swap defaults,discard,pri=100,x-systemd.makefs 0 0
 ```
 
-Please note that zram devices are not persistent block devices; therefore, they
-_cannot_ be specified with their corresponding UUIDs.
+> [!WARNING]
+> Please note that zram devices are not persistent block devices; therefore,
+> they _cannot_ be specified with their corresponding UUIDs.
 
 ### Smooth login
 
@@ -100,7 +101,7 @@ gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 ```
 
 > [!NOTE]
-> Applications should take effect instantly, if this was not the case, try
+> Applications should take effect instantly. If this was not the case, try
 > restarting them.
 
 ### GPG and SSH Agent
