@@ -17,15 +17,19 @@ and write it to a USB stick. Boot up your computer into the
 live image and generally follow the steps of the [Installation
 Guide](https://wiki.archlinux.org/title/Installation_guide)
 in conjunction with a video tutorial, such as [this one by
-DenshiVideo](https://youtu.be/kXqk91R4RwU), as the official guide
-does not go very deep into some of the technologies needed for our final setup.
-It is also recommended to clone this repository within your live image in order to access some
-of its assets, especially [bootstrap.list](./packages/bootstrap.list).
+DenshiVideo](https://youtu.be/kXqk91R4RwU), as the official guide does not go
+very deep into some of the technologies needed for our final setup. It is also
+recommended to clone this repository within your live image in order to access
+some of its assets, especially [bootstrap.list](./packages/bootstrap.list).
 
-Next, when you have successfully set Arch Linux up and have rebooted, clone this repository once
-again and install the packages listed inside [minimal.list](./packages/minimal.list).
-In addition, create symbolic links of the provided dotfiles by running `make
-install`.
+Next, when you have successfully set Arch Linux up and have rebooted,
+clone this repository once again and install the packages listed inside
+[minimal.list](./packages/minimal.list). In addition, create symbolic links of
+the provided dotfiles by running `make install`.
+
+Finally, adhere to the [System
+maintenance](https://wiki.archlinux.org/title/System_maintenance) guidelines to
+ensure having a stable and reliable system setup.
 
 ## Beyond environment
 
