@@ -30,8 +30,9 @@ install`.
 > directory for more specialized needs.
 
 Finally, make sure to adhere to the [System
-maintenance](https://wiki.archlinux.org/title/System_maintenance) guidelines in
-order to maintain a stable and reliable system setup.
+maintenance](https://wiki.archlinux.org/title/System_maintenance) guidelines
+and check `$XDG_STATE_HOME/sway.log` regularly in order to maintain a stable and
+reliable system setup.
 
 ## Further Improvements
 
@@ -164,15 +165,11 @@ Specifics](https://linrunner.de/tlp/settings/bc-vendors). [^2]
 - [GitHub Repo Size](https://github.com/AminoffZ/github-repo-size): An extension
   to display the size of GitHub repositories.
 
-## Todo
-
-- [ ] GNOME Keyring stuff for GPG and SSH (https://wiki.archlinux.org/title/GNOME/Keyring)
-
-[^1]: https://linrunner.de/tlp/support/optimizing
-[^2]: https://linrunner.de/tlp/faq/battery
-
 ## License
 
 This project is licensed under the [MIT License](./LICENSE), except for certain
 directories that include their own separate license files, which take precedence
 for the contents they cover.
+
+[^1]: https://linrunner.de/tlp/support/optimizing
+[^2]: https://linrunner.de/tlp/faq/battery
