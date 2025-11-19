@@ -42,14 +42,14 @@ follows.
 
 First, explicitly enable the module to be loaded at boot:
 
-###### /etc/modules-load.d/zram.conf
+###### `/etc/modules-load.d/zram.conf`
 ```
 zram
 ```
 
 Then, define a udev rule and adjust its `disksize` attribute to your preference:
 
-###### /etc/udev/rules.d/99-zram.rules
+###### `/etc/udev/rules.d/99-zram.rules`
 ```
 ACTION=="add", KERNEL=="zram0", ATTR{initstate}=="0", ATTR{comp_algorithm}="zstd", ATTR{disksize}="4G", TAG+="systemd"
 ```
@@ -57,7 +57,7 @@ ACTION=="add", KERNEL=="zram0", ATTR{initstate}=="0", ATTR{comp_algorithm}="zstd
 Finally, add a swap entry to your fstab configuration to use zram as a swap
 device:
 
-###### /etc/fstab
+###### `/etc/fstab`
 ```
 /dev/zram0 none swap defaults,discard,pri=100,x-systemd.makefs 0 0
 ```
