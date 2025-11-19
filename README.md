@@ -102,6 +102,38 @@ gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 > Applications should take effect instantly, if this was not the case, try
 > restarting them.
 
+### GPG and SSH Agent
+
+The only all-in-one, standalone solution that provides agents
+for both GPG and SSH keys is without a doubt the [GNOME
+Keyring](https://wiki.gnome.org/Projects/GnomeKeyring). It is a collection of
+components in GNOME that store secrets, passwords, keys, certificates and make
+them available to applications.
+
+To set it up, edit `/etc/pam.d/login` and add `auth optional
+pam_gnome_keyring.so` at the end of the auth section, in addition to `session
+optional pam_gnome_keyring.so auto_start` at the end of the `session` section:
+
+###### `/etc/pam.d/login`
+```pamconf
+#%PAM-1.0
+
+auth       requisite    pam_nologin.so
+auth       include      system-local-login
+auth       optional     pam_gnome_keyring.so
+account    include      system-local-login
+session    include      system-local-login
+session    optional     pam_gnome_keyring.so auto_start
+password   include      system-local-login
+```
+
+The SSH functionality is disabled by default. To enable it, run the following
+command with root privileges:
+
+```bash
+systemctl --user enable --now gcr-ssh-agent.socket
+```
+
 ### Battery Care
 
 If you are on a laptop and run out of battery frequently, use
