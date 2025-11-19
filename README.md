@@ -1,7 +1,7 @@
 # environment
 
 This is a collection of dotfiles, package lists, and guides for setting up an
-Arch Linux instance that is desireable for me.
+Arch Linux instance that is desireable for _me_.
 
 ## Features
 
@@ -12,18 +12,18 @@ Arch Linux instance that is desireable for me.
 
 ## Installation
 
-To begin, [grab the latest Arch Linux ISO](https://archlinux.org/download/)
+To begin, [grab the latest Arch Linux ISO](https://archlinux.org/download)
 and write it to a USB stick. Boot up your computer into the
 live image and generally follow the steps of [Installation
 Guide](https://wiki.archlinux.org/title/Installation_guide)
 in conjunction with a video tutorial, such as [this one from
 DenshiVideo](https://youtu.be/kXqk91R4RwU), as the official installation guide
 does not go very deep into some of the technologies needed for our final setup.
-It is also recommended to clone this repository in the live image to access some
+It is also recommended to clone this repository within your live image to access some
 of its assets, especially [bootstrap.list](./packages/bootstrap.list).
 
-Next, when you have successfully set Arch Linux up, clone this repository once
-again and install the packages listed inside [minimal.list](./packages/minimal).
+Next, when you have successfully set Arch Linux up and rebooted, clone this repository once
+again and install the packages listed inside [minimal.list](./packages/minimal.list).
 In addition, create symbolic links of the provided dotfiles by running `make
 install`.
 
