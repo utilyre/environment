@@ -109,6 +109,28 @@ gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 > Applications should take effect instantly, if this was not the case, try
 > restarting them.
 
+### Battery Care
+
+If you are on a laptop and run out of battery frequently, use
+[TLP](https://wiki.archlinux.org/title/TLP), a feature-rich command line utility
+for saving laptop battery power on Linux.
+
+You can extend your battery's runtime by leaning the performance policies of
+your CPU towards power-saving [^1].
+
+###### `/etc/tlp.conf`
+```
+CPU_ENERGY_PERF_POLICY_ON_BAT=power
+```
+
+Additionally, some hardware vendors provide the ability to set charge thresholds.
+Inside `/etc/tlp.conf` find the entries for `START_CHARGE_THRESH_BAT0` and
+`STOP_CHARGE_THRESH_BAT0` and set them according to [Battery Care Vendor
+Specifics](https://linrunner.de/tlp/settings/bc-vendors). [^2]
+
+[^1]: https://linrunner.de/tlp/support/optimizing
+[^2]: https://linrunner.de/tlp/faq/battery
+
 ### Disk encryption via LVM2
 
 ### Smooth login experience
