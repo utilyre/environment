@@ -111,7 +111,7 @@ components in GNOME that store secrets, passwords, keys, certificates and make
 them available to applications.
 
 To set it up, edit `/etc/pam.d/login` and add `auth optional
-pam_gnome_keyring.so` at the end of the auth section, in addition to `session
+pam_gnome_keyring.so` at the end of the `auth` section, in addition to `session
 optional pam_gnome_keyring.so auto_start` at the end of the `session` section:
 
 ###### `/etc/pam.d/login`
