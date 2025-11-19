@@ -16,8 +16,10 @@ imv
 jq
 lazygit
 lf
+moreutils
 mpv
 network-manager-applet
+ntfs-3g
 openssh
 pamixer
 pass

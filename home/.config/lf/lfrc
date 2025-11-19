@@ -1,6 +1,6 @@
 set mouse true
 set ratios 1:1
-set drawbox true
+# set drawbox true
 set scrolloff 5
 set dircounts true
 set dirfirst false
@@ -11,11 +11,14 @@ setlocal ~/Downloads sortby time
 setlocal ~/Downloads reverse true
 
 map <space> toggle
+map x delete
 map a push :create<space>
 map F filter
-map x delete
+map R bulk-rename
 
 cmd create %{{
+	set -e
+
 	file="$(realpath -m -- "$*")"
 	if [ "$(printf '%s' "$*" | tail -c1)" = / ]; then
 		mkdir -p -- "$file"
@@ -23,4 +26,11 @@ cmd create %{{
 		mkdir -p -- "$(dirname -- "$file")"
 		touch -- "$file"
 	fi
+}}
+
+cmd bulk-rename !{{
+	set -e
+
+	printf '%s\n' "$fx" | vidir -v -
+	lf -remote "send $id unselect"
 }}
