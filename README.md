@@ -76,13 +76,13 @@ Logging in to your system when you are not using a display manager could become
 quite cumbersome, especially if you have disk encryption set up.
 
 To address this, skip the GRUB menu shown at boot by setting the value of
-`GRUB_TIMEOUT` in `/etc/default/grub` to `0`. Once set, run `grub-mkconfig -o
-/boot/grub/grub.cfg` with root privileges to regenerate the main configuration
-file.
+`GRUB_TIMEOUT` in `/etc/default/grub` to `0`. Once set, run `grub-mkconfig
+-o /boot/grub/grub.cfg` with root privileges to regenerate the main GRUB
+configuration file.
 
 Optionally, enable getty autologin and skip the tty prompt entirely:
 
-###### /etc/systemd/system/getty@tty1.service.d/autologin.conf
+###### `/etc/systemd/system/getty@tty1.service.d/autologin.conf`
 ```
 [Service]
 ExecStart=
