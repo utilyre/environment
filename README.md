@@ -95,6 +95,20 @@ ExecStart=-/sbin/agetty --noreset --noclear --autologin <USERNAME> - ${TERM}
 
 Make sure to replace `<USERNAME>` with your own username.
 
+### Dark mode
+
+Switching to dark mode is pretty straight forward on Linux nowadays. All that
+needs to be done is to run the commands below:
+
+```bash
+gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+```
+
+> [!NOTE]
+> Applications should take effect instantly, if this was not the case, try
+> restarting them.
+
 ### Disk encryption via LVM2
 
 ### Smooth login experience
