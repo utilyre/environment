@@ -29,14 +29,41 @@ create symbolic links of the provided dotfiles by running `make install`.
 
 Finally, adhere to the [System
 maintenance](https://wiki.archlinux.org/title/System_maintenance) guidelines to
-ensure having a stable and reliable system setup.
+ensure a stable and reliable system setup.
 
 ## Further Improvements
 
 ### On-the-fly RAM compression
 
-[Enable zram kernel module at boot with a single udev rule and fstab
-entry](https://wiki.archlinux.org/title/Zram#Using_a_udev_rule).
+The [zram kernel module](https://docs.kernel.org/admin-guide/blockdev/zram.html)
+creates RAM-based block devices which can be used for swap or as a
+general-purpose RAM disk. The simplest way to use zram as a swap device is as
+follows.
+
+First, explicitly enable the module to be loaded at boot:
+
+###### /etc/modules-load.d/zram.conf
+```
+zram
+```
+
+Then, define a udev rule and adjust its `disksize` attribute to your preference:
+
+###### /etc/udev/rules.d/99-zram.rules
+```
+ACTION=="add", KERNEL=="zram0", ATTR{initstate}=="0", ATTR{comp_algorithm}="zstd", ATTR{disksize}="4G", TAG+="systemd"
+```
+
+Finally, add a swap entry to your fstab configuration to use zram as a swap
+device:
+
+###### /etc/fstab
+```
+/dev/zram0 none swap defaults,discard,pri=100,x-systemd.makefs 0 0
+```
+
+Please note that zram devices are not persistent block devices; therefore, they
+cannot be specified with their corresponding UUIDs.
 
 ### Disk encryption via LVM2
 
