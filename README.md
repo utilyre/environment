@@ -3,13 +3,6 @@
 This is a collection of dotfiles, package lists, and guides for setting up an
 Arch Linux instance that is desireable for _me_.
 
-## Features
-
-- Low resource utilization
-- Disk encryption
-- Dark mode
-- Laptop-friendly
-
 ## Installation
 
 To begin, grab the [latest Arch Linux ISO](https://archlinux.org/download)
@@ -112,11 +105,11 @@ gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 ### Battery Care
 
 If you are on a laptop and run out of battery frequently, use
-[TLP](https://wiki.archlinux.org/title/TLP), a feature-rich command line utility
+[TLP](https://wiki.archlinux.org/title/TLP), a feature-rich command-line utility
 for saving laptop battery power on Linux.
 
 You can extend your battery's runtime by leaning the performance policies of
-your CPU towards power-saving [^1].
+your CPU towards power-saving. [^1]
 
 ###### `/etc/tlp.conf`
 ```
@@ -128,29 +121,9 @@ Inside `/etc/tlp.conf` find the entries for `START_CHARGE_THRESH_BAT0` and
 `STOP_CHARGE_THRESH_BAT0` and set them according to [Battery Care Vendor
 Specifics](https://linrunner.de/tlp/settings/bc-vendors). [^2]
 
-[^1]: https://linrunner.de/tlp/support/optimizing
-[^2]: https://linrunner.de/tlp/faq/battery
-
-### Disk encryption via LVM2
-
-### Smooth login experience
-
-### GNOME Keyring
-
-### Dark mode
-
 ## Todo
 
-Further improvements:
-- disk encryption via lvm2
-- Smooth login experience
-  1. Skip grub menu (GRUB_TIMEOUT=0 in /etc/default/grub)
-  2. Enable getty autologin (https://wiki.archlinux.org/title/Getty#Virtual_console)
-- power management through tlp
-  1. https://linrunner.de/tlp/support/optimizing.html#extend-battery-runtime
-  2. https://linrunner.de/tlp/faq/battery.html
+- [ ] GNOME Keyring stuff for GPG and SSH (https://wiki.archlinux.org/title/GNOME/Keyring)
 
-Guide:
-- What to install when bootstrapping arch and how to install the minimal package list
-- GNOME Keyring stuff for GPG and SSH (https://wiki.archlinux.org/title/GNOME/Keyring)
-- Dark mode switching (https://wiki.archlinux.org/title/Dark_mode_switching#gsettings)
+[^1]: https://linrunner.de/tlp/support/optimizing
+[^2]: https://linrunner.de/tlp/faq/battery
