@@ -32,6 +32,10 @@ Then, clone this repository once again and install the packages listed inside
 addition, create symbolic links of the provided dotfiles by running `make
 install`.
 
+> [!TIP]
+> There exists other package lists as well inside the [packages](./packages)
+> directory for more specialized needs.
+
 Finally, make sure to adhere to the [System
 maintenance](https://wiki.archlinux.org/title/System_maintenance) guidelines in
 order to maintain a stable and reliable system setup.
