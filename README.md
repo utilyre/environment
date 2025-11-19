@@ -34,7 +34,7 @@ install`.
 
 Finally, make sure to adhere to the [System
 maintenance](https://wiki.archlinux.org/title/System_maintenance) guidelines in
-order to ensure a stable and reliable system setup.
+order to maintain a stable and reliable system setup.
 
 ## Further Improvements
 
@@ -70,6 +70,27 @@ device:
 Please note that zram devices are not persistent block devices; therefore, they
 _cannot_ be specified with their corresponding UUIDs.
 
+### Smooth login
+
+Logging in to your system when you are not using a display manager could become
+quite cumbersome, especially if you have disk encryption set up.
+
+To address this, skip the GRUB menu shown at boot by setting the value of
+`GRUB_TIMEOUT` in `/etc/default/grub` to `0`. Once set, run `grub-mkconfig -o
+/boot/grub/grub.cfg` with root privileges to regenerate the main configuration
+file.
+
+Optionally, enable getty autologin and skip the tty prompt entirely:
+
+###### /etc/systemd/system/getty@tty1.service.d/autologin.conf
+```
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty --noreset --noclear --autologin <USERNAME> - ${TERM}
+```
+
+Make sure to replace `<USERNAME>` with your own username.
+
 ### Disk encryption via LVM2
 
 ### Smooth login experience
@@ -81,7 +102,6 @@ _cannot_ be specified with their corresponding UUIDs.
 ## Todo
 
 Further improvements:
-- memory compression via zram (https://wiki.archlinux.org/title/Zram#Using_a_udev_rule)
 - disk encryption via lvm2
 - Smooth login experience
   1. Skip grub menu (GRUB_TIMEOUT=0 in /etc/default/grub)
