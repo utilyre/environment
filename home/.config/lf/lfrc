@@ -1,9 +1,7 @@
 set mouse true
 set ratios 1:1
-# set drawbox true
 set scrolloff 5
 set dircounts true
-set dirfirst false
 set incsearch true
 set previewer lf-preview
 

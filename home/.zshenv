@@ -8,17 +8,24 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export PATH="$HOME/.local/bin:$PATH"
 
 export EDITOR=helix
-export GROFF_NO_SGR=1
-export LESS="-FR -DdC* -Duc_"
+export LESS="-FRM -DdC* -Duc_"
 export BEMENU_OPTS='-iwP> --single-instance --ifne --fixed-height --scrollbar=always -H26 --cw=1 --ch=18'
 export LS_COLORS="no=0;37:fi=0;37:ex=0;32:so=0;35:do=0;35:pi=0;33:ln=0;36:or=0;31:mi=0;31:di=1;34:tw=1;32:ow=1;32:st=1;32:cd=1;33:bd=1;37"
+
+# Make sure man pages have color on some distributions like Fedora
+export GROFF_NO_SGR=1
+
 export PASSWORD_STORE_GENERATED_LENGTH=64
 export PASSWORD_STORE_CHARACTER_SET='[:graph:]'
+
+# Run electron applications on Wayland
 export ELECTRON_OZONE_PLATFORM_HINT=auto
+
+# Change home of zsh, causes this file to be sources exactly once per login
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export WOB_PIPE="$XDG_RUNTIME_DIR/wob.fifo"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/vault"
 export LF_CACHE="$XDG_CACHE_HOME/lf"

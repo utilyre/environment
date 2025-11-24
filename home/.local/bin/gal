@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 path="$(realpath -- "${1:-"$PWD"}")"
 name="$(printf '%s' "${2:-"$(basename -- "$path")"}" | tr -c '[:alnum:]_-' '_')"
 

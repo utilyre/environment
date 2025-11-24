@@ -8,9 +8,6 @@ rulers = [80, 100]
 indent-heuristic = "simple"
 # idle-timeout = 800 # https://github.com/helix-editor/helix/discussions/8196#discussioncomment-9050882
 
-[editor.cursor-shape]
-insert = "bar"
-
 [editor.statusline]
 left = [
   "spinner",
@@ -53,6 +50,9 @@ render = true
 [editor.smart-tab]
 enable = false
 
+# [editor.cursor-shape]
+# insert = "bar"
+
 # [editor.lsp]
 # display-inlay-hints = true
 
@@ -83,4 +83,5 @@ enable = false
 "A-L" = "@*N"
 
 [keys.normal.space.x]
-t = "@gslle\"tyeb\"iy] j\"iPa.sType = VK_STRUCTURE_TYPE<esc>\"tps[A-Z0-9]<ret>i_<esc>e<A-`>a;<esc>x=gh"
+# Vulkan sType field filler
+t = "@gse\"tyeb\"iyo<esc>\"i<S-P>a.s<S-T>ype<space>=<space><esc>\"tpa;<esc><A-b>i_<esc>b<A-e>dt_s[<S-A><minus><S-Z>]<ret>i_<esc>,hi<S-V><S-K>_<S-S><S-T><S-R><S-U><S-C><S-T><S-U><S-R><S-E>_<S-T><S-Y><S-P><S-E><esc>e<A-`>k"
