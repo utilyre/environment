@@ -3,6 +3,8 @@
 This is a collection of dotfiles, package lists, and guides for setting up an
 Arch Linux instance that is desireable for _my personal use_.
 
+![Screenshot taken on a system with environment set up](./screenshot.png)
+
 ## Installation
 
 To begin, grab the [latest Arch Linux ISO](https://archlinux.org/download)
