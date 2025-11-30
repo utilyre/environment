@@ -33,6 +33,8 @@ floating_modifier $mod normal
 bindsym $mod+backspace kill
 bindsym $mod+return exec bemenu-run -pRun
 bindsym --to-code $mod+m exec foot lf
+bindsym --to-code $mod+backslash exec foot -abc bc -l
+for_window [app_id=bc] floating enable
 
 bindsym --to-code $mod+l exec swaylock
 bindsym --to-code $mod+o exec recent-open
@@ -86,9 +88,9 @@ exec wob-launch
 exec nm-applet
 
 assign [app_id=chromium] workspace 8:9
-assign [app_id=btop] workspace 9:0
-
 exec chromium
+
+assign [app_id=btop] workspace 9:0
 exec foot -abtop btop
 
 include /etc/sway/config.d/*

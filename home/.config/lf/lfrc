@@ -29,6 +29,6 @@ cmd create %{{
 cmd bulk-rename !{{
 	set -e
 
-	printf '%s\n' "$fx" | vidir -v -
+	printf '%s\n' "$fx" | xargs -d '\n' realpath -s --relative-to="$PWD" | vidir -v -
 	lf -remote "send $id unselect"
 }}
