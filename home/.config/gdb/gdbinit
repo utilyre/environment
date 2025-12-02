@@ -13,7 +13,9 @@ add-auto-load-safe-path .
 
 # Quit GDB when the program exits successfully
 define hook-stop
-  if $_gthread == 0 && $_exitcode == 0
-    quit
-  end
+	if !$_isvoid($_exitcode)
+		if $_exitcode == 0
+			quit
+		end
+	end
 end
