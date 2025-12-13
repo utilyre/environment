@@ -2,6 +2,10 @@
 args = ["-j=4", "--header-insertion=never"]
 
 [[language]]
+name = "nasm"
+indent = { unit = "    ", tab-width = 4 }
+
+[[language]]
 name = "c"
 indent = { unit = "    ", tab-width = 4 }
 # https://clang.llvm.org/docs/ClangFormatStyleOptions.html
