@@ -5,7 +5,7 @@ output * bg "$XDG_DATA_HOME/backgrounds/current" fill
 input type:keyboard {
     repeat_delay 500
     repeat_rate 30
-    xkb_layout us,ir,gr
+    xkb_layout us,ir
 }
 input type:touchpad {
     # dwt disabled
@@ -31,9 +31,8 @@ floating_modifier $mod normal
 
 bindsym $mod+backspace kill
 bindsym $mod+return exec bemenu-run -pRun
+bindsym --to-code $mod+backslash exec foot
 bindsym --to-code $mod+m exec foot lf
-bindsym --to-code $mod+backslash exec foot -abc bc -l
-for_window [app_id=bc] floating enable
 
 bindsym --to-code $mod+l exec swaylock
 bindsym --to-code $mod+o exec recent-open
