@@ -25,6 +25,7 @@ openssh
 pamixer
 pass
 pass-otp
+perl-file-mimeinfo
 pipewire
 pipewire-alsa
 pipewire-audio
