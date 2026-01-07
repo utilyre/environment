@@ -161,6 +161,9 @@ Specifics](https://linrunner.de/tlp/settings/bc-vendors). [^2]
 
 - [uBlock Origin](https://ublockorigin.com): Free, open-source ad content blocker.
 
+- [OptMeowt](https://github.com/privacy-tech-lab/gpc-optmeowt): Privacy browser
+  extension for opting out from web tracking via GPC.
+
 - [Dark Reader](https://darkreader.org): Open-source browser extension that
   creates dark themes for websites on the fly to reduce eye strain, especially
   at night.
