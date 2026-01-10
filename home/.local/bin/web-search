@@ -34,7 +34,7 @@ case "$engine" in
 		;;
 esac
 
-if ! query="$(printf '' | bemenu -pQuery)" || [ -z "$query" ]; then
+if ! query="$(printf '' | bemenu -p "$engine")" || [ -z "$query" ]; then
 	printf 'web-search: no query provided\n' 2>/dev/null
 	exit 1
 fi

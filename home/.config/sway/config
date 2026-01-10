@@ -86,10 +86,9 @@ exec swaynag-battery
 exec wob-launch
 exec nm-applet
 
-assign [app_id=chromium] workspace 8:9
-exec chromium
-
 assign [app_id=btop] workspace 9:0
 exec foot -abtop btop
+
+assign [app_id=chromium] workspace 8:9
 
 include /etc/sway/config.d/*
