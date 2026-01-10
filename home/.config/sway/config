@@ -37,6 +37,7 @@ bindsym --to-code $mod+m exec foot lf
 bindsym --to-code $mod+l exec swaylock
 bindsym --to-code $mod+o exec recent-open
 bindsym --to-code $mod+k exec recent-drag
+bindsym --to-code $mod+g exec web-search
 bindsym print exec shoot-select
 bindsym shift+print exec shoot-screen
 bindsym alt+print exec shoot-scan

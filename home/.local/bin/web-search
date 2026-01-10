@@ -1,0 +1,42 @@
+#!/bin/sh
+
+if ! engine="$(printf '%s\n' \
+	'Google Search' \
+	'Google Scholar' \
+	'Google Map' \
+	'YouTube Videos' \
+	'LinkedIn People' \
+	'LinkedIn Jobs' \
+	'LinkedIn Posts' \
+	'LinkedIn Companies' \
+	'LinkedIn Schools' \
+	'GitHub Repositories' \
+	'GitHub Users' | bemenu -l8 -pEngine)"; then
+	printf 'web-search: no engine selected\n' 2>/dev/null
+	exit 1
+fi
+
+case "$engine" in
+	'Google Search') url="https://google.com/search?q=" ;;
+	'Google Scholar') url="https://scholar.google.com/scholar?q=" ;;
+	'Google Map') url="https://google.com/maps/search/" ;;
+	'YouTube Videos') url="https://youtube.com/results?search_query=" ;;
+	'LinkedIn People') url="https://linkedin.com/search/results/people?keywords=" ;;
+	'LinkedIn Jobs') url="https://linkedin.com/jobs/search?keywords=" ;;
+	'LinkedIn Posts') url="https://linkedin.com/search/results/content?keywords=" ;;
+	'LinkedIn Companies') url="https://linkedin.com/search/results/companies?keywords=" ;;
+	'LinkedIn Schools') url="https://linkedin.com/search/results/schools?keywords=" ;;
+	'GitHub Repositories') url="https://github.com/search?type=repositories&q=" ;;
+	'GitHub Users') url="https://github.com/search?type=users&q=" ;;
+	*)
+		printf 'web-search: selected engine not on list\n' 2>/dev/null
+		exit 1
+		;;
+esac
+
+if ! query="$(printf '' | bemenu -pQuery)" || [ -z "$query" ]; then
+	printf 'web-search: no query provided\n' 2>/dev/null
+	exit 1
+fi
+
+xdg-open "$url$(printf '%s' "$query" | jq -Rsr @uri)"
