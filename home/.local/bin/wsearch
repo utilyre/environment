@@ -2,6 +2,7 @@
 
 if ! engine="$(printf '%s\n' \
 	'Google Search' \
+	'Google Translate' \
 	'Google Scholar' \
 	'Google Map' \
 	'YouTube Videos' \
@@ -19,6 +20,7 @@ fi
 
 case "$engine" in
 	'Google Search') url='https://google.com/search?q=' ;;
+	'Google Translate') url='https://translate.google.com?op=translate&text=' ;;
 	'Google Scholar') url='https://scholar.google.com/scholar?q=' ;;
 	'Google Map') url='https://google.com/maps/search/' ;;
 	'YouTube Videos') url='https://youtube.com/results?search_query=' ;;

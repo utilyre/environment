@@ -1,0 +1,8 @@
+{
+    "window.restoreWindows": "none",
+    "workbench.startupEditor": "none",
+    "workbench.sideBar.location": "right",
+    "editor.wordWrap": "on",
+    "telemetry.telemetryLevel": "off",
+    "chat.disableAIFeatures": true
+}
