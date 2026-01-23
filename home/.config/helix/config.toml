@@ -1,4 +1,4 @@
-theme = "gruvbox_custom"
+theme = "custom"
 
 [editor]
 continue-comments = false
@@ -50,8 +50,8 @@ render = true
 [editor.smart-tab]
 enable = false
 
-# [editor.cursor-shape]
-# insert = "bar"
+[editor.cursor-shape]
+insert = "bar"
 
 # [editor.lsp]
 # display-inlay-hints = true
@@ -65,11 +65,7 @@ enable = false
 "A-b" = "move_prev_sub_word_start"
 "A-e" = "move_next_sub_word_end"
 "A-l" = "@*vnv"
-"A-L" = "@*vNv"
-
-[keys.insert]
-"C-y" = "scroll_up"
-"C-e" = "scroll_down"
+"A-S-l" = "@*vNv"
 
 [keys.select]
 "{" = "goto_prev_paragraph"
@@ -80,7 +76,11 @@ enable = false
 "A-b" = "extend_prev_sub_word_start"
 "A-e" = "extend_next_sub_word_end"
 "A-l" = "@*n"
-"A-L" = "@*N"
+"A-S-l" = "@*N"
+
+[keys.insert]
+"C-y" = "scroll_up"
+"C-e" = "scroll_down"
 
 [keys.normal.space.x]
 # Vulkan sType field filler
