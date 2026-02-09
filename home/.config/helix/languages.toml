@@ -1,5 +1,5 @@
 [language-server.clangd]
-args = ["-j=4", "--header-insertion=never"]
+args = ["-j=4", "--function-arg-placeholders=0", "--header-insertion=never"]
 
 [[language]]
 name = "nasm"

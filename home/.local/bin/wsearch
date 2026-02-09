@@ -13,6 +13,7 @@ if ! engine="$(printf '%s\n' \
 	'LinkedIn Schools' \
 	'GitHub Repositories' \
 	'GitHub Users' \
+	'Wikipedia' \
 	'ArchWiki' | bemenu -pEngine)"; then
 	printf 'wsearch: no engine selected\n' 2>/dev/null
 	exit 1
@@ -31,6 +32,7 @@ case "$engine" in
 	'LinkedIn Schools') url='https://linkedin.com/search/results/schools?keywords=' ;;
 	'GitHub Repositories') url='https://github.com/search?type=repositories&q=' ;;
 	'GitHub Users') url='https://github.com/search?type=users&q=' ;;
+	'Wikipedia') url='https://en.wikipedia.org/wiki/Special:Search?search=' ;;
 	'ArchWiki') url='https://wiki.archlinux.org/index.php?search=' ;;
 	*)
 		printf 'wsearch: selected engine not on list\n' 2>/dev/null

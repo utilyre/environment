@@ -3,6 +3,7 @@
     "workbench.startupEditor": "none",
     "workbench.sideBar.location": "right",
     "editor.wordWrap": "on",
+    "explorer.confirmDelete": false,
     "telemetry.telemetryLevel": "off",
     "chat.disableAIFeatures": true
 }
