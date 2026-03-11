@@ -14,7 +14,7 @@ if ! engine="$(printf '%s\n' \
 	'GitHub Repositories' \
 	'GitHub Users' \
 	'Wikipedia' \
-	'ArchWiki' | bemenu -pEngine)"; then
+	'ArchWiki' | bemenu -pengine)"; then
 	printf 'wsearch: no engine selected\n' 2>/dev/null
 	exit 1
 fi

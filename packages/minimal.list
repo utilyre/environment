@@ -44,7 +44,9 @@ tesseract
 tmux
 wl-clipboard
 wob
+xdg-desktop-portal
 xdg-desktop-portal-gtk
+xdg-desktop-portal-wlr
 xdg-user-dirs
 xorg-xwayland
 zbar

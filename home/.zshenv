@@ -7,6 +7,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export PATH="$HOME/.local/bin:$PATH"
 
+export XDG_CURRENT_DESKTOP=sway
 export EDITOR=helix
 export LESS="-FRM -DdC* -Duc_"
 export BEMENU_OPTS='-ibwP> --single-instance --fixed-height --scrollbar=always -H26 --ch=18'

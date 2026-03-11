@@ -16,7 +16,7 @@ while true; do
 		battery="^$battery"
 	fi
 
-	datetime="$(date +'%a %-d %b %H:%M')"
+	datetime="$(date +'%a %-d %B %H:%M' | tr '[:upper:]' '[:lower:]')"
 
 	printf '%s    %s    %s   \n' "$keyboard" "$battery" "$datetime"
 

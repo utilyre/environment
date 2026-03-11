@@ -2,8 +2,9 @@
     "window.restoreWindows": "none",
     "workbench.startupEditor": "none",
     "workbench.sideBar.location": "right",
+    "workbench.remoteIndicator.showExtensionRecommendations": false,
     "editor.wordWrap": "on",
     "explorer.confirmDelete": false,
     "telemetry.telemetryLevel": "off",
-    "chat.disableAIFeatures": true
+    "chat.disableAIFeatures": true,
 }

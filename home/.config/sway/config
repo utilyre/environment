@@ -30,7 +30,7 @@ focus_follows_mouse no
 floating_modifier $mod normal
 
 bindsym $mod+backspace kill
-bindsym $mod+return exec bemenu-run -pRun
+bindsym $mod+return exec bemenu-run -prun
 bindsym --to-code $mod+backslash exec foot
 bindsym --to-code $mod+m exec foot lf
 

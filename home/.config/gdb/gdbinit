@@ -7,6 +7,7 @@ set breakpoint pending on
 # improved printing experience
 set pagination off
 set print pretty on
+set print array-indexes on
 
 # load .gdbinit from current working directory
 add-auto-load-safe-path .
