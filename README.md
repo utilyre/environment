@@ -17,9 +17,17 @@ very deep into some of the technologies needed for our final setup. It is also
 recommended to clone this repository within your live image in order to access
 some of its assets, especially [bootstrap.list](./packages/bootstrap.list).
 
-Next, when you have successfully set Arch Linux up and have rebooted, install
-an [AUR helper](https://wiki.archlinux.org/title/AUR_helpers) as the required
-minimal package list of this repository may contain packages from the [Arch User
+Next, when you have successfully set Arch Linux up and have rebooted, configure
+an SNTP client to periodically synchronize system clock. One such client is
+systemd-timesyncd which can be enabled by running this command as root:
+
+```bash
+timedatectl set-ntp true
+```
+
+Once that is done, install an [AUR
+helper](https://wiki.archlinux.org/title/AUR_helpers) as the required minimal
+package list of this repository may contain packages from the [Arch User
 Repository](https://aur.archlinux.org).
 
 Then, clone this repository once again and install the packages listed inside
@@ -38,7 +46,7 @@ reliable system setup.
 
 ## Further Improvements
 
-### On-the-fly RAM compression
+### On-the-Fly RAM Compression
 
 The [zram kernel module](https://docs.kernel.org/admin-guide/blockdev/zram.html)
 creates RAM-based block devices which can be used for swap or as a
@@ -71,7 +79,7 @@ device:
 > Please note that zram devices are not persistent block devices; therefore,
 > they _cannot_ be specified with their corresponding UUIDs.
 
-### Smooth login
+### Smooth Login
 
 Logging in to your system when you are not using a display manager could become
 quite cumbersome, especially if you have disk encryption set up.
@@ -92,7 +100,7 @@ ExecStart=-/sbin/agetty --noreset --noclear --autologin <USERNAME> - ${TERM}
 
 Make sure to replace `<USERNAME>` with your own username.
 
-### Dark mode
+### Dark Mode
 
 Switching to dark mode is pretty straight forward on Linux nowadays. All that
 needs to be done is to run the commands below:
