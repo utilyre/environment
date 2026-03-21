@@ -1,7 +1,7 @@
 #!/bin/sh
 
-mkdir -p -- "$(xdg-user-dir PICTURES)"
+mkdir -p -- "$(xdg-user-dir CAPTURES)"
 
 grim -c - |
-	tee -- "$(xdg-user-dir PICTURES)/screenshot_$(date +%Y%m%d_%H%M%S).png" |
+	tee -- "$(xdg-user-dir CAPTURES)/$(date +%Y%m%d_%H%M%S)_screenshot.png" |
 	wl-copy
