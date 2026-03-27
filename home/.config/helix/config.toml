@@ -8,6 +8,11 @@ rulers = [80, 100]
 indent-heuristic = "simple"
 # idle-timeout = 800 # https://github.com/helix-editor/helix/discussions/8196#discussioncomment-9050882
 
+[editor.auto-save]
+focus-lost = true
+after-delay.enable = true
+after-delay.timeout = 1000
+
 [editor.statusline]
 left = [
   "spinner",
@@ -66,6 +71,7 @@ insert = "bar"
 "A-e" = "move_next_sub_word_end"
 "A-l" = "@*vnv"
 "A-S-l" = "@*vNv"
+"A-S-i" = ":fmt"
 
 [keys.select]
 "{" = "goto_prev_paragraph"
@@ -77,10 +83,12 @@ insert = "bar"
 "A-e" = "extend_next_sub_word_end"
 "A-l" = "@*n"
 "A-S-l" = "@*N"
+"A-S-i" = ":fmt"
 
 [keys.insert]
 "C-y" = "scroll_up"
 "C-e" = "scroll_down"
+"A-S-i" = ":fmt"
 
 [keys.normal.space.x]
 # Vulkan sType field filler
