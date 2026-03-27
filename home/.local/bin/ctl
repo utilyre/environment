@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 error() {
   printf 'ctl: %s\n' "$1"
@@ -7,7 +8,8 @@ error() {
 
 device=volume
 
-while [ $# -gt 0 ]; do
+while [ $# -gt 0 ]
+do
   case "$1" in
     -v|--volume)
       device=volume
@@ -28,7 +30,8 @@ while [ $# -gt 0 ]; do
   esac
 done
 
-if [ $# -eq 0 ]; then
+if [ $# -eq 0 ]
+then
   error 'not enough arguments'
 fi
 
@@ -39,7 +42,8 @@ case "$device" in
       down) pamixer -d5 ;;
       up) pamixer -i5 ;;
     esac
-    if [ "$(pamixer --get-mute)" = 'true' ]; then
+    if [ "$(pamixer --get-mute)" = 'true' ]
+    then
       echo 0 > "$WOB_PIPE"
     else
       pamixer --get-volume > "$WOB_PIPE"

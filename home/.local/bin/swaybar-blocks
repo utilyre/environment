@@ -1,26 +1,28 @@
 #!/bin/sh
+set -e
 
 # ignore USR1 signals
 trap : USR1
 
-while true; do
+while true
+do
 	keyboard=none
 	case "$(swaymsg -t get_inputs | jq -r 'map(select(has("xkb_active_layout_name")))[0].xkb_active_layout_name')" in
 		"English (US)") keyboard=en ;;
 		"Persian") keyboard=fa ;;
-		"Greek") keyboard=gr ;;
 	esac
 
 	battery="$(cat /sys/class/power_supply/BAT0/capacity)%"
-	if [ "$(cat /sys/class/power_supply/BAT0/status)" = Charging ]; then
+	if [ "$(cat /sys/class/power_supply/BAT0/status)" = Charging ]
+	then
 		battery="^$battery"
 	fi
 
-	datetime="$(date +'%a %-d %B %H:%M' | tr '[:upper:]' '[:lower:]')"
+	datetime="$(date +'%a %-d %B %H:%M')"
 
 	printf '%s    %s    %s   \n' "$keyboard" "$battery" "$datetime"
 
 	sleep 10 &
-	# an ignored USR1 signal stops the wait
-	wait -- "$!"
+	# an ignored USR1 signal interupts wait
+	wait -- "$!" || true
 done

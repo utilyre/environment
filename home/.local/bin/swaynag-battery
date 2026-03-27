@@ -1,16 +1,17 @@
 #!/bin/sh
-
-# TODO: notify when battery goes over 80% (to avoid overcharging)
+set -e
 
 was_low=1 # non-zero means false
 
-while true; do
+while true
+do
 	capacity="$(cat /sys/class/power_supply/BAT0/capacity)"
 
-	[ "$capacity" -le 20 ]
+	test "$capacity" -le 20
 	is_low="$?"
 
-	if [ "$is_low" -eq 0 ] && [ "$was_low" -ne 0 ]; then
+	if [ "$is_low" -eq 0 ] && [ "$was_low" -ne 0 ]
+	then
 		swaynag -twarning -m "Battery low ($capacity%)"
 	fi
 

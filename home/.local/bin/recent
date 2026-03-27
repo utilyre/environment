@@ -1,9 +1,10 @@
 #!/bin/sh
+set -e
 
 find \
 		"$HOME" \
-		-path "$HOME/.*" -prune -o \
-		-path "$HOME/Code" -prune -o \
+		-name ".*" -prune -o \
+		-path "$(xdg-user-dir CODE)" -prune -o \
 		-type f \
 		-printf '%T@\t%p\n' |
 	sort -nr |

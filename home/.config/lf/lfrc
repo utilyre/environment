@@ -3,6 +3,7 @@ set ratios 1:1
 set scrolloff 5
 set dircounts true
 set incsearch true
+set preload true
 set previewer lf-preview
 
 setlocal ~/Downloads sortby time
@@ -18,7 +19,8 @@ cmd create %{{
 	set -e
 
 	file="$(realpath -m -- "$*")"
-	if [ "$(printf '%s' "$*" | tail -c1)" = / ]; then
+	if [ "$(printf '%s' "$*" | tail -c1)" = / ]
+	then
 		mkdir -p -- "$file"
 	else
 		mkdir -p -- "$(dirname -- "$file")"

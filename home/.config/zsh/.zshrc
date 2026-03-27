@@ -66,10 +66,12 @@ timeprompt-preexec-hook() {
 	timeprompt_start="$(($(date +%s%N) / 1000000))"
 }
 timeprompt-precmd-hook() {
-	if [ "$timeprompt_start" ]; then
+	if [ "$timeprompt_start" ]
+	then
 		timeprompt_end="$(($(date +%s%N) / 1000000))"
 		timeprompt_took="$(($timeprompt_end - $timeprompt_start))"
-		if [ "$timeprompt_took" -ge 1000 ]; then
+		if [ "$timeprompt_took" -ge 1000 ]
+		then
 			timeprompt="$(printf '%%F{8}%.2fs%%f ' "$(printf '%d / 1000\n' "$timeprompt_took" | bc -l)")"
 		fi
 		unset timeprompt_took timeprompt_end timeprompt_start
