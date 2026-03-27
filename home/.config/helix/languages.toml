@@ -2,15 +2,11 @@
 args = ["-j=4", "--function-arg-placeholders=0", "--header-insertion=never"]
 
 [[language]]
-name = "nasm"
-indent = { unit = "    ", tab-width = 4 }
-
-[[language]]
 name = "c"
 indent = { unit = "    ", tab-width = 4 }
 # https://clang.llvm.org/docs/ClangFormatStyleOptions.html
 formatter = { command = "clang-format", args = [
-  "--style={BasedOnStyle: LLVM, ColumnLimit: 0, IndentWidth: 4, AccessModifierOffset: -4, IndentPPDirectives: AfterHash, BreakBeforeBraces: Allman, BreakAfterReturnType: All, BreakBeforeBinaryOperators: NonAssignment, AlignTrailingComments: Never, AlignEscapedNewlines: DontAlign, PointerAlignment: Left, AlignOperands: DontAlign}"
+  "--style={BasedOnStyle: LLVM, ColumnLimit: 0, IndentWidth: 4, IndentPPDirectives: AfterHash, BreakBeforeBraces: Allman, BreakAfterReturnType: All, BreakBeforeBinaryOperators: NonAssignment, AlignTrailingComments: Never, AlignEscapedNewlines: DontAlign, PointerAlignment: Left, AlignOperands: DontAlign}"
 ] }
 
 [[language]]
@@ -20,6 +16,10 @@ indent = { unit = "    ", tab-width = 4 }
 formatter = { command = "clang-format", args = [
   "--style={BasedOnStyle: LLVM, ColumnLimit: 0, IndentWidth: 4, AccessModifierOffset: -4, IndentPPDirectives: AfterHash, BreakBeforeBraces: Allman, BreakAfterReturnType: All, BreakBeforeBinaryOperators: NonAssignment, AlignTrailingComments: Never, AlignEscapedNewlines: DontAlign, PointerAlignment: Left, AlignOperands: DontAlign}"
 ] }
+
+[[language]]
+name = "nasm"
+indent = { unit = "    ", tab-width = 4 }
 
 [[language]]
 name = "cmake"
@@ -34,11 +34,6 @@ indent = { unit = "\t", tab-width = 4 }
 name = "c-sharp"
 language-servers = ["csharp-ls"]
 
-# https://pkg.go.dev/golang.org/x/tools/cmd/goimports
-[[language]]
-name = "go"
-formatter = { command = "goimports" }
-
 # https://github.com/helix-editor/helix/issues/13501#issuecomment-2867283731
 [language-server.golangci-lint-lsp.config]
 command = [
@@ -48,19 +43,7 @@ command = [
   "--show-stats=false",
   "--issues-exit-code=1",
 ]
-
+# https://pkg.go.dev/golang.org/x/tools/cmd/goimports
 [[language]]
-name = "html"
-auto-format = false
-
-[[language]]
-name = "css"
-auto-format = false
-
-[[language]]
-name = "json"
-auto-format = false
-
-[[language]]
-name = "jsonc"
-auto-format = false
+name = "go"
+formatter = { command = "goimports" }

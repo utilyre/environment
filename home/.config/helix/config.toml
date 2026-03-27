@@ -1,17 +1,22 @@
 theme = "custom"
 
 [editor]
+auto-format = false
 continue-comments = false
+indent-heuristic = "simple"
 completion-trigger-len = 1
 completion-timeout = 5
 rulers = [80, 100]
-indent-heuristic = "simple"
-# idle-timeout = 800 # https://github.com/helix-editor/helix/discussions/8196#discussioncomment-9050882
+smart-tab.enable = false
+file-picker.hidden = false
+soft-wrap.enable = true
+indent-guides.render = true
+inline-diagnostics.cursor-line = "hint"
+cursor-shape.insert = "bar"
 
 [editor.auto-save]
 focus-lost = true
 after-delay.enable = true
-after-delay.timeout = 1000
 
 [editor.statusline]
 left = [
@@ -30,8 +35,6 @@ center = [
 right = [
   "diagnostics",
   "spacer",
-  # "version-control-changes",
-  # "spacer",
   "spacer",
   "primary-selection-length",
   "selections",
@@ -39,27 +42,6 @@ right = [
   "spacer",
   "position",
 ]
-
-[editor.file-picker]
-hidden = false
-
-[editor.inline-diagnostics]
-cursor-line = "hint"
-
-[editor.soft-wrap]
-enable = true
-
-[editor.indent-guides]
-render = true
-
-[editor.smart-tab]
-enable = false
-
-[editor.cursor-shape]
-insert = "bar"
-
-# [editor.lsp]
-# display-inlay-hints = true
 
 [keys.normal]
 "{" = "goto_prev_paragraph"
@@ -89,7 +71,3 @@ insert = "bar"
 "C-y" = "scroll_up"
 "C-e" = "scroll_down"
 "A-S-i" = ":fmt"
-
-[keys.normal.space.x]
-# Vulkan sType field filler
-t = "@gse\"tyeb\"iyo<esc>\"i<S-P>a.s<S-T>ype<space>=<space><esc>\"tpa;<esc><A-b>i_<esc>b<A-e>dt_s[<S-A><minus><S-Z>]<ret>i_<esc>,hi<S-V><S-K>_<S-S><S-T><S-R><S-U><S-C><S-T><S-U><S-R><S-E>_<S-T><S-Y><S-P><S-E><esc>e<A-`>k"

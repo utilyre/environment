@@ -1,4 +1,6 @@
 inherits = "dark_plus"
 
 "ui.cursor" = { fg = "background", bg = "dark_gray" }
+
 "ui.cursor.primary" = { fg = "background", bg = "cursor" }
+"ui.cursor.primary.select" = { fg = "background", bg = "blue2" }

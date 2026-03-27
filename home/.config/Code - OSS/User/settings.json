@@ -3,9 +3,13 @@
   "workbench.startupEditor": "none",
   "workbench.sideBar.location": "right",
   "workbench.remoteIndicator.showExtensionRecommendations": false,
+  "workbench.editor.showTabs": "none",
+  "explorer.confirmDelete": false,
   "editor.fontSize": 15,
   "editor.wordWrap": "on",
-  "explorer.confirmDelete": false,
+  "editor.stickyScroll.enabled": false,
+  "editor.minimap.enabled": false,
+  "files.autoSave": "afterDelay",
   "telemetry.telemetryLevel": "off",
   "chat.disableAIFeatures": true,
   "[html]": {
@@ -14,8 +18,4 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
-  "workbench.editor.showTabs": "none",
-  "editor.stickyScroll.enabled": false,
-  "editor.minimap.enabled": false,
-  "files.autoSave": "afterDelay",
 }
