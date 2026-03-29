@@ -1,6 +1,5 @@
 #!/bin/sh
 set -e
 
-# TODO: report segfault to bemenu devs (happens with -l'8 up', especially when -f is also specified)
-files="$(recent | bemenu -fl8 -pdrag)"
+files="$(recent | bemenu -f -pdrag)"
 printf '%s\n' "$files" | dragon-drop -a -x -T -I -s 48

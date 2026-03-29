@@ -1,5 +1,5 @@
 #!/bin/sh
 set -e
 
-files="$(recent | bemenu -fl8 -popen)"
+files="$(recent | bemenu -f -popen)"
 printf '%s\n' "$files" | while read -r name; do setsid -f xdg-open "$name"; done
