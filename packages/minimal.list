@@ -13,7 +13,6 @@ gnome-keyring
 gnome-themes-extra
 grim
 helix
-imv
 jq
 lazygit
 lf
@@ -28,11 +27,8 @@ pass-otp
 perl-file-mimeinfo
 pipewire
 pipewire-alsa
-pipewire-audio
 pipewire-jack
 pipewire-pulse
-pulseaudio
-pulseaudio-alsa
 slurp
 sof-firmware
 stow
@@ -49,5 +45,7 @@ xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr
 xdg-user-dirs
 xorg-xwayland
+zathura
+zathura-pdf-mupdf
 zbar
 zsh
