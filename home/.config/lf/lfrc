@@ -1,6 +1,6 @@
 set mouse true
 set ratios 1:1
-set scrolloff 5
+set scrolloff 1
 set dircounts true
 set incsearch true
 set preload true

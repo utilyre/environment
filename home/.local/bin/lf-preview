@@ -19,7 +19,6 @@ case "$(file -b --mime-type -- "$1")" in
 			--polite=on \
 			--bg=black \
 			--threshold=1 \
-			--dither=ordered \
 			--format=sixel \
 			--size="${2}x${3}" \
 			-- "$thumbnail"

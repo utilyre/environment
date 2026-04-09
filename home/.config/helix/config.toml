@@ -4,6 +4,7 @@ theme = "custom"
 auto-format = false
 continue-comments = false
 indent-heuristic = "simple"
+scrolloff = 1
 completion-trigger-len = 1
 completion-timeout = 5
 rulers = [80, 100]

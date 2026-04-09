@@ -1,5 +1,4 @@
 #!/bin/sh
-set -e
 
 was_low=1 # non-zero means false
 

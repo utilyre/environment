@@ -1,6 +1,7 @@
 {
   "window.restoreWindows": "none",
   "workbench.startupEditor": "none",
+  "workbench.colorTheme": "Dark Modern",
   "workbench.sideBar.location": "right",
   "workbench.remoteIndicator.showExtensionRecommendations": false,
   "workbench.editor.showTabs": "none",
