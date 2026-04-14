@@ -13,10 +13,17 @@
   "files.autoSave": "afterDelay",
   "telemetry.telemetryLevel": "off",
   "chat.disableAIFeatures": true,
+  "update.showReleaseNotes": false,
+  "update.mode": "none",
+  "extensions.autoUpdate": false,
+  "extensions.autoCheckUpdates": false,
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
 }

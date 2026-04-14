@@ -1,5 +1,8 @@
 inherits = "dark_plus"
 
+"ui.statusline" = { bg = "dark_gray3" }
+"ui.statusline.inactive" = { fg = "dark_gray", bg = "dark_gray3" }
+
 "ui.cursor" = { fg = "background", bg = "dark_gray" }
 
 "ui.cursor.primary" = { fg = "background", bg = "cursor" }
