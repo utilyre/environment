@@ -20,7 +20,13 @@ do
 
 	datetime="$(date +'%a %-d %B %H:%M')"
 
-	printf '%s    %s    %s   \n' "$keyboard" "$battery" "$datetime"
+	# invalidate weather cache every hour
+	if [ -z "$weather" ] || [ $(($(date +%s) % 3600)) -eq 0 ]
+	then
+		weather="$(curl 'https://wttr.in?format=%c' | tr -d ' ')"
+	fi
+
+	printf '%s    %s    %s   %s\n' "$keyboard" "$battery" "$datetime" "$weather"
 
 	sleep 10 &
 	# an ignored USR1 signal interupts wait
