@@ -160,12 +160,16 @@ your CPU towards power-saving. [^1]
 CPU_ENERGY_PERF_POLICY_ON_BAT=power
 ```
 
-Additionally, some hardware vendors provide the ability to set charge thresholds.
-Inside `/etc/tlp.conf` find the entries for `START_CHARGE_THRESH_BAT0` and
-`STOP_CHARGE_THRESH_BAT0` and set them according to [Battery Care Vendor
+Additionally, some hardware vendors provide the ability to set charge
+thresholds. Inside `/etc/tlp.conf` find the entries for
+`START_CHARGE_THRESH_BAT0` and `STOP_CHARGE_THRESH_BAT0`
+and set them according to [Battery Care Vendor
 Specifics](https://linrunner.de/tlp/settings/bc-vendors). [^2]
 
-### [Brave](https://brave.com) Extensions
+### Browser Extensions
+
+- [uBlock Origin](https://ublockorigin.com): Free, open-source ad content
+  blocker.
 
 - [Dark Reader](https://darkreader.org): Open-source browser extension that
   creates dark themes for websites on the fly to reduce eye strain, especially

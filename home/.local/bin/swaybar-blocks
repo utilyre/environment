@@ -21,9 +21,10 @@ do
 	datetime="$(date +'%a %-d %B %H:%M')"
 
 	# invalidate weather cache every hour
-	if [ -z "$weather" ] || [ $(($(date +%s) % 3600)) -eq 0 ]
+	if [ -z "$weather" ] || [ "$(date +%s)" -gt "$((weather_time + 3600))" ]
 	then
 		weather="$(curl 'https://wttr.in?format=%c' | tr -d ' ')"
+		weather_time="$(date +%s)"
 	fi
 
 	printf '%s    %s    %s   %s\n' "$keyboard" "$battery" "$datetime" "$weather"
