@@ -83,7 +83,7 @@ exec swayidle -w \
     timeout 610 swaylock \
     before-sleep swaylock
 exec swaynag-battery
-exec wlsunset -l 34.9 -L 33.6
+exec wlsunset -l "$(head -1 -- "$XDG_CONFIG_HOME/coords")" -L "$(tail -1 -- "$XDG_CONFIG_HOME/coords")"
 exec wob-launch
 exec nm-applet
 

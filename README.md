@@ -39,6 +39,11 @@ install`.
 > There exist other package lists as well inside the [packages](./packages)
 > directory for more specialized needs.
 
+Now, identify the geographic coordinates, namely latitude and longitude, for
+the location where you intend to primarily use this setup. Enter them into
+`~/.config/coords` with each on its own line in that respective order, _without
+any_ trailing newline character at the end of the file.
+
 Finally, make sure to adhere to the [System
 maintenance](https://wiki.archlinux.org/title/System_maintenance) guidelines
 and check `$XDG_STATE_HOME/sway.log` regularly in order to maintain a stable and
