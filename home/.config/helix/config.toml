@@ -2,7 +2,6 @@ theme = "custom"
 
 [editor]
 auto-format = false
-continue-comments = false
 indent-heuristic = "simple"
 scrolloff = 1
 completion-trigger-len = 1
@@ -26,6 +25,7 @@ left = [
   "total-line-numbers",
   "file-name",
   "read-only-indicator",
+  "spacer",
   "spacer",
   "spacer",
   "version-control",
