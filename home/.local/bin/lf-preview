@@ -2,13 +2,20 @@
 set -e
 
 mkdir -p -- "$LF_CACHE/thumbnails"
+mime="$(file -b --mime-type -- "$1")"
 
-case "$(file -b --mime-type -- "$1")" in
-	audio/* | image/* | video/*)
+# genthumb <input> <output>
+genthumb() {
+	case "$mime" in
+		application/pdf) mutool draw -w 256 -o "$2" "$1" 1 ;;
+		*) ffmpeg -i "$1" -frames:v 1 -filter:v scale=256:-1 -- "$2" ;;
+	esac
+}
+
+case "$mime" in
+	application/pdf | audio/* | image/* | video/*)
 		thumbnail="$LF_CACHE/thumbnails/$(printf '%s:%s\n' "$1" "$(stat -c%Y -- "$1")" | base64).png"
-		if \
-			[ ! -f "$thumbnail" ] &&
-			! ffmpeg -i "$1" -frames:v 1 -filter:v scale=256:-1 -- "$thumbnail"
+		if [ ! -f "$thumbnail" ] && ! genthumb "$1" "$thumbnail"
 		then
 			file -b -- "$1" | fold -sw "$2"
 			exit 1

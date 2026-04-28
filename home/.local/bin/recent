@@ -6,6 +6,6 @@ find \
 		-name ".*" -prune -o \
 		-path "$(xdg-user-dir CODE)" -prune -o \
 		-type f \
-		-printf '%T@\t%p\n' |
+		-printf '%T@\t~/%P\n' |
 	sort -nr |
 	cut -f2

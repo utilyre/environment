@@ -2,4 +2,4 @@
 set -e
 
 files="$(recent | bemenu -f -pdrag)"
-printf '%s\n' "$files" | dragon-drop -a -x -T -I -s 48
+printf '%s\n' "$files" | sed "s|^~|$HOME|" | dragon-drop -a -x -T -I -s 48
