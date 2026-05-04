@@ -11,7 +11,7 @@ do
 
 	if [ "$is_low" -eq 0 ] && [ "$was_low" -ne 0 ]
 	then
-		swaynag -twarning -m "Battery low ($capacity%)"
+		swaynag -twarning -m "Low Battery ($capacity% remaining)"
 	fi
 
 	was_low="$is_low"
