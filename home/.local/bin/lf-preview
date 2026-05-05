@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
+# TODO: always cache N thumbnails by deleting the old ones
+# N thumbnails should occupy a reasonable amount of disk space
+
 mkdir -p -- "$LF_CACHE/thumbnails"
 mime="$(file -b --mime-type -- "$1")"
 
