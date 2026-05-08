@@ -1,0 +1,3 @@
+[general]
+confirm_quit.enabled = true
+mouse_support = true
