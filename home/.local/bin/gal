@@ -1,13 +1,23 @@
 #!/bin/sh
 set -e
 
+while [ $# -gt 0 ]
+do
+	case "$1" in
+		build) sed '/^---$/,$d' .galrc | sh - ;;
+		debug) sed '/^---$/d' .galrc | sh - ;;
+		*) break ;; # fallback to creating session
+	esac
+	shift
+done
+
 path="$(realpath -- "${1:-"$PWD"}")"
 name="$(printf '%s' "${2:-"$(basename -- "$path")"}" | tr -c '[:alnum:]_-' '_')"
 
 if tmux new-session -dc "$path" -s "$name" 2> /dev/null
 then
 	tmux send-keys -t "$name:1" hx Enter
-	tmux new-window -dt "$name" -c "$path" lazygit
+	tmux new-window -dt "$name" -c "$path" gitu
 	tmux new-window -dt "$name" -c "$path" sleep infinity
 	tmux set-option -wt "$name:3" remain-on-exit on
 fi
