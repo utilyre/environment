@@ -1,18 +1,25 @@
 #!/bin/sh
 set -e
 
-while [ $# -gt 0 ]
-do
-	case "$1" in
-		build) sed '/^---$/,$d' .galrc | sh - ;;
-		debug) sed '/^---$/d' .galrc | sh - ;;
-		*) break ;; # fallback to creating session
-	esac
-	shift
-done
+case "$1" in
+	build)
+		sed '/^---$/,$d' .galrc | sh -
+		exit
+		;;
+	debug)
+		sed '/^---$/d' .galrc | sh -
+		exit
+		;;
+esac
 
 path="$(realpath -- "${1:-"$PWD"}")"
 name="$(printf '%s' "${2:-"$(basename -- "$path")"}" | tr -c '[:alnum:]_-' '_')"
+
+if [ ! -d "$path" ]
+then
+	printf 'gal: %s: no such directory\n' "$path"
+	exit 1
+fi
 
 if tmux new-session -dc "$path" -s "$name" 2> /dev/null
 then

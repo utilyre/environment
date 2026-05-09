@@ -25,10 +25,21 @@ bar {
     modifier $mod
     bindsym button1 floating toggle
     bindsym button2 kill
+
+    # disable mouse-wheel workspace switching
+    bindsym button4 nop
+    bindsym button5 nop
+    bindsym button6 nop
+    bindsym button7 nop
+
+    colors {
+        background 00000000
+    }
 }
 
 focus_follows_mouse no
 floating_modifier $mod normal
+gaps inner 4
 
 bindsym $mod+backspace kill
 bindsym $mod+return exec bemenu-run -prun
