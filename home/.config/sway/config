@@ -33,7 +33,7 @@ bar {
     bindsym button7 nop
 
     colors {
-        background 00000000
+        background 00000040
     }
 }
 
