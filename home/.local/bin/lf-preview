@@ -1,23 +1,28 @@
 #!/bin/sh
 set -e
 
-# TODO: always cache N thumbnails by deleting the old ones
-# N thumbnails should occupy a reasonable amount of disk space
-
 mkdir -p -- "$LF_CACHE/thumbnails"
+
+# delete all but the 100 newest thumbnails
+find "$LF_CACHE/thumbnails" -mindepth 1 -maxdepth 1 -type f -printf '%T@\t%p\n' |
+	sort -n |
+	head -n-100 |
+	cut -f2 |
+	xargs -d'\n' rm -f
+
 mime="$(file -b --mime-type -- "$1")"
 
 # genthumb <input> <output>
 genthumb() {
 	case "$mime" in
-		application/pdf) mutool draw -w 256 -o "$2" "$1" 1 ;;
-		*) ffmpeg -i "$1" -frames:v 1 -filter:v scale=256:-1 -- "$2" ;;
+		application/pdf) magick -background white "$1[0]" -resize 512x -flatten "$2" ;;
+		*) ffmpeg -i "$1" -frames:v 1 -filter:v scale=512:-1 -- "$2" ;;
 	esac
 }
 
 case "$mime" in
 	application/pdf | audio/* | image/* | video/*)
-		thumbnail="$LF_CACHE/thumbnails/$(printf '%s:%s\n' "$1" "$(stat -c%Y -- "$1")" | base64).png"
+		thumbnail="$LF_CACHE/thumbnails/$(printf '%s:%s' "$1" "$(stat -c%Y -- "$1")" | base64 -w0).png"
 		if [ ! -f "$thumbnail" ] && ! genthumb "$1" "$thumbnail"
 		then
 			file -b -- "$1" | fold -sw "$2"

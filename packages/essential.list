@@ -14,11 +14,11 @@ gnome-keyring
 gnome-themes-extra
 grim
 helix
+imagemagick
 jq
 lf
 moreutils
 mpv
-mupdf-tools
 network-manager-applet
 ntfs-3g
 openssh
@@ -48,6 +48,6 @@ xdg-desktop-portal-wlr
 xdg-user-dirs
 xorg-xwayland
 zathura
-zathura-pdf-mupdf
+zathura-pdf-poppler
 zbar
 zsh

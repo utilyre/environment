@@ -26,8 +26,7 @@ do
 		battery="^$battery"
 	fi
 
-	date="$(date +'%B %-d %a')"
-	time="$(date +'%H:%M')"
+	datetime="$(date +'%B %-d %a %H:%M')"
 
 	# invalidate weather cache every hour
 	if [ -z "$weather" ] || [ "$(date +%s)" -gt "$((weather_time + 3600))" ]
@@ -36,12 +35,11 @@ do
 		weather_time="$(date +%s)"
 	fi
 
-	printf '%s    %s    %s    %s    %s    %s\n' \
+	printf '%s    %s    %s    %s    %s\n' \
 		"$session" \
 		"$keyboard" \
 		"$battery" \
-		"$date" \
-		"$time" \
+		"$datetime" \
 		"$weather"
 
 	sleep 10 &
