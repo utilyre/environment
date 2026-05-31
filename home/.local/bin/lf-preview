@@ -15,7 +15,7 @@ mime="$(file -b --mime-type -- "$1")"
 # genthumb <input> <output>
 genthumb() {
 	case "$mime" in
-		application/pdf) magick -background white "$1[0]" -resize 512x -flatten "$2" ;;
+		application/pdf) magick -density 150 -background white "$1[0]" -resize 512x -flatten "$2" ;;
 		*) ffmpeg -i "$1" -frames:v 1 -filter:v scale=512:-1 -- "$2" ;;
 	esac
 }

@@ -33,10 +33,23 @@ export LF_CACHE="$XDG_CACHE_HOME/lf"
 export GIT_CONFIG_GLOBAL="$XDG_CONFIG_HOME/git/config.ini"
 export CPM_SOURCE_CACHE="$XDG_CACHE_HOME/cpm"
 
-[ -d "$XDG_DATA_HOME/JetBrains/Toolbox/scripts" ] && export PATH="$XDG_DATA_HOME/JetBrains/Toolbox/scripts:$PATH"
-[ -d /usr/local/go/bin ] && export PATH="/usr/local/go/bin:$PATH"
-[ -d "$HOME/go/bin" ] && export PATH="$HOME/go/bin:$PATH"
-[ -d "$HOME/.npm/bin" ] && export PATH="$HOME/.npm/bin:$PATH"
-[ -d "$XDG_DATA_HOME/pnpm" ] && export PATH="$XDG_DATA_HOME/pnpm:$PATH"
-[ -d "$HOME/.cargo/bin" ] && export PATH="$HOME/.cargo/bin:$PATH"
-[ -f "$XDG_DATA_HOME/vulkansdk/default/setup-env.sh" ] && source "$XDG_DATA_HOME/vulkansdk/default/setup-env.sh"
+if [ -d "$XDG_DATA_HOME/JetBrains/Toolbox/scripts" ]
+then
+	export PATH="$XDG_DATA_HOME/JetBrains/Toolbox/scripts:$PATH"
+fi
+
+if command -v go >/dev/null 2>&1
+then
+	export GOPATH="$HOME/.go"
+	export PATH="$HOME/.go/bin:$PATH"
+fi
+
+if command -v npm >/dev/null 2>&1
+then
+	export PATH="$(npm config get prefix)/bin:$PATH"
+fi
+
+if [ -d "$HOME/.cargo/bin" ]
+then
+	export PATH="$HOME/.cargo/bin:$PATH"
+fi
