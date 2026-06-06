@@ -26,7 +26,7 @@ do
 		battery="^$battery"
 	fi
 
-	datetime="$(date +'%B %-d %a %H:%M')"
+	datetime="$(date +'%b %-d %a %H:%M')"
 
 	# invalidate weather cache every hour
 	if [ -z "$weather" ] || [ "$(date +%s)" -gt "$((weather_time + 3600))" ]
