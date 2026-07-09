@@ -17,7 +17,7 @@ cursor-shape.insert = "bar"
 [editor.auto-save]
 focus-lost = true
 after-delay.enable = true
-after-delay.timeout = 1000
+after-delay.timeout = 500
 
 [editor.statusline]
 left = [
@@ -55,7 +55,6 @@ A-e = "move_next_sub_word_end"
 A-l = "@*vnv"
 A-S-l = "@*vNv"
 A-S-i = ":fmt"
-"#" = "@:insert-output printf '%%s' '%{buffer_name}:%{cursor_line}'<ret>d"
 
 [keys.select]
 "{" = "goto_prev_paragraph"

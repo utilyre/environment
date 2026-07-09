@@ -29,18 +29,17 @@ do
 	datetime="$(date +'%b %-d %a %H:%M')"
 
 	# invalidate weather cache every hour
-	if [ -z "$weather" ] || [ "$(date +%s)" -gt "$((weather_time + 3600))" ]
-	then
-		weather="$(curl "https://wttr.in/$(tr '\n' , < "$XDG_CONFIG_HOME/coords")?format=%c" | tr -d ' ')"
-		weather_time="$(date +%s)"
-	fi
+	# if [ -z "$weather" ] || [ "$(date +%s)" -gt "$((weather_time + 3600))" ]
+	# then
+	# 	weather="$(curl "https://wttr.in/$(tr '\n' , < "$XDG_CONFIG_HOME/coords")?format=%c" | tr -d ' ')"
+	# 	weather_time="$(date +%s)"
+	# fi
 
-	printf '%s    %s    %s    %s    %s\n' \
+	printf '%s    %s    %s    %s    \n' \
 		"$session" \
 		"$keyboard" \
 		"$battery" \
-		"$datetime" \
-		"$weather"
+		"$datetime"
 
 	sleep 10 &
 	# an ignored USR1 signal interupts wait

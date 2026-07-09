@@ -1,38 +1,16 @@
 [language-server.clangd]
 args = ["-j=4", "--function-arg-placeholders=0", "--header-insertion=never"]
-
 [[language]]
 name = "c"
 indent = { unit = "    ", tab-width = 4 }
-# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
-formatter = { command = "clang-format", args = [
-  "--style={BasedOnStyle: LLVM, ColumnLimit: 0, IndentWidth: 4, IndentPPDirectives: AfterHash, BreakBeforeBraces: Allman, BreakAfterReturnType: All, BreakBeforeBinaryOperators: NonAssignment, AlignTrailingComments: Never, AlignEscapedNewlines: DontAlign, PointerAlignment: Left, AlignOperands: DontAlign}"
-] }
-
+formatter = { command = "clang-format", args = ["--style=file", "--fallback-style=none"] }
 [[language]]
 name = "cpp"
 indent = { unit = "    ", tab-width = 4 }
-# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
-formatter = { command = "clang-format", args = [
-  "--style={BasedOnStyle: LLVM, ColumnLimit: 0, IndentWidth: 4, AccessModifierOffset: -4, IndentPPDirectives: AfterHash, BreakBeforeBraces: Allman, BreakAfterReturnType: All, BreakBeforeBinaryOperators: NonAssignment, AlignTrailingComments: Never, AlignEscapedNewlines: DontAlign, PointerAlignment: Left, AlignOperands: DontAlign}"
-] }
-
+formatter = { command = "clang-format", args = ["--style=file", "--fallback-style=none"] }
 [[language]]
 name = "nasm"
 indent = { unit = "    ", tab-width = 4 }
-
-[[language]]
-name = "cmake"
-indent = { unit = "    ", tab-width = 4 }
-
-[[language]]
-name = "bash"
-indent = { unit = "\t", tab-width = 4 }
-
-# https://github.com/razzmatazz/csharp-language-server
-[[language]]
-name = "c-sharp"
-language-servers = ["csharp-ls"]
 
 # https://github.com/helix-editor/helix/issues/13501#issuecomment-2867283731
 [language-server.golangci-lint-lsp.config]
@@ -48,17 +26,23 @@ command = [
 name = "go"
 formatter = { command = "goimports" }
 
-[language-server.tailwindcss-ls]
-command = "tailwindcss-language-server"
-args = ["--stdio"]
+# https://github.com/razzmatazz/csharp-language-server
+[[language]]
+name = "c-sharp"
+language-servers = ["csharp-ls"]
+
+[[language]]
+name = "cmake"
+indent = { unit = "    ", tab-width = 4 }
+[[language]]
+name = "bash"
+indent = { unit = "\t", tab-width = 4 }
 
 [[language]]
 name = "html"
-language-servers = ["vscode-html-language-server", "superhtml", "tailwindcss-ls"]
 formatter = { command = "prettier", args = ["--parser=html"] }
 [[language]]
 name = "css"
-language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
 formatter = { command = "prettier", args = ["--parser=css"] }
 [[language]]
 name = "javascript"
@@ -68,9 +52,7 @@ name = "typescript"
 formatter = { command = "prettier", args = ["--parser=typescript"] }
 [[language]]
 name = "jsx"
-language-servers = ["typescript-language-server", "tailwindcss-ls"]
 formatter = { command = "prettier", args = ["--parser=typescript"] }
 [[language]]
 name = "tsx"
-language-servers = ["typescript-language-server", "tailwindcss-ls"]
 formatter = { command = "prettier", args = ["--parser=typescript"] }

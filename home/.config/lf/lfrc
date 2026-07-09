@@ -1,30 +1,43 @@
-set mouse true
-set ratios 1:1
-set scrolloff 1
-set dircounts true
 set incsearch true
+
+set scrolloff 1
+set ratios 1:1
+set dupfilefmt '%b~%n%e'
+
+set watch true
 set preload true
 set previewer lf-preview
 
 setlocal ~/Downloads sortby time
 setlocal ~/Downloads reverse true
 
+set mouse true
 map <space> toggle
-map x delete
-map a push :create<space>
-map F filter
+map ~ filter
+map X delete
+map a create
 map R bulk-rename
 
 cmd create %{{
-	set -e
+	printf 'create: '
+	read -r file
+	if [ -z "$file" ]
+	then
+		printf 'create: missing file operand\n'
+		exit 1
+	fi
 
-	file="$(realpath -m -- "$*")"
-	if [ "$(printf '%s' "$*" | tail -c1)" = / ]
+	if [ -e "$file" ]
+	then
+		printf 'create: file exists\n'
+		exit 1
+	fi
+
+	if [ "$(printf '%s' "$file" | tail -c1)" = / ]
 	then
 		mkdir -p -- "$file"
 	else
-		mkdir -p -- "$(dirname -- "$file")"
-		touch -- "$file"
+		mkdir -p -- "$(dirname -- "$file")" && touch -- "$file"
 	fi
 }}
 
@@ -34,3 +47,5 @@ cmd bulk-rename !{{
 	printf '%s\n' "$fx" | xargs -d '\n' realpath -s --relative-to="$PWD" | vidir -v -
 	lf -remote "send $id unselect"
 }}
+
+cmd gal $setsid -f foot gal "$@"
