@@ -15,8 +15,8 @@ mime="$(file -b --mime-type -- "$1")"
 # genthumb <input> <output>
 genthumb() {
 	case "$mime" in
-		application/pdf) magick -density 150 -background white "$1[0]" -resize 512x -flatten "$2" ;;
-		*) ffmpeg -i "$1" -frames:v 1 -filter:v scale=512:-1 -- "$2" ;;
+		application/pdf) magick -density 72 -background white "$1[0]" -resize 256x -flatten "$2" ;;
+		*) ffmpeg -i "$1" -frames:v 1 -filter:v scale=256:-1 -- "$2" ;;
 	esac
 }
 
@@ -29,14 +29,7 @@ case "$mime" in
 			exit 1
 		fi
 
-		chafa \
-			--animate=off \
-			--polite=on \
-			--bg=black \
-			--threshold=1 \
-			--format=sixel \
-			--size="${2}x${3}" \
-			-- "$thumbnail"
+		chafa --polite=on --bg=black -t 1 -f sixel -s "$((16 < $2 ? 16 : $2))x" -- "$thumbnail"
 		;;
 	text/*) cat -- "$1" | fold -sw "$2" ;;
 	*) file -b -- "$1" | fold -sw "$2" ;;
