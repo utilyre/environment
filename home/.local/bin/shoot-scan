@@ -5,7 +5,7 @@ sel="$(slurp -d)"
 tmp="$(mktemp)"
 
 grim -g "$sel" -- "$tmp"
-content="$(zbarimg -- "$tmp")" || content="$(tesseract "$tmp" -)"
+content="$(zbarimg --raw -- "$tmp")" || content="$(tesseract "$tmp" -)"
 
 rm -- "$tmp"
 printf '%s' "$content" | wl-copy

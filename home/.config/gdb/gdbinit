@@ -4,7 +4,7 @@ set debuginfod enabled off
 # make breakpoint pending on future shared library load
 set breakpoint pending on
 
-# improved printing experience
+# improve printing experience
 set pagination off
 set print pretty on
 set print array-indexes on
@@ -12,7 +12,7 @@ set print array-indexes on
 # load .gdbinit from current working directory
 add-auto-load-safe-path .
 
-# Quit GDB when the program exits successfully
+# quit when inferior exits with success
 define hook-stop
 	if !$_isvoid($_exitcode)
 		if $_exitcode == 0
