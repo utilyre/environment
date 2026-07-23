@@ -158,11 +158,12 @@ If you are on a laptop and run out of battery frequently, use
 for saving laptop battery power on Linux.
 
 You can extend your battery's runtime by leaning the performance policies of
-your CPU towards power-saving. [^1]
+your machine towards power-saving. [^1]
 
 ###### `/etc/tlp.conf`
 ```
-CPU_ENERGY_PERF_POLICY_ON_BAT=power
+TLP_AUTO_SWITCH=0
+TLP_PROFILE_DEFAULT=SAV
 ```
 
 Additionally, some hardware vendors provide the ability to set charge
