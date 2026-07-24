@@ -1,9 +1,3 @@
-inherits = "dark_plus"
+inherits = "gruvbox_dark_hard"
 
-"ui.statusline" = { bg = "dark_gray3" }
-"ui.statusline.inactive" = { fg = "dark_gray", bg = "dark_gray3" }
-
-"ui.cursor" = { fg = "background", bg = "dark_gray" }
-
-"ui.cursor.primary" = { fg = "background", bg = "cursor" }
-"ui.cursor.primary.select" = { fg = "background", bg = "blue2" }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
