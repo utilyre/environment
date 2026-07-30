@@ -22,8 +22,10 @@ lf
 moreutils
 mpv
 network-manager-applet
+noto-fonts-emoji
 ntfs-3g
 openssh
+otf-latin-modern
 pamixer
 pass
 pass-otp
@@ -41,6 +43,7 @@ swayidle
 swaylock
 tesseract
 tmux
+ttf-jetbrains-mono-nerd
 wl-clipboard
 wlsunset
 wob
