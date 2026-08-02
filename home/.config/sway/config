@@ -1,6 +1,6 @@
 set $mod super
 
-# output * bg "$XDG_DATA_HOME/backgrounds/current" fill
+output * bg "$XDG_DATA_HOME/backgrounds/current" fill
 
 input type:keyboard {
     repeat_delay 500
@@ -96,6 +96,6 @@ exec nm-applet
 assign [app_id=btop] workspace 9:0
 exec foot -abtop btop
 
-assign [app_id=librewolf] workspace 8:9
+assign [app_id=chromium] workspace 8:9
 
 include /etc/sway/config.d/*
