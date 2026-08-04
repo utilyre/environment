@@ -1,18 +1,21 @@
 theme = "custom"
 
 [editor]
+# automation
 auto-format = false
 auto-save.focus-lost = true
 auto-save.after-delay.enable = true
 auto-save.after-delay.timeout = 500
+insert-final-newline = false
 
+# behavior
 completion-timeout = 5
 completion-trigger-len = 1
 smart-tab.enable = false
-
 file-picker.hidden = false
 file-picker.git-exclude = false
 
+# ui
 scrolloff = 1
 rulers = [80, 100]
 indent-guides.render = true
