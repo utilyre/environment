@@ -14,7 +14,6 @@ file-picker.hidden = false
 file-picker.git-exclude = false
 
 scrolloff = 1
-soft-wrap.enable = true
 rulers = [80, 100]
 indent-guides.render = true
 cursor-shape.insert = "bar"
