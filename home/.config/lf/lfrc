@@ -48,4 +48,4 @@ cmd bulk-rename !{{
 	lf -remote "send $id unselect"
 }}
 
-cmd gal &sleep 2 && setsid -f foot gal "$@"
+cmd gal &sleep 1 && setsid -f foot gal "$@"
