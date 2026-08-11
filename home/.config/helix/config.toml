@@ -9,6 +9,7 @@ auto-save.after-delay.timeout = 500
 insert-final-newline = false
 
 # behavior
+scrolloff = 1
 completion-timeout = 5
 completion-trigger-len = 1
 smart-tab.enable = false
@@ -16,15 +17,16 @@ file-picker.hidden = false
 file-picker.git-exclude = false
 
 # ui
-scrolloff = 1
-soft-wrap.enable = true
 rulers = [80, 100]
 indent-guides.render = true
+soft-wrap.enable = true
+lsp.display-progress-messages = true
 cursor-shape.insert = "bar"
 inline-diagnostics.cursor-line = "hint"
 
 [editor.statusline]
 left = [
+  "spinner",
   "total-line-numbers",
   "file-name",
   "read-only-indicator",

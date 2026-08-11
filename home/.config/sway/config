@@ -3,34 +3,34 @@ set $mod super
 output * bg "$XDG_DATA_HOME/backgrounds/current" fill
 
 input type:keyboard {
-    repeat_delay 500
-    repeat_rate 30
-    xkb_layout us,ir
+	repeat_delay 500
+	repeat_rate 30
+	xkb_layout us,ir
 }
 input type:touchpad {
-    # dwt disabled
-    tap enabled
-    natural_scroll enabled
-    drag_lock enabed
+	# dwt disabled
+	tap enabled
+	natural_scroll enabled
+	drag_lock enabed
 }
 
 seat seat0 xcursor_theme macOS 24
 bar {
-    status_command swaybar-blocks
-    strip_workspace_numbers yes
-    font monospace Bold 10
-    status_padding 4
-    tray_padding 4
+	status_command swaybar-blocks
+	strip_workspace_numbers yes
+	font monospace Bold 10
+	status_padding 4
+	tray_padding 4
 
-    modifier $mod
-    bindsym button1 floating toggle
-    bindsym button2 kill
+	modifier $mod
+	bindsym button1 floating toggle
+	bindsym button2 kill
 
-    # disable mouse-wheel workspace switching
-    bindsym button4 nop
-    bindsym button5 nop
-    bindsym button6 nop
-    bindsym button7 nop
+	# disable mouse-wheel workspace switching
+	bindsym button4 nop
+	bindsym button5 nop
+	bindsym button6 nop
+	bindsym button7 nop
 }
 
 focus_follows_mouse no
@@ -85,9 +85,10 @@ bindsym --locked xf86monbrightnessdown exec ctl -l down
 bindsym --locked xf86monbrightnessup exec ctl -l up
 
 exec swayidle -w \
-    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-    timeout 610 swaylock \
-    before-sleep swaylock
+	timeout 115 'brightnessctl set -e 25%-' resume 'brightnessctl set -e 25%+' \
+	timeout 120 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+	timeout 130 swaylock \
+	before-sleep swaylock
 exec swaynag-battery
 exec wlsunset -l "$(head -1 -- "$XDG_CONFIG_HOME/coords")" -L "$(tail -1 -- "$XDG_CONFIG_HOME/coords")"
 exec wob-launch
