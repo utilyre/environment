@@ -12,12 +12,21 @@ set previewer lf-preview
 setlocal ~/Downloads sortby time
 setlocal ~/Downloads reverse true
 
+set promptfmt " \033[1;34m%w\033[m%S\033[1m%f\033[m "
+cmd on-cd sync-title
+cmd on-redraw sync-title
+
 set mouse true
 map <space> toggle
 map ~ filter
 map X delete
 map a create
 map R bulk-rename
+
+cmd sync-title &{{
+	cwd="$(printf '%s' "$PWD" | sed "s|^$HOME|~|")"
+	lf -remote "send $id tty-write \"\033]2;$cwd\007\""
+}}
 
 cmd create %{{
 	printf 'create: '
