@@ -2,6 +2,7 @@ set incsearch true
 
 set scrolloff 1
 set ratios 1:1
+set drawbox true
 set dupfilefmt '%b~%n%e'
 
 set watch true
@@ -48,4 +49,4 @@ cmd bulk-rename !{{
 	lf -remote "send $id unselect"
 }}
 
-cmd gal &sleep 1 && setsid -f foot gal "$@"
+cmd gal &sleep 2 && setsid -f foot gal "$@"
