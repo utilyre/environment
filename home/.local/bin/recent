@@ -1,11 +1,4 @@
 #!/bin/sh
 set -e
 
-find \
-		"$HOME" \
-		-name ".*" -prune -o \
-		-path "$(xdg-user-dir CODE)" -prune -o \
-		-type f \
-		-printf '%T@\t~/%P\n' |
-	sort -nr |
-	cut -f2
+find "$HOME" -name ".*" -prune -o -type f -printf '%T@\t~/%P\n' | sort -nr | cut -f2
