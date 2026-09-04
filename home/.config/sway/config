@@ -1,16 +1,5 @@
 set $mod super
 
-set $ws0 ___1___
-set $ws1 ___2___
-set $ws2 ___3___
-set $ws3 ___4___
-set $ws4 ___5___
-set $ws5 ___6___
-set $ws6 ___7___
-set $ws7 ___8___
-set $ws8 ___9___
-set $ws9 ___0___
-
 output * bg "$XDG_DATA_HOME/backgrounds/current" fill
 
 input type:keyboard {
@@ -25,12 +14,13 @@ input type:touchpad {
 	drag_lock enabed
 }
 
+font sans-serif 10
 seat seat0 xcursor_theme macOS 24
 bar {
 	status_command swaybar-blocks
 	strip_workspace_numbers yes
-	font monospace Bold 10
 	status_padding 4
+	workspace_min_width 48
 
 	modifier $mod
 	bindsym button1 floating toggle
@@ -62,26 +52,26 @@ bindsym --to-code $mod+w focus up
 bindsym --to-code $mod+a focus left
 bindsym --to-code $mod+s focus down
 bindsym --to-code $mod+d focus right
-bindsym --to-code $mod+1 workspace number 0:$ws0
-bindsym --to-code $mod+2 workspace number 1:$ws1
-bindsym --to-code $mod+3 workspace number 2:$ws2
-bindsym --to-code $mod+4 workspace number 3:$ws3
-bindsym --to-code $mod+5 workspace number 4:$ws4
-bindsym --to-code $mod+6 workspace number 5:$ws5
-bindsym --to-code $mod+7 workspace number 6:$ws6
-bindsym --to-code $mod+8 workspace number 7:$ws7
-bindsym --to-code $mod+9 workspace number 8:$ws8
-bindsym --to-code $mod+0 workspace number 9:$ws9
-bindsym --to-code $mod+shift+1 move container to workspace number 0:$ws0
-bindsym --to-code $mod+shift+2 move container to workspace number 1:$ws1
-bindsym --to-code $mod+shift+3 move container to workspace number 2:$ws2
-bindsym --to-code $mod+shift+4 move container to workspace number 3:$ws3
-bindsym --to-code $mod+shift+5 move container to workspace number 4:$ws4
-bindsym --to-code $mod+shift+6 move container to workspace number 5:$ws5
-bindsym --to-code $mod+shift+7 move container to workspace number 6:$ws6
-bindsym --to-code $mod+shift+8 move container to workspace number 7:$ws7
-bindsym --to-code $mod+shift+9 move container to workspace number 8:$ws8
-bindsym --to-code $mod+shift+0 move container to workspace number 9:$ws9
+bindsym --to-code $mod+1 workspace number 0:1
+bindsym --to-code $mod+2 workspace number 1:2
+bindsym --to-code $mod+3 workspace number 2:3
+bindsym --to-code $mod+4 workspace number 3:4
+bindsym --to-code $mod+5 workspace number 4:5
+bindsym --to-code $mod+6 workspace number 5:6
+bindsym --to-code $mod+7 workspace number 6:7
+bindsym --to-code $mod+8 workspace number 7:8
+bindsym --to-code $mod+9 workspace number 8:9
+bindsym --to-code $mod+0 workspace number 9:0
+bindsym --to-code $mod+shift+1 move container to workspace number 0:1
+bindsym --to-code $mod+shift+2 move container to workspace number 1:2
+bindsym --to-code $mod+shift+3 move container to workspace number 2:3
+bindsym --to-code $mod+shift+4 move container to workspace number 3:4
+bindsym --to-code $mod+shift+5 move container to workspace number 4:5
+bindsym --to-code $mod+shift+6 move container to workspace number 5:6
+bindsym --to-code $mod+shift+7 move container to workspace number 6:7
+bindsym --to-code $mod+shift+8 move container to workspace number 7:8
+bindsym --to-code $mod+shift+9 move container to workspace number 8:9
+bindsym --to-code $mod+shift+0 move container to workspace number 9:0
 
 bindsym --locked $mod+space exec sway-input-next
 bindsym --to-code $mod+j floating toggle
@@ -104,9 +94,9 @@ exec wlsunset -l "$(head -1 -- "$XDG_CONFIG_HOME/coords")" -L "$(tail -1 -- "$XD
 exec wob-launch
 exec nm-applet
 
-assign [app_id=btop] workspace 9:$ws9
+assign [app_id=btop] workspace number 9:0
 exec foot -abtop btop
 
-assign [app_id=chromium] workspace 8:$ws8
+assign [app_id=chromium] workspace number 8:9
 
 include /etc/sway/config.d/*

@@ -10,7 +10,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export XDG_CURRENT_DESKTOP=sway
 export EDITOR=helix
 export LESS='-FRM -DdC* -Duc_'
-export BEMENU_OPTS='--single-instance --scrollbar=always --ch=18 -iwsl14 -P> -W0.5 -H26'
+export BEMENU_OPTS='--single-instance --fn "sans-serif 10" -iwsl14 -P> -W0.5 -H26'
 export LS_COLORS='no=0;37:fi=0;37:ex=0;32:so=0;35:do=0;35:pi=0;33:ln=0;36:or=0;31:mi=0;31:di=1;34:tw=1;32:ow=1;32:st=1;32:cd=1;33:bd=1;37'
 
 # Make sure man pages have color on some distributions like Fedora

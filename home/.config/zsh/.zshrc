@@ -8,7 +8,7 @@ use() {
 		error="$(git clone --depth=1 -- "https://github.com/$1.git" "$plugin" 2>&1)" &&
 			printf 'finished %s\n' "$1" || {
 				printf '\e[31m%s\e[m\n\n' "$(echo "$error" | sed "s/^/> /")"
-				read -sk '?[Press any key to exit]'
+				read -sk '?[press any key to exit]'
 				exit 1
 			}
 	}
