@@ -4,9 +4,10 @@ was_low=1 # non-zero means false
 
 while true
 do
+	status="$(cat /sys/class/power_supply/BAT0/status)"
 	capacity="$(cat /sys/class/power_supply/BAT0/capacity)"
 
-	test "$capacity" -le 20
+	test "$status" != Charging -a "$capacity" -le 20
 	is_low="$?"
 
 	if [ "$is_low" -eq 0 ] && [ "$was_low" -ne 0 ]
