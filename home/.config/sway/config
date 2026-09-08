@@ -48,6 +48,7 @@ bindsym --to-code $mod+k exec recent-drag
 bindsym print exec shoot-select
 bindsym shift+print exec shoot-screen
 bindsym alt+print exec shoot-scan
+bindsym $mod+escape exec grim - | imv -fu nearest_neighbour -
 
 bindsym --to-code $mod+w focus up
 bindsym --to-code $mod+a focus left

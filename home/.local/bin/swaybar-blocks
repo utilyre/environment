@@ -41,7 +41,7 @@ do
 	# 	weather_time="$(date +%s)"
 	# fi
 
-	printf '<span letter_spacing="256">%s     %s     %s     %s     <span weight="600">%s</span>     </span>\n' \
+	printf '<span letter_spacing="512">%s     %s     %s     %s     %s     </span>\n' \
 		"$session" \
 		"$keyboard" \
 		"$battery" \
