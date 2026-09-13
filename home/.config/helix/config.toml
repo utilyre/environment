@@ -48,8 +48,8 @@ right = [
 ]
 
 [keys.normal]
-"{" = "goto_prev_paragraph"
-"}" = "goto_next_paragraph"
+"{" = ["goto_prev_paragraph", "move_visual_line_up"]
+"}" = ["goto_next_paragraph", "collapse_selection"]
 x = "select_line_below"
 X = "select_line_above"
 C-y = "scroll_up"

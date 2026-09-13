@@ -14,7 +14,7 @@ input type:touchpad {
 	drag_lock enabed
 }
 
-font 'sans-serif Medium 10 #tnum'
+font 'sans-serif medium 10 #tnum'
 seat seat0 xcursor_theme macOS 24
 bar {
 	status_command swaybar-blocks
@@ -37,6 +37,7 @@ bar {
 focus_follows_mouse no
 floating_modifier $mod normal
 
+bindsym f11 fullscreen
 bindsym $mod+backspace kill
 bindsym $mod+return exec bemenu-run -prun
 bindsym --to-code $mod+backslash exec foot
@@ -45,6 +46,7 @@ bindsym --to-code $mod+m exec foot lf
 bindsym --to-code $mod+l exec swaylock
 bindsym --to-code $mod+o exec recent-open
 bindsym --to-code $mod+k exec recent-drag
+bindsym --locked $mod+space exec sway-input-next
 bindsym print exec shoot-select
 bindsym shift+print exec shoot-screen
 bindsym alt+print exec shoot-scan
@@ -54,6 +56,11 @@ bindsym --to-code $mod+w focus up
 bindsym --to-code $mod+a focus left
 bindsym --to-code $mod+s focus down
 bindsym --to-code $mod+d focus right
+
+bindsym --to-code $mod+j floating toggle
+bindsym --to-code $mod+grave scratchpad show
+bindsym --to-code $mod+shift+grave move scratchpad
+
 bindsym --to-code $mod+1 workspace number 0:1
 bindsym --to-code $mod+2 workspace number 1:2
 bindsym --to-code $mod+3 workspace number 2:3
@@ -74,10 +81,6 @@ bindsym --to-code $mod+shift+7 move container to workspace number 6:7
 bindsym --to-code $mod+shift+8 move container to workspace number 7:8
 bindsym --to-code $mod+shift+9 move container to workspace number 8:9
 bindsym --to-code $mod+shift+0 move container to workspace number 9:0
-
-bindsym --locked $mod+space exec sway-input-next
-bindsym --to-code $mod+j floating toggle
-bindsym f11 fullscreen
 
 bindsym --locked xf86audiomute exec ctl -v toggle
 bindsym --locked xf86audiolowervolume exec ctl -v down
