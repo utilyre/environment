@@ -37,20 +37,20 @@ bar {
 focus_follows_mouse no
 floating_modifier $mod normal
 
-bindsym f11 fullscreen
-bindsym $mod+backspace kill
-bindsym $mod+return exec bemenu-run -prun
+bindsym --to-code f11 fullscreen
+bindsym --to-code $mod+backspace kill
+bindsym --to-code $mod+return exec bemenu-run -prun
 bindsym --to-code $mod+backslash exec foot
 bindsym --to-code $mod+m exec foot lf
 
 bindsym --to-code $mod+l exec swaylock
 bindsym --to-code $mod+o exec recent-open
 bindsym --to-code $mod+k exec recent-drag
-bindsym --locked $mod+space exec sway-input-next
-bindsym print exec shoot-select
-bindsym shift+print exec shoot-screen
-bindsym alt+print exec shoot-scan
-bindsym $mod+escape exec grim - | imv -fu nearest_neighbour -
+bindsym --to-code --locked $mod+space exec sway-input-next
+bindsym --to-code print exec shoot-select
+bindsym --to-code shift+print exec shoot-screen
+bindsym --to-code alt+print exec shoot-scan
+bindsym --to-code $mod+escape exec grim - | imv -fu nearest_neighbour -
 
 bindsym --to-code $mod+w focus up
 bindsym --to-code $mod+a focus left
@@ -82,12 +82,12 @@ bindsym --to-code $mod+shift+8 move container to workspace number 7:8
 bindsym --to-code $mod+shift+9 move container to workspace number 8:9
 bindsym --to-code $mod+shift+0 move container to workspace number 9:0
 
-bindsym --locked xf86audiomute exec ctl -v toggle
-bindsym --locked xf86audiolowervolume exec ctl -v down
-bindsym --locked xf86audioraisevolume exec ctl -v up
-bindsym --locked xf86audiomicmute exec ctl -m toggle
-bindsym --locked xf86monbrightnessdown exec ctl -l down
-bindsym --locked xf86monbrightnessup exec ctl -l up
+bindsym --to-code --locked xf86audiomute exec ctl -v toggle
+bindsym --to-code --locked xf86audiolowervolume exec ctl -v down
+bindsym --to-code --locked xf86audioraisevolume exec ctl -v up
+bindsym --to-code --locked xf86audiomicmute exec ctl -m toggle
+bindsym --to-code --locked xf86monbrightnessdown exec ctl -l down
+bindsym --to-code --locked xf86monbrightnessup exec ctl -l up
 
 exec swayidle -w \
 	timeout 100 'brightnessctl set -e 25%-' resume 'brightnessctl set -e 25%+' \
