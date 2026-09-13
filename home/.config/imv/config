@@ -1,0 +1,4 @@
+[options]
+overlay = true
+overlay_font = sans-serif:10
+background = checks
