@@ -24,8 +24,8 @@ fi
 if tmux new-session -dc "$path" -s "$name" 2> /dev/null
 then
 	tmux send-keys -t "$name:1" kak Enter
-	tmux new-window -dt "$name" -c "$path" tig
-	tmux new-window -dt "$name" -c "$path" sleep infinity
+	tmux new-window -dt "$name:2" -c "$path" tig
+	tmux new-window -dt "$name:3" -c "$path" sleep infinity
 	tmux set-option -wt "$name:3" remain-on-exit on
 fi
 
