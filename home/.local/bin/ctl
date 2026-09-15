@@ -51,7 +51,7 @@ case "$device" in
     ;;
   light)
     case "$1" in
-      down) brightnessctl set -e 5%- ;;
+      down) brightnessctl set -n15 -e 5%-;;
       up) brightnessctl set -e 5%+ ;;
     esac
     brightnessctl info -m | cut -d, -f4 | tr -d % > "$WOB_PIPE"

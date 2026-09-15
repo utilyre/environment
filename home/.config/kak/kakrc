@@ -1,0 +1,14 @@
+set global incsearch false
+set global scrolloff 1,1
+set global ui_options terminal_synchronized=true terminal_set_title=false terminal_assistant=off
+
+colorscheme gruvbox-dark
+add-highlighter global/ show-matching
+add-highlighter global/ number-lines -hlcursor
+add-highlighter global/ show-whitespaces -only-trailing -indent '' -lf ''
+add-highlighter global/ wrap -word -indent
+add-highlighter global/ column 80 default,black
+add-highlighter global/ dynregex '%reg{/}' 0:black,yellow+F
+
+hook global InsertChar \t %{ exec -draft h@ }
+hook global WinCreate ^[^*]+$ %{editorconfig-load}
