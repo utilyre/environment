@@ -8,3 +8,4 @@ set recolor-keephue true
 set recolor-adjust-lightness true
 set recolor-darkcolor '#ebdbb2'
 set recolor-lightcolor '#282828'
+set default-bg '#282828'
