@@ -1,8 +1,0 @@
-[general]
-refresh_on_file_change.enabled = false
-recent_commits_limit = 100
-confirm_quit.enabled = true
-mouse_support = true
-
-[style]
-syntax_highlight.enabled = false

@@ -1,5 +1,3 @@
-set incsearch true
-
 set scrolloff 1
 set ratios 1:1
 set drawbox true

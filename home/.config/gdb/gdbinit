@@ -1,4 +1,4 @@
-# do not ask to download debug info
+# never download debug info
 set debuginfod enabled off
 
 # make breakpoint pending on future shared library load
