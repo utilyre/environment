@@ -21,7 +21,7 @@ then
 	exit 1
 fi
 
-if tmux new-session -dc "$path" -s "$name" kak -s "$name" 2> /dev/null
+if tmux new-session -dc "$path" -s "$name" kak -s "$name" 2>/dev/null
 then
 	tmux new-window -dt "$name:2" -c "$path" sleep infinity
 	tmux set-option -wt "$name:2" remain-on-exit on

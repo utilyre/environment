@@ -1,0 +1,26 @@
+#!/bin/sh
+
+if [ "$#" -lt 1 ]
+then
+	printf -- '%s: too few arguments\n' "$0"
+	exit 1
+fi
+
+dialog="$1"
+shift
+
+case "$dialog" in
+	lf) selected="$(lf -command 'set hidden; set nopreview; set ratios 1' -print-selection | head -1)" ;;
+	fzf) selected="$(find -type f | fzf --reverse --cycle)" ;;
+	*)
+		printf -- '%s: unknown dialog\n' "$0"
+		exit 1
+	;;
+esac
+
+if [ -z "$selected" ]
+then
+	exit 1
+fi
+
+kak "$@" -- "$selected"
