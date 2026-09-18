@@ -1,12 +1,12 @@
 set global tabstop 4
 set global incsearch false
 set global scrolloff 1,1
-set global ui_options terminal_synchronized=true terminal_set_title=false terminal_status_on_top=true terminal_assistant=none
+set global ui_options terminal_synchronized=true terminal_set_title=false terminal_assistant=none
 set global startup_info_version 99991230
 
 colorscheme gruvbox-dark
 add-highlighter global/ show-matching
-add-highlighter global/ number-lines -hlcursor
+add-highlighter global/ number-lines -hlcursor -min-digits 4
 add-highlighter global/ show-whitespaces -lf '' -spc ' '
 add-highlighter global/ wrap -word -indent
 add-highlighter global/ column 80 default,black
