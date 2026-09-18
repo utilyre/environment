@@ -11,7 +11,7 @@ shift
 
 case "$dialog" in
 	lf) selected="$(lf -command 'set hidden; set nopreview; set ratios 1' -print-selection | head -1)" ;;
-	fzf) selected="$(find -type f | fzf --reverse --cycle)" ;;
+	fzf) selected="$(find . -type f | fzf --reverse --cycle)" ;;
 	*)
 		printf -- '%s: unknown dialog\n' "$0"
 		exit 1
