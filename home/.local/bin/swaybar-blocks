@@ -6,7 +6,7 @@ trap : USR1
 
 while true
 do
-	session="$(tmux ls | wc -l)"
+	session="$(tmux ls 2>/dev/null | wc -l)"
 	if [ "$session" -gt 0 ]
 	then
 		session="[$session]"

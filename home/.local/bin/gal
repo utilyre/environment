@@ -21,7 +21,7 @@ then
 	exit 1
 fi
 
-if tmux new-session -dc "$path" -s "$name" kak -s "$name" 2>/dev/null
+if tmux new-session -dc "$path" -s "$name" kak-dialog lf -C "$name" 2>/dev/null
 then
     # enforce dwm-like layout
 	tmux set-option -t "$name" main-pane-width 60%
