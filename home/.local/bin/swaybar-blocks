@@ -34,21 +34,14 @@ do
 	date="$(date +'%a %-d %b')"
 	time="$(date +'%I:%M %p')"
 
-	# invalidate weather cache every hour
-	# if [ -z "$weather" ] || [ "$(date +%s)" -gt "$((weather_time + 3600))" ]
-	# then
-	# 	weather="$(curl "https://wttr.in/$(tr '\n' , < "$XDG_CONFIG_HOME/coords")?format=%c" | tr -d ' ')"
-	# 	weather_time="$(date +%s)"
-	# fi
-
-	printf '<span letter_spacing="512">%s     %s     %s     %s     %s     </span>\n' \
+	printf -- '<span letter_spacing="512">%s     %s     %s     %s     %s     </span>\n' \
 		"$session" \
 		"$keyboard" \
 		"$battery" \
 		"$date" \
 		"$time"
 
-	sleep 10 &
+	sleep 2 &
 	# an ignored USR1 signal interupts wait
 	wait -- "$!" || true
 done

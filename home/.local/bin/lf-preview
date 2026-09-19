@@ -22,7 +22,7 @@ genthumb() {
 
 case "$mime" in
 	application/pdf | audio/* | image/* | video/*)
-		thumbnail="$LF_CACHE/thumbnails/$(printf '%s:%s' "$1" "$(stat -c%Y -- "$1")" | base64 -w0).png"
+		thumbnail="$LF_CACHE/thumbnails/$(printf -- '%s:%s' "$1" "$(stat -c%Y -- "$1")" | base64 -w0).png"
 		if [ ! -f "$thumbnail" ] && ! genthumb "$1" "$thumbnail"
 		then
 			file -b -- "$1" | fold -sw "$2"

@@ -7,7 +7,7 @@ set global startup_info_version 99991230
 colorscheme gruvbox-dark
 add-highlighter global/ show-matching
 add-highlighter global/ number-lines -hlcursor -min-digits 4
-add-highlighter global/ show-whitespaces -lf '' -spc ' '
+add-highlighter global/ show-whitespaces -lf '' -indent '' -only-trailing
 add-highlighter global/ wrap -word -indent
 add-highlighter global/ column 80 default,black
 add-highlighter global/ dynregex '%reg{/}' 0:black,yellow+F
