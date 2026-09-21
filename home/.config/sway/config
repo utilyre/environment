@@ -43,8 +43,8 @@ floating_modifier $mod normal
 bindsym --to-code f11 fullscreen
 bindsym --to-code $mod+backspace kill
 bindsym --to-code $mod+return exec bemenu-run -prun
-bindsym --to-code $mod+backslash exec foot
-bindsym --to-code $mod+m exec foot lf
+bindsym --to-code $mod+y exec foot
+bindsym --to-code $mod+e exec foot -alf lf
 
 bindsym --to-code $mod+l exec swaylock
 bindsym --to-code $mod+o exec recent-open
@@ -100,10 +100,10 @@ exec swaynag-battery
 exec wlsunset -l "$(head -1 -- "$XDG_CONFIG_HOME/coords")" -L "$(tail -1 -- "$XDG_CONFIG_HOME/coords")"
 exec wob-launch
 exec nm-applet
-
-assign [app_id=btop] workspace number 9:0
 exec foot -abtop btop
 
+for_window [app_id=mpv] floating enable
 assign [app_id=chromium] workspace number 8:9
+assign [app_id=btop] workspace number 9:0
 
 include /etc/sway/config.d/*

@@ -24,8 +24,7 @@ fi
 if tmux new-session -dc "$path" -s "$name" kak-dialog lf -C "$name" 2>/dev/null
 then
     # enforce dwm-like layout
-	tmux set-option -t "$name" main-pane-width 60%
-	tmux set-hook -t "$name" window-layout-changed 'select-layout main-vertical-mirrored'
+	tmux set-hook -wt "$name:1" window-layout-changed 'select-layout main-vertical-mirrored'
 
 	tmux new-window -dt "$name:2" -c "$path" sleep infinity
 	tmux set-option -wt "$name:2" remain-on-exit on
