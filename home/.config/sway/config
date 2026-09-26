@@ -1,9 +1,6 @@
 set $mod super
 
-output * {
-	mode 2880x1800@60Hz
-	bg "$XDG_DATA_HOME/backgrounds/current" fill
-}
+output * bg "$XDG_DATA_HOME/backgrounds/current" fill
 
 input type:keyboard {
 	repeat_delay 500
@@ -18,7 +15,7 @@ input type:touchpad {
 }
 
 font 'sans-serif medium 10 #tnum'
-seat seat0 xcursor_theme macOS 24
+seat seat0 xcursor_theme macOS 20
 bar {
 	status_command swaybar-blocks
 	strip_workspace_numbers yes

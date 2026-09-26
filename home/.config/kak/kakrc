@@ -15,6 +15,3 @@ add-highlighter global/ dynregex '%reg{/}' 0:black,yellow+F
 # equivalent to expandtab in vim
 # taken from https://github.com/mawww/kakoune/issues/1038#issuecomment-270643341
 hook global InsertChar \t %{ exec -draft h@ }
-
-# taken from https://github.com/mawww/kakoune/wiki/EditorConfig
-hook global WinCreate ^[^*]+$ %{editorconfig-load}
