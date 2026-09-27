@@ -20,10 +20,12 @@ export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export LF_CACHE="$XDG_CACHE_HOME/lf"
 export WOB_PIPE="$XDG_RUNTIME_DIR/wob.fifo"
 
-# enable wayland support
 export XDG_CURRENT_DESKTOP=sway
+# export WLR_RENDERER=vulkan
+
+# enable wayland support
 export ELECTRON_OZONE_PLATFORM_HINT=wayland
-export SDL_VIDEO_DRIVER=wayland
+# export SDL_VIDEO_DRIVER=wayland
 
 ################################################################################
 ### miscellaneous ##############################################################
