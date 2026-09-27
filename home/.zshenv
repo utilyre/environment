@@ -1,55 +1,51 @@
-# Please note that this file is sourced once per login as it changes ZDOTDIR to
-# somewhere else.
-
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
-export PATH="$HOME/.local/bin:$PATH"
+PATH="$HOME/.local/bin:$PATH"
 
-export XDG_CURRENT_DESKTOP=sway
 export EDITOR=kak
+export LS_COLORS='no=0;37:fi=0;37:ex=0;32:so=0;35:do=0;35:pi=0;33:ln=0;36:or=0;31:mi=0;31:di=1;34:tw=1;32:ow=1;32:st=1;32:cd=1;33:bd=1;37'
+export GROFF_NO_SGR=1 # colorful man pages on distros like fedora
 export LESS='-FRM -DdC* -Duc_'
 export BEMENU_OPTS='--single-instance --fn "monospace 12" -iwsl14 -P> -W0.5 -H26'
-export LS_COLORS='no=0;37:fi=0;37:ex=0;32:so=0;35:do=0;35:pi=0;33:ln=0;36:or=0;31:mi=0;31:di=1;34:tw=1;32:ow=1;32:st=1;32:cd=1;33:bd=1;37'
-
-# Make sure man pages have color on some distributions like Fedora
-export GROFF_NO_SGR=1
 
 export PASSWORD_STORE_GENERATED_LENGTH=64
 export PASSWORD_STORE_CHARACTER_SET='[:graph:]'
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/vault"
 
-# Run electron applications on Wayland
-export ELECTRON_OZONE_PLATFORM_HINT=auto
-
-# Change home of zsh, causes this file to be sources exactly once per login
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-
+export ZDOTDIR="$HOME/.config/zsh"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
-export WOB_PIPE="$XDG_RUNTIME_DIR/wob.fifo"
-export PASSWORD_STORE_DIR="$XDG_DATA_HOME/vault"
 export LF_CACHE="$XDG_CACHE_HOME/lf"
+export WOB_PIPE="$XDG_RUNTIME_DIR/wob.fifo"
+
+# enable wayland support
+export XDG_CURRENT_DESKTOP=sway
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
+export SDL_VIDEO_DRIVER=wayland
+
+################################################################################
+### miscellaneous ##############################################################
+################################################################################
 export GIT_CONFIG_GLOBAL="$XDG_CONFIG_HOME/git/config.ini"
 export CPM_SOURCE_CACHE="$XDG_CACHE_HOME/cpm"
-
-if [ -d "$XDG_DATA_HOME/JetBrains/Toolbox/scripts" ]
-then
-	export PATH="$XDG_DATA_HOME/JetBrains/Toolbox/scripts:$PATH"
-fi
 
 if command -v go >/dev/null 2>&1
 then
 	export GOPATH="$HOME/.go"
-	export PATH="$HOME/.go/bin:$PATH"
-fi
-
-if command -v npm >/dev/null 2>&1
-then
-	export PATH="$(npm config get prefix)/bin:$PATH"
+	PATH="$HOME/.go/bin:$PATH"
 fi
 
 if [ -d "$HOME/.cargo/bin" ]
 then
-	export PATH="$HOME/.cargo/bin:$PATH"
+	PATH="$HOME/.cargo/bin:$PATH"
 fi
+
+if command -v npm >/dev/null 2>&1
+then
+	PATH="$(npm config get prefix)/bin:$PATH"
+fi
+################################################################################
+################################################################################
+################################################################################
