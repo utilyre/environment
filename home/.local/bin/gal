@@ -28,6 +28,7 @@ then
 
 	tmux new-window -dt "$name:2" -c "$path" sleep infinity
 	tmux set-option -wt "$name:2" remain-on-exit on
+	tmux set-hook -wt "$name:2" pane-died "select-window -t '$name:1'"
 fi
 
 if [ "$TMUX" ]

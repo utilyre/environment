@@ -1,7 +1,7 @@
 set $mod super
 
 output eDP-1 {
-    subpixel none
+    subpixel rgb
     background "$XDG_DATA_HOME/backgrounds/current" fill
 }
 
