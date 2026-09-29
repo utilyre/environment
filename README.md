@@ -46,17 +46,17 @@ any_ trailing newline character at the end of the file.
 
 Finally, make sure to adhere to the [System
 maintenance](https://wiki.archlinux.org/title/System_maintenance) guidelines
-and check `$XDG_STATE_HOME/sway.log` regularly in order to maintain a stable and
-reliable system setup.
+and check `$XDG_STATE_HOME/sway.log` regularly in order to maintain a stable
+and reliable system setup.
 
 ## Further Improvements
 
 ### On-the-Fly RAM Compression
 
-The [zram kernel module](https://docs.kernel.org/admin-guide/blockdev/zram.html)
-creates RAM-based block devices which can be used for swap or as a
-general-purpose RAM disk. The simplest way to use zram as a swap device is as
-follows.
+The [zram kernel
+module](https://docs.kernel.org/admin-guide/blockdev/zram.html) creates
+RAM-based block devices which can be used for swap or as a general-purpose RAM
+disk. The simplest way to use zram as a swap device is as follows.
 
 First, explicitly enable the module to be loaded at boot:
 
@@ -65,14 +65,15 @@ First, explicitly enable the module to be loaded at boot:
 zram
 ```
 
-Then, define a udev rule and adjust its `disksize` attribute to your preference:
+Then, define a udev rule and adjust its `disksize` attribute to your
+preference:
 
 ###### `/etc/udev/rules.d/99-zram.rules`
 ```
 ACTION=="add", KERNEL=="zram0", ATTR{initstate}=="0", ATTR{comp_algorithm}="zstd", ATTR{disksize}="4G", TAG+="systemd"
 ```
 
-Finally, add a swap entry to your fstab configuration to use zram as a swap
+Next, add a swap entry to your fstab configuration to use zram as a swap
 device:
 
 ###### `/etc/fstab`
@@ -83,6 +84,19 @@ device:
 > [!WARNING]
 > Please note that zram devices are not persistent block devices; therefore,
 > they _cannot_ be specified with their corresponding UUIDs.
+
+As a final step, change kernel parameters below to take full advantage of
+memory compression: [^zram_optimization]
+
+###### `/etc/sysctl.d/99-vm-zram-parameters.conf`
+```sysctl
+vm.swappiness = 180
+vm.watermark_boost_factor = 0
+vm.watermark_scale_factor = 125
+vm.page-cluster = 0
+```
+
+[^zram_optimization]: https://wiki.archlinux.org/title/Zram#Optimizing_swap_on_zram
 
 ### Smooth Login
 
@@ -154,11 +168,11 @@ systemctl --user enable --now gcr-ssh-agent.socket
 ### Battery Care
 
 If you are on a laptop and run out of battery frequently, use
-[TLP](https://wiki.archlinux.org/title/TLP), a feature-rich command-line utility
-for saving laptop battery power on Linux.
+[TLP](https://wiki.archlinux.org/title/TLP), a feature-rich command-line
+utility for saving laptop battery power on Linux.
 
 You can extend your battery's runtime by leaning the performance policies of
-your machine towards power-saving. [^1]
+your machine towards power-saving. [^tlp_optimization]
 
 ###### `/etc/tlp.conf`
 ```
@@ -170,7 +184,7 @@ Additionally, some hardware vendors provide the ability to set charge
 thresholds. Inside `/etc/tlp.conf` find the entries for
 `START_CHARGE_THRESH_BAT0` and `STOP_CHARGE_THRESH_BAT0`
 and set them according to [Battery Care Vendor
-Specifics](https://linrunner.de/tlp/settings/bc-vendors). [^2]
+Specifics](https://linrunner.de/tlp/settings/bc-vendors). [^tlp_battery_faq]
 
 ### Browser Extensions
 
@@ -181,14 +195,14 @@ Specifics](https://linrunner.de/tlp/settings/bc-vendors). [^2]
   creates dark themes for websites on the fly to reduce eye strain, especially
   at night.
 
-- [GitHub Repo Size](https://github.com/AminoffZ/github-repo-size): An extension
-  to display the size of GitHub repositories.
+- [GitHub Repo Size](https://github.com/AminoffZ/github-repo-size): An
+  extension to display the size of GitHub repositories.
 
 ## License
 
 This project is licensed under the [MIT License](./LICENSE), except for certain
-directories that include their own separate license files, which take precedence
-for the contents they cover.
+directories that include their own separate license files, which take
+precedence for the contents they cover.
 
-[^1]: https://linrunner.de/tlp/support/optimizing
-[^2]: https://linrunner.de/tlp/faq/battery
+[^tlp_optimization]: https://linrunner.de/tlp/support/optimizing
+[^tlp_battery_faq]: https://linrunner.de/tlp/faq/battery
