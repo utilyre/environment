@@ -26,12 +26,12 @@ timedatectl set-ntp true
 ```
 
 Once that is done, install an [AUR
-helper](https://wiki.archlinux.org/title/AUR_helpers) as the required minimal
+helper](https://wiki.archlinux.org/title/AUR_helpers) as the required essential
 package list of this repository may contain packages from the [Arch User
 Repository](https://aur.archlinux.org).
 
 Then, clone this repository once again and install the packages listed inside
-[minimal.list](./packages/minimal.list) using your favorite AUR helper. In
+[essential.list](./packages/essential.list) using your favorite AUR helper. In
 addition, create symbolic links of the provided dotfiles by running `make
 install`.
 
