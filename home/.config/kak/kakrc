@@ -1,10 +1,13 @@
 set global tabstop 4
 set global incsearch false
 set global scrolloff 1,1
-set global ui_options terminal_synchronized=true terminal_set_title=false terminal_assistant=none
-set global startup_info_version 99991230
+set global ui_options terminal_synchronized=true terminal_set_title=false
 
 colorscheme gruvbox-dark
+set-face global Default rgb:ebdbb2,default
+set-face global BufferPadding rgb:504945,default
+set-face global LineNumberCursor rgb:fabd2f,default
+set-face global StatusLine rgb:ebdbb2,default
 add-highlighter global/ show-matching
 add-highlighter global/ number-lines -hlcursor -min-digits 4
 add-highlighter global/ show-whitespaces -lf '' -indent '' -only-trailing
