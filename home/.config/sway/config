@@ -1,9 +1,8 @@
 set $mod super
 
-output eDP-1 {
-    subpixel none
-    background "$XDG_DATA_HOME/backgrounds/current" fill
-}
+output * background "$XDG_DATA_HOME/backgrounds/current" fill
+
+output eDP-1 subpixel none
 
 input type:keyboard {
 	repeat_delay 500
@@ -38,6 +37,12 @@ bar {
 }
 
 focus_follows_mouse no
+title_align center
+default_border normal 1
+hide_edge_borders both
+client.focused 000000 000000 fafafa
+client.focused_inactive 000000 000000 a1a1a1
+client.unfocused 000000 000000 a1a1a1
 floating_modifier $mod normal
 
 bindsym --to-code f11 fullscreen

@@ -22,3 +22,7 @@ hook global RegisterModified '/' %{ add-highlighter -override global/search rege
 hook global InsertChar \t %{ exec -draft h@ }
 
 map global normal '#' :comment-line<ret>
+map global normal k gu
+map global normal j gd
+map global normal K Gu
+map global normal J Gd
