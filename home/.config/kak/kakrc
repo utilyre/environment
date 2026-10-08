@@ -4,11 +4,11 @@ set global scrolloff 1,1
 set global ui_options terminal_synchronized=true terminal_set_title=false
 
 colorscheme gruvbox-dark
-set-face global Default rgb:ebdbb2,default
-set-face global BufferPadding rgb:504945,default
-set-face global LineNumberCursor rgb:fabd2f,default
-set-face global StatusLine rgb:ebdbb2,default
-add-highlighter global/ show-matching -previous
+# set-face global Default rgb:ebdbb2,default
+# set-face global BufferPadding rgb:504945,default
+# set-face global LineNumberCursor rgb:fabd2f,default
+# set-face global StatusLine rgb:ebdbb2,default
+add-highlighter global/ show-matching
 add-highlighter global/ number-lines -hlcursor -min-digits 4
 add-highlighter global/ show-whitespaces -lf '' -indent '' -only-trailing
 add-highlighter global/ wrap -word -indent
@@ -21,8 +21,8 @@ hook global RegisterModified '/' %{ add-highlighter -override global/search rege
 # taken from https://github.com/mawww/kakoune/issues/1038#issuecomment-270643341
 hook global InsertChar \t %{ exec -draft h@ }
 
-map global normal '#' :comment-line<ret>
 map global normal k gu
 map global normal j gd
 map global normal K Gu
 map global normal J Gd
+map global user c :comment-line<ret>
