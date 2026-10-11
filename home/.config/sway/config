@@ -1,8 +1,13 @@
 set $mod super
 
-output * background "$XDG_DATA_HOME/backgrounds/current" fill
-
-output eDP-1 subpixel none
+output eDP-1 {
+	mode 2880x1800@60Hz
+	subpixel none
+	max_render_time 10
+}
+output HDMI-A-1 {
+	subpixel bgr
+}
 
 input type:keyboard {
 	repeat_delay 500
