@@ -3,7 +3,7 @@ set $mod super
 output eDP-1 {
 	mode 2880x1800@60Hz
 	subpixel none
-	max_render_time 10
+	max_render_time 12
 }
 output HDMI-A-1 {
 	subpixel bgr
