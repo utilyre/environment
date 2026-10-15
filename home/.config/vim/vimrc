@@ -1,0 +1,22 @@
+syntax on
+filetype plugin indent on
+
+set splitright
+set splitbelow
+
+" find in all subdirectories
+set path+=**
+
+set hlsearch
+set number
+set numberwidth=6
+set pumheight=16
+
+set expandtab
+set autoindent
+set shiftwidth=4
+set tabstop=4
+
+set background=dark
+set termguicolors
+colorscheme gruvbox

@@ -4,7 +4,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 PATH="$HOME/.local/bin:$PATH"
 
-export EDITOR=kak
+export EDITOR=vim
 export LS_COLORS='no=0;37:fi=0;37:ex=0;32:so=0;35:do=0;35:pi=0;33:ln=0;36:or=0;31:mi=0;31:di=1;34:tw=1;32:ow=1;32:st=1;32:cd=1;33:bd=1;37'
 export GROFF_NO_SGR=1 # colorful man pages on distros like fedora
 export LESS='-FRM -DdC* -Duc_'
