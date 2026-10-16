@@ -1,8 +1,6 @@
 syntax on
 filetype plugin indent on
 
-set mouse=a
-
 set splitright
 set splitbelow
 
@@ -14,6 +12,7 @@ set number
 set numberwidth=6
 set textwidth=100
 
+set mouse=a
 set laststatus=2
 set colorcolumn=+1
 set pumheight=16
