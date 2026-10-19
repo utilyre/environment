@@ -4,6 +4,7 @@ filetype plugin indent on
 set mouse=a
 set splitright
 set splitbelow
+set scrolljump=-50
 
 " :find in all subdirectories
 set path+=**
