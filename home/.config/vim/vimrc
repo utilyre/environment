@@ -1,22 +1,21 @@
 syntax on
 filetype plugin indent on
 
+" :find in all subdirectories
+set path+=**
+
 set mouse=a
 set splitright
 set splitbelow
 set scrolljump=-50
 
-" :find in all subdirectories
-set path+=**
-
-set hlsearch
-set number
-set numberwidth=6
-set textwidth=100
-
 " cursor shapes
 let &t_SR = "\033[4 q"
 let &t_EI = "\033[2 q"
+
+set number
+set numberwidth=6
+set textwidth=100
 
 set noshowmode
 set laststatus=2
@@ -28,7 +27,15 @@ set autoindent
 set shiftwidth=4
 set tabstop=4
 
+set list
+set listchars=trail:\\u00b7
+"             ^ search for middot in https://html.spec.whatwg.org/multipage/named-characters.html
+
 set background=dark
 set termguicolors
+set hlsearch
 colorscheme gruvbox
-match Error /\s\+$/
+
+map <space>y "+y
+map <space>p "+p
+map <space>P "+P
