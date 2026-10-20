@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-mkdir -p -- "$(xdg-user-dir CAPTURES)"
+mkdir -p -- "$(xdg-user-dir CAPTURE)"
 
 ffmpeg \
 	-f pulse \
@@ -9,4 +9,4 @@ ffmpeg \
 	-c:a aac \
 	-b:a 128k \
 	-ar 48000 \
-	"$(xdg-user-dir CAPTURES)/$(date +%Y%m%d_%H%M%S)_voicememo.m4a"
+	"$(xdg-user-dir CAPTURE)/$(date +%Y%m%d_%H%M%S)_voicememo.m4a"
