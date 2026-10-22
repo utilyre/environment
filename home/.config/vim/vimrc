@@ -11,14 +11,12 @@ set noshowmode
 set laststatus=2
 set colorcolumn=80,100
 set pumheight=16
-set wildoptions+=pum
 set expandtab
 set autoindent
 set shiftwidth=4
 set tabstop=4
 set hlsearch
-set wildchar=<c-n>
-set wildcharm=<c-n>
+set wildcharm=<tab>
 set list
 set listchars=trail:\\u00b7 " middot codepoint
 set termguicolors
@@ -31,8 +29,13 @@ noremap <space>P "+P
 noremap <m-d> "_d
 noremap <m-c> "_c
 
-noremap <space>e :e %:h<c-n>
+nnoremap <space>e :e %:h<tab>
 
-noremap <silent> <expr> <space>q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<cr>' : ':cclose<cr>'
-noremap <silent> [q :cprevious<cr>
-noremap <silent> ]q :cnext<cr>
+noremap <silent> <space>c :cgetbuffer<cr>
+nnoremap <silent> <expr> <space>q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<cr>' : ':cclose<cr>'
+nnoremap <silent> [q :cprevious<cr>
+nnoremap <silent> ]q :cnext<cr>
+
+nnoremap <silent> <space>x :execute 'terminal ' . input('Command: ')<cr>
+nnoremap <silent> <f9> :terminal gal build<cr>
+nnoremap <silent> <f5> :terminal gal debug<cr>
