@@ -13,6 +13,8 @@ set tabstop=4
 set hlsearch
 set list
 set listchars=tab:>\ ,trail:\\u00b7 " middot codepoint
+set viminfofile=NONE
+let g:netrw_dirhistmax = 0
 
 noremap k gk
 noremap j gj
