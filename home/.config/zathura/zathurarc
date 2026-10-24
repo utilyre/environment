@@ -6,6 +6,6 @@ set font 'sans-serif 10'
 set recolor true
 set recolor-keephue true
 set recolor-adjust-lightness true
-set recolor-darkcolor '#ebdbb2'
-set recolor-lightcolor '#282828'
-set default-bg '#282828'
+set recolor-darkcolor '#fafafa'
+set recolor-lightcolor '#333333'
+set default-bg '#333333'

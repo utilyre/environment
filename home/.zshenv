@@ -21,7 +21,7 @@ export LF_CACHE="$XDG_CACHE_HOME/lf"
 export WOB_PIPE="$XDG_RUNTIME_DIR/wob.fifo"
 
 export XDG_CURRENT_DESKTOP=sway
-# export WLR_RENDERER=vulkan
+export WLR_RENDERER=vulkan
 
 # enable wayland support
 export ELECTRON_OZONE_PLATFORM_HINT=wayland

@@ -1,4 +1,0 @@
-inherits = "gruvbox_dark_hard"
-
-"comment" = { fg = "gray" }
-"diagnostic.unnecessary" = { modifiers = ["dim"] }
