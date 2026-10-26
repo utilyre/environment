@@ -1,27 +1,9 @@
 let g:gruvbox_invert_selection = 0
 colorscheme gruvbox
-let g:terminal_ansi_colors = [
-    \'#242424',
-    \'#f62b5a',
-    \'#47b413',
-    \'#e3c401',
-    \'#24acd4',
-    \'#f2affd',
-    \'#13c299',
-    \'#e6e6e6',
-    \'#616161',
-    \'#ff4d51',
-    \'#35d450',
-    \'#e9e836',
-    \'#5dc5f8',
-    \'#feabf2',
-    \'#24dfc4',
-    \'#ffffff',
-\]
-
 syntax on
-set background=dark
+
 set termguicolors
+set background=dark
 set mouse=a
 set number
 set scrolljump=-50
@@ -37,11 +19,14 @@ set listchars=tab:>\ ,trail:\\u00b7 " middot codepoint
 set viminfofile=NONE
 let g:netrw_dirhistmax = 0
 
+" keymap reset
 noremap k gk
 noremap j gj
 noremap gk k
 noremap gj j
+noremap Y y$
 
+" clipboard helpers
 noremap <space>y "+y
 noremap <space>p "+p
 noremap <space>P "+P
@@ -50,11 +35,10 @@ noremap <m-c> "_c
 " TIP: use capital p to leave register unchanged
 
 nnoremap <space>e :e %:h<tab>
-
-nnoremap <silent> <expr> <space>q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen<cr>' : ':cclose<cr>'
 nnoremap <silent> [q :cprevious<cr>
 nnoremap <silent> ]q :cnext<cr>
 
+" emulate emacs compiler mode
 let s:last_cmd = ''
 function s:PromptAndRunCommand()
     let l:cmd = input('Command: ', s:last_cmd, 'shellcmdline')
