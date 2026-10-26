@@ -1,5 +1,6 @@
 query:All:age>=0
-https://jendrikillner.com/tags/weekly/index.xml "~Graphics Programming Weekly"
+https://jendrikillner.com/tags/weekly/index.xml "~GPW"
+https://jcgt.org/feed.xml "~JCGT"
 https://nullprogram.com/feed "~Null Program"
-https://archlinux.org/feeds/news "~Arch Linux News"
-https://voidlinux.org/atom.xml "~Void Linux News"
+https://archlinux.org/feeds/news "~Arch News"
+https://voidlinux.org/atom.xml "~Void News"
