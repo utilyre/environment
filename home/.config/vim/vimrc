@@ -1,5 +1,23 @@
 let g:gruvbox_invert_selection = 0
 colorscheme gruvbox
+let g:terminal_ansi_colors = [
+    \'#242424',
+    \'#f62b5a',
+    \'#47b413',
+    \'#e3c401',
+    \'#24acd4',
+    \'#f2affd',
+    \'#13c299',
+    \'#e6e6e6',
+    \'#616161',
+    \'#ff4d51',
+    \'#35d450',
+    \'#e9e836',
+    \'#5dc5f8',
+    \'#feabf2',
+    \'#24dfc4',
+    \'#ffffff',
+\]
 
 syntax on
 set background=dark
@@ -38,17 +56,21 @@ nnoremap <silent> [q :cprevious<cr>
 nnoremap <silent> ]q :cnext<cr>
 
 let s:last_cmd = ''
-function! RunCommand()
+function s:PromptAndRunCommand()
     let l:cmd = input('Command: ', s:last_cmd, 'shellcmdline')
     if !empty(l:cmd)
         let s:last_cmd = l:cmd
-        execute 'terminal ' . l:cmd
+        call term_start([&shell, &shellcmdflag, l:cmd], {'term_name': '!' . l:cmd})
     endif
 endfunction
-function! RepeatCommand()
-    if !empty(s:last_cmd)
-        execute 'terminal ' . s:last_cmd
+function s:RepeatLastCommand()
+    if empty(s:last_cmd)
+        echohl ErrorMsg
+        echo 'No command to execute'
+        echohl None
+   else
+        call term_start([&shell, &shellcmdflag, s:last_cmd], {'term_name': '!' . s:last_cmd})
     endif
 endfunction
-nnoremap <silent> <space>: :call RunCommand()<cr>
-nnoremap <silent> <space>. :call RepeatCommand()<cr>
+nnoremap <silent> <space>x :call <sid>PromptAndRunCommand()<cr>
+nnoremap <silent> <f5> :call <sid>RepeatLastCommand()<cr>
