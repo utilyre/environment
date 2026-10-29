@@ -1,62 +1,29 @@
-ZSH_CACHE="$XDG_CACHE_HOME/zsh" && mkdir -p -- "$ZSH_CACHE"
-ZSH_DATA="$XDG_DATA_HOME/zsh" && mkdir -p -- "$ZSH_DATA"
-
-use() {
-	plugin="$ZSH_DATA/${1##*/}"
-	[ ! -d "$plugin" ] && {
-		printf ' install %s\r' "$1"
-		error="$(git clone --depth=1 -- "https://github.com/$1.git" "$plugin" 2>&1)" &&
-			printf 'finished %s\n' "$1" || {
-				printf '\e[31m%s\e[m\n\n' "$(echo "$error" | sed "s/^/> /")"
-				read -sk '?[press any key to exit]'
-				exit 1
-			}
-	}
-
-	. -- "$plugin/$2"
-}
-
-alias grep='grep --color=auto'
-alias diff='diff --color=auto'
-alias ls='ls --color=auto -thA'
-alias ll='ls -lr'
-
-stty -ixon
-bindkey -e
+# Sane Defaults: {{{
+stty -ixon # free ctrl+s
+bindkey -e # emacs bindings
 
 setopt incappendhistory histignorespace histignorealldups
-HISTSIZE=100
+HISTSIZE=128
 SAVEHIST=65535
 HISTFILE="$XDG_STATE_HOME/zshhst"
-
+# }}}
+# Completion: {{{
 setopt globcomplete globdots nolisttypes
-FPATH="$ZDOTDIR/completions:$FPATH"
-use zsh-users/zsh-completions zsh-completions.plugin.zsh
 zmodload zsh/complist
 autoload compinit
-compinit -d "$ZSH_CACHE/zcompdump"
+compinit -d "$XDG_CACHE_HOME/zcompdump"
 zstyle ':completion:*' menu select
 zstyle ':completion:*' file-sort mtime
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 zstyle ':completion:*' list-colors "$LS_COLORS"
+# }}}
+# Prompt: {{{
+setopt promptsubst
 
-PROMPT='$timeprompt%F{%(?:2:1)}➜%f%(?:: %B%F{1}%?%f%b) %B%F{6}%c%f%b$(gitprompt) '
+PROMPT='$timeprompt%F{%(?:2:1)}➜%f%(?:: %B%F{1}%?%f%b) %B%F{6}%c%f%b '
 PROMPT_EOL_MARK='%F{8}⏎%f'
-ZSH_GIT_PROMPT_SHOW_STASH=1
-ZSH_GIT_PROMPT_SHOW_TRACKING_COUNTS=0
-ZSH_THEME_GIT_PROMPT_PREFIX=' %F{4}(%f'
-ZSH_THEME_GIT_PROMPT_SUFFIX='%F{4})%f'
-ZSH_THEME_GIT_PROMPT_SEPARATOR=
-ZSH_THEME_GIT_PROMPT_BRANCH='%F{5}'
-ZSH_THEME_GIT_PROMPT_DETACHED='%F{5}'
-ZSH_THEME_GIT_PROMPT_BEHIND='%F{1}↓'
-ZSH_THEME_GIT_PROMPT_AHEAD='%F{2}↑'
-ZSH_THEME_GIT_PROMPT_CLEAN=
-ZSH_THEME_GIT_PROMPT_UNTRACKED='%F{1}?'
-ZSH_THEME_GIT_PROMPT_UNSTAGED='%F{1}!'
-ZSH_THEME_GIT_PROMPT_STAGED='%F{2}+'
-ZSH_THEME_GIT_PROMPT_STASHED='%F{6}$'
-ZSH_THEME_GIT_PROMPT_UNMERGED='%F{3}='
+
+# show execution time when commands takes longer than a second
 timeprompt-preexec-hook() {
 	unset timeprompt
 	timeprompt_start="$(($(date +%s%N) / 1000000))"
@@ -75,6 +42,8 @@ timeprompt-precmd-hook() {
 }
 preexec_functions+=(timeprompt-preexec-hook)
 precmd_functions+=(timeprompt-precmd-hook)
+
+# replace previous prompts with a dollar sign
 substitute-prompt-and-accept-line() {
 	prev="$PROMPT"
 	PROMPT='%F{%(?:2:1)}%(!.#.$)%f '
@@ -85,4 +54,14 @@ substitute-prompt-and-accept-line() {
 }
 zle -N substitute-prompt-and-accept-line
 bindkey ^M substitute-prompt-and-accept-line
-use woefe/git-prompt.zsh git-prompt.plugin.zsh
+# }}}
+# Aliases: {{{
+alias grep='\grep --color=auto'
+alias diff='\diff --color=auto'
+alias ls='\ls --color=auto -ht'
+alias la='\ls --color=auto -htA'
+alias ll='\ls --color=auto -hl'
+alias al='\ls --color=auto -hlA'
+# }}}
+
+# vim: set fdm=marker:
