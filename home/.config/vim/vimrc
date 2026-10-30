@@ -20,6 +20,9 @@ set list
 set listchars=tab:>\ ,trail:\\u00b7 " middot codepoint
 set viminfofile=NONE
 let g:netrw_dirhistmax = 0
+set linebreak
+set breakindent
+set showbreak=\\
 
 " keymap reset
 noremap k gk
