@@ -1,6 +1,11 @@
 query:All:age>=0
-https://jendrikillner.com/tags/weekly/index.xml "~GPW"
-https://jcgt.org/feed.xml "~JCGT"
+https://dl.acm.org/action/showFeed?type=etoc&feed=rss&jc=tog "~TOG: ACM Transactions on Graphics"
+https://dl.acm.org/action/showFeed?type=etoc&feed=rss&jc=tsas "~TSAS: ACM Transactions on Spatial Algorithms and Systems"
+https://dl.acm.org/action/showFeed?type=etoc&feed=rss&jc=pacmcgit "~PACMCGIT: Proceedings of the ACM on Computer Graphics and Interactive Techniques"
+https://jcgt.org/feed.xml "~JCGT: Journals of Computer Graphics Techniques"
+https://rss.arxiv.org/rss/cs.GR+cs.CG "~arXiv: Computer Graphics and Computational Geometry"
+https://jendrikillner.com/tags/weekly/index.xml "~GPW: Graphics Programming Weekly"
 https://nullprogram.com/feed "~Null Program"
+https://alpinelinux.org/atom.xml "~Alpine News"
 https://archlinux.org/feeds/news "~Arch News"
 https://voidlinux.org/atom.xml "~Void News"

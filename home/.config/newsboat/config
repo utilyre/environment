@@ -17,9 +17,9 @@ color hint-key default red reverse bold
 color listnormal default default dim
 color listnormal_unread default default
 color listnormal_deleted default default
-color listfocus green default reverse
-color listfocus_unread green default reverse
-color listfocus_deleted green default reverse
+color listfocus default default bold dim underline
+color listfocus_unread default default bold underline
+color listfocus_deleted default default bold underline
 color end-of-text-marker default default bold dim
 highlight article "^[A-Z][0-9A-Za-z]*: .+$" default default bold dim
 highlight article "[A-Za-z]+://[^ ]+" cyan default underline
