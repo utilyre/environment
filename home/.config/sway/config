@@ -1,5 +1,6 @@
 set $mod super
 
+output * background "$HOME/walls/wallhaven-kw37y7.png" fill
 output eDP-1 {
 	mode 2880x1800@60Hz
 	subpixel none

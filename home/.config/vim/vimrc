@@ -29,6 +29,14 @@ noremap gk k
 noremap gj j
 noremap Y y$
 
+" emacs-style navigation
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+cnoremap <c-b> <left>
+cnoremap <c-f> <right>
+cnoremap <m-b> <s-left>
+cnoremap <m-f> <s-right>
+
 " clipboard helpers
 noremap <space>y "+y
 noremap <space>p "+p
