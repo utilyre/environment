@@ -21,6 +21,8 @@ let g:netrw_dirhistmax = 0
 set linebreak
 set breakindent
 set showbreak=\\
+let g:netrw_liststyle = 1
+let g:netrw_list_hide = '\./,\.\./'
 
 " keymap reset
 noremap k gk
