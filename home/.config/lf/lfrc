@@ -8,8 +8,8 @@ set watch true
 set preload true
 set previewer lf-preview
 
-setlocal ~/Downloads sortby time
-setlocal ~/Downloads reverse true
+setlocal ~/download sortby time
+setlocal ~/download reverse true
 
 set promptfmt " \033[1;34m%w\033[m%S\033[1m%f\033[m "
 cmd on-cd sync-title
